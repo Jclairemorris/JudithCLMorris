@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Brands | Judith C. L. Morris</title>
+
+  <!-- Fonts + Tailwind -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --ink: #050316;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
+        "Segoe UI Emoji";
+      background: radial-gradient(circle at top, #2f1f93 0, #050316 55%);
+      color: #e5e7eb;
+    }
+
+    .container-x {
+      width: min(1140px, 92vw);
+      margin-inline: auto;
+    }
+
+    .luxe-heading {
+      font-family: "Cinzel Decorative", serif;
+      background: linear-gradient(
+        180deg,
+        #fdf7e3 0%,
+        #f4d88a 20%,
+        #b7871f 45%,
+        #f3e7b5 60%,
+        #8b5c12 85%,
+        #fdf7e3 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 6px 24px rgba(0, 0, 0, 0.55);
+      letter-spacing: -0.03em;
+    }
+  </style>
+</head>
+<body class="pb-16">
+  <!-- HEADER -->
+  <header class="container-x pt-10 pb-8">
+    <p class="text-xs uppercase tracking-[0.25em] text-slate-300 mb-4">
+      Portfolio · Brand Overview
+    </p>
+    <h1 class="luxe-heading text-3xl sm:text-4xl mb-4">
+      Campaign brands &amp; device previews
+    </h1>
+    <p class="text-sm sm:text-base text-slate-200 max-w-3xl leading-relaxed">
+      In graduate school, my instructor — then an editor at the
+      <span class="font-semibold">Chicago Tribune</span> — told us:
+      “You’re going to have to learn the tech side and how to advertise on
+      smartphones.” They did not lie. This page is a quick index of the brands
+      and devices I’ve designed for. Click a brand to see the full gallery,
+      then open the detailed case studies for the campaigns that interest you.
+    </p>
+  </header>
+
+  <!-- BRAND GRID -->
+  <main class="container-x">
+    <div
+      class="grid gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr"
+    >
+      <!-- ROGER'S ENTERPRISES -->
+      <a
+        href="portfolio.html#brand-rogers"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Retail · Jewelry
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            Roger’s Enterprises
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Early Black Friday, “today only” pushes, and abandoned cart flows
+            across email, SMS, mobile, and web.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/iJlPGrV.png"
+            alt="Roger’s Early Black Friday hero"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            View full gallery →
+          </span>
+        </div>
+      </a>
+
+      <!-- VICTORIA'S SECRET -->
+      <a
+        href="portfolio.html#brand-vs"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Retail · Intimates
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            Victoria’s Secret
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Mobile-first semi-annual sale journeys with email, app, and landing
+            pages tuned for conversion and AOV lift.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/AZfRJCj.jpeg"
+            alt="Victoria’s Secret mobile hero"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            View full gallery →
+          </span>
+        </div>
+      </a>
+
+      <!-- FCB CHICAGO / TOYOTA FS -->
+      <a
+        href="portfolio.html#brand-fcb"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Agency · Financial Services
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            FCB Chicago &amp; Toyota Financial Services
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Recommendation engines, dynamic content, and survey-led lease
+            renewal journeys for high-stakes financial decisions.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/8DPdaI9.jpeg"
+            alt="FCB dynamic email preview"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            View full gallery →
+          </span>
+        </div>
+      </a>
+
+      <!-- CRAIN'S CHICAGO BUSINESS -->
+      <a
+        href="portfolio.html#brand-crains"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Publishing · B2B
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            Crain’s Chicago Business
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Editorial layouts, “People on the Move” placements, and subscription
+            flows that balance journalism and performance.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/Nlas1si.jpeg"
+            alt="Crain’s mobile layout"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            View full gallery →
+          </span>
+        </div>
+      </a>
+
+      <!-- CHICAGO SUN-TIMES -->
+      <a
+        href="portfolio.html#brand-suntimes"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Publishing · Consumer
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            Chicago Sun-Times
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Paywall flows, homepage hierarchy, and plan selection experiences
+            tuned for subscription conversion and civic impact.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/eUkWfLU.jpeg"
+            alt="Sun-Times paywall layout"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            View full gallery →
+          </span>
+        </div>
+      </a>
+
+      <!-- BIG TECH VAULT -->
+      <a
+        href="portfolio.html#brand-bigtech"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+      >
+        <div class="mb-4">
+          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
+            Big Tech · Private Vault
+          </p>
+          <h2 class="mt-1 text-lg font-semibold text-slate-50">
+            Meta, Zynga, Salesforce &amp; more
+          </h2>
+          <p class="mt-2 text-xs text-slate-300">
+            Journey maps, SFMC/Data Cloud architecture, and performance tests
+            kept in a private vault — walk-throughs on request for qualified
+            roles.
+          </p>
+        </div>
+        <div
+          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
+        >
+          <img
+            src="https://i.imgur.com/ZUsH68O.jpeg"
+            alt="Judith portrait"
+            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
+          ></div>
+          <span
+            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+          >
+            Request walkthrough →
+          </span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-12 border-t border-white/5">
+    <div
+      class="container-x flex flex-col items-center justify-between gap-4 py-6 text-[0.7rem] text-slate-400 sm:flex-row"
+    >
+      <span>© 2025 Judith C. L. Morris · CRM &amp; Automation Storytelling</span>
+      <span class="text-slate-500">
+        Case studies available on request for sensitive work.
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
