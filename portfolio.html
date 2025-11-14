@@ -962,12 +962,17 @@
       if (!cards) return "";
 
       return `
-        <section class="border-t border-[#1e1e1e] pt-8 text-center">
-          <h3 class="text-xl luxe-chrome-text mb-4">${brandNames[brandKey] || brandKey}</h3>
-          <div class="brand-grid">
-            ${cards}
-          </div>
-        </section>
+       return `
+    <section id="brand-${brandKey}" class="border-t border-[#1e1e1e] pt-8 text-center">
+        <h3 class="text-2xl luxe-chrome-text mb-4">
+            ${brandNames[brandKey] || brandKey}
+        </h3>
+        <div class="brand-grid">
+            ${deviceBlocks}
+        </div>
+    </section>
+`;
+
       `;
     }
 
@@ -999,4 +1004,5 @@
   </script>
 </body>
 </html>
+
 
