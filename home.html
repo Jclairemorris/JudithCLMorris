@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judith C. L. Morris | Portfolio</title>
+
+    <!-- Fonts + Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --ink: #050505;
+            --bg: #0a0a0a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: #f3f4f6;
+            font-family: "Inter", sans-serif;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .luxe {
+            font-family: "Cinzel Decorative", serif;
+            font-size: 3rem;
+            background: linear-gradient(180deg, #f7f7f7 0%, #c7c7c7 25%, #b8a02a 55%, #fde27b 82%, #7a5310 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
+
+        .cta-btn {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .photo {
+            margin-top: 50px;
+            max-width: 300px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <h1 class="luxe">Judith C. L. Morris</h1>
+        <p class="mt-4 text-gray-300 text-lg">CRM • Creative Direction • Digital Strategy</p>
+
+        <a href="#enter" class="cta-btn">Enter Portfolio</a>
+
+        <img src="https://i.imgur.com/IIIyPGVr.png" class="photo" alt="Judith Morris Photo">
+    </section>
+
+    <script>
+        // When CTA clicked → Jump to brands on your existing main page
+        document.querySelector(".cta-btn").addEventListener("click", function(e){
+            e.preventDefault();
+            window.location.href = "https://jclairemorris.github.io/JudithCLMorris/#brands";
+        });
+    </script>
+
+</body>
+</html>
