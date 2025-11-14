@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Judith C. L. Morris</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Gold chrome font -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #D4AF37;
+}
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.luxe {
+  font-family: 'Cinzel Decorative', serif;
+  background: linear-gradient(180deg,#f7f7f7 0%,#e7cf86 15%,#b88a2a 35%,#f4e7b2 50%,#9a6a12 65%,#f6f2da 82%,#7a5310 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(255,255,255,.25), 0 2px 8px rgba(0,0,0,.45);
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  padding: .9rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: .3s;
+  color: var(--gold);
+}
+.btn:hover {
+  background: var(--gold);
+  color: black;
+}
+</style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen px-6">
+
+<div class="text-center max-w-xl">
+
+  <img src="https://i.imgur.com/ZUsH68O.jpeg" 
+       class="mx-auto w-40 h-40 rounded-full border-4" 
+       style="border-color: var(--gold);" />
+
+  <h1 class="luxe text-5xl mt-6 mb-3">Judith C. L. Morris</h1>
+  <p class="text-gray-300 text-lg leading-relaxed">
+    CRM & Automation Leader blending UX, data, and creative direction.
+  </p>
+
+  <div class="mt-6">
+    <a href="portfolio.html" class="btn text-lg">Enter Portfolio</a>
+  </div>
+
+  <p class="text-gray-500 text-sm mt-6">Chicago-based · Remote-first</p>
+
+</div>
+
+</body>
+</html>
