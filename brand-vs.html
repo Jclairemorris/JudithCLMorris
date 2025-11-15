@@ -40,20 +40,37 @@
     .device{position:relative;display:inline-block}
     .device .screen{overflow:hidden;width:100%;height:100%;border-radius:inherit}
 
-    .device-iphone{border:4px solid var(--gold);border-radius:28px;width:240px;height:480px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.55)}
-    .device-iphone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:56px;height:12px;background:#0f0f0f;border-radius:8px}
+    .device-iphone{
+      border:4px solid var(--gold);
+      border-radius:28px;
+      width:230px;
+      height:460px;
+      background:#0f0f0f;
+      box-shadow:0 10px 40px rgba(0,0,0,.55)
+    }
+    .device-iphone .notch{
+      position:absolute;top:8px;left:50%;transform:translateX(-50%);
+      width:56px;height:12px;background:#0f0f0f;border-radius:8px;
+    }
 
-    .device-ipad{border:6px solid var(--gold);border-radius:18px;width:360px;height:480px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.55)}
+    .device-ipad{
+      border:6px solid var(--gold);
+      border-radius:18px;
+      width:330px;
+      height:440px;
+      background:#0f0f0f;
+      box-shadow:0 10px 40px rgba(0,0,0,.55)
+    }
 
     .device-browser{
-      width:min(560px,92vw);
+      width:min(480px,88vw);
       border:2px solid var(--gold);
       border-radius:12px;
       background:#0f0f10;
       box-shadow:0 16px 40px rgba(0,0,0,.55);
     }
     .device-browser .chrome{
-      height:36px;
+      height:32px;
       background:linear-gradient(180deg,#f5f5f5,#e5e5e5);
       display:flex;
       align-items:center;
@@ -63,6 +80,10 @@
       border-radius:12px 12px 0 0;
     }
     .dot{width:10px;height:10px;border-radius:50%;background:#9ca3af}
+    .device-browser .screen{
+      height:260px;
+      border-radius:0 0 12px 12px;
+    }
 
     .screen img{width:100%;height:100%;object-fit:cover}
 
@@ -99,8 +120,9 @@
   </div>
 
   <p class="text-gray-300 text-sm max-w-2xl mt-4">
-    Semi-Annual Sale journeys across email, mobile, and web — designed for strong click-through and
-    seasonal urgency across multiple touchpoints.
+    Semi-Annual Sale journeys across email, mobile, and desktop —
+    part of a seasonal push that delivered a <strong>+22% lift in sale conversion</strong>
+    and <strong>+15% higher AOV</strong> from mobile-first sequencing.
   </p>
 </header>
 
@@ -117,22 +139,26 @@
           </div>
         </div>
         <p class="text-sm text-gray-300 mt-3">
-          Mobile email for Semi-Annual Sale.
+          Mobile email for Semi-Annual Sale, built to scroll quickly on-the-go.
+          Helped drive the <strong>+22% lift in sale conversion</strong> and
+          <strong>+15% AOV</strong> from a mobile-first sequence.
         </p>
       </div>
 
-      <!-- Desktop Browser -->
+      <!-- Desktop Browser (desktop view) -->
       <div class="proj-card">
         <div class="device device-browser">
           <div class="chrome">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           </div>
           <div class="screen">
-            <img src="https://i.imgur.com/wMbFR0H.png" alt="VS Semi-Annual Sale web hero">
+            <img src="https://i.imgur.com/wMbFR0H.png" alt="VS Semi-Annual Sale desktop web hero">
           </div>
         </div>
         <p class="text-sm text-gray-300 mt-3">
-          Web hero using the seasonal sale creative.
+          Desktop web hero for Semi-Annual Sale. Re-states the core offer and
+          keeps the CTA visible, reinforcing the email message and supporting
+          the overall <strong>+22% conversion lift</strong>.
         </p>
       </div>
 
@@ -140,11 +166,13 @@
       <div class="proj-card">
         <div class="device device-ipad">
           <div class="screen">
-            <img src="https://i.imgur.com/ZvHcoDO.jpeg" alt="VS Semi-Annual Sale mobile email last chance">
+            <img src="https://i.imgur.com/ZvHcoDO.jpeg" alt="VS Semi-Annual Sale last day mobile creative">
           </div>
         </div>
         <p class="text-sm text-gray-300 mt-3">
-          Last-chance email for final-day Semi-Annual Sale urgency.
+          Last-day Semi-Annual Sale creative, tuned for tablet browsing and
+          “last chance” urgency. Part of the cadence that produced
+          <strong>+22% uplift in conversion</strong> and <strong>+15% higher AOV</strong>.
         </p>
       </div>
 
