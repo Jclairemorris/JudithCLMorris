@@ -3,125 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <title>Roger’s Enterprises – Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Luxe Chrome Brand Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+    :root{
       --gold:#D4AF37;
       --ink:#0a0a0a;
       --card:#111;
       --line:#171717;
     }
-
-    html, body {
+    html, body{
       margin:0;
       padding:0;
       background:var(--ink);
       color:#f3f4f6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
     }
-
-    .page {
+    .page{
       width:min(1140px,92vw);
       margin:40px auto 60px;
     }
-
-    a {
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .back-link {
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      opacity:0.85;
-      margin-bottom:18px;
-    }
-    .back-link span.arrow { font-size:1rem; }
-
-    .luxe-title {
-      font-family: "Cinzel Decorative", serif;
+    h1{
+      font-family:'Cinzel Decorative',serif;
+      font-size:2.4rem;
+      text-align:center;
+      margin-bottom:10px;
       background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 15%,#b88a2a 35%,#f4e7b2 50%,#9a6a12 65%,#f6f2da 82%,#7a5310 100%);
       -webkit-background-clip:text;
-      background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 1px 0 rgba(255,255,255,.22),0 2px 8px rgba(0,0,0,.45);
+      text-shadow:0 2px 8px rgba(0,0,0,.45);
       letter-spacing:-.02em;
     }
+    p.desc{text-align:center;color:#ccc;margin-bottom:30px;}
 
-    header h1 {
-      font-size:2.1rem;
-      margin:0 0 4px;
-    }
-    header p {
-      margin:10px 0 0;
-      max-width:720px;
-      color:#d1d5db;
-      font-size:0.95rem;
-      line-height:1.5;
-    }
-    .brand-tagline {
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.2em;
-      color:#a5b4fc;
-      opacity:0.9;
-      margin-bottom:6px;
-    }
-
-    /* GRID */
-    .gallery-grid {
-      margin-top:26px;
+    .gallery{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
+      gap:28px;
+      justify-items:center;
     }
 
-    .gallery-item {
+    /* Device Frames */
+    .device{
       position:relative;
-      border-radius:20px;
-      overflow:hidden;
-      background:radial-gradient(circle at top left,#3c1820,#050509);
-      box-shadow:0 16px 40px rgba(0,0,0,.65);
-      transform:translateY(0);
-      transition:transform .25s ease, box-shadow .25s ease;
-      cursor:pointer;
+      display:inline-block;
+      transition:.4s;
     }
-    .gallery-item:hover {
-      transform:translateY(-6px);
-      box-shadow:0 24px 60px rgba(0,0,0,.8);
-    }
+    .device:hover{transform:translateY(-3px);}
 
-    .device-wrap {
-      padding:18px 16px 16px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    /* DEVICE FRAMES (copied from your main file) */
-    .device { position:relative; display:inline-block; }
-    .device .screen {
-      background:#111;
-      overflow:hidden;
-      width:100%;
-      height:100%;
-      border-radius:inherit;
-      border:1px solid #e5e7eb;
-    }
-    .device-iphone {
-      border:4px solid #ffffff;
+    .device-iphone{
+      border:4px solid #fff;
       border-radius:28px;
+      background:#0f0f0f;
       width:220px;
       height:440px;
-      background:#0f0f0f;
-      box-shadow:0 10px 40px rgba(0,0,0,.5);
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.55);
+      position:relative;
     }
-    .device-iphone .notch {
+    .device-iphone .notch{
       position:absolute;
       top:8px;
       left:50%;
@@ -130,353 +73,197 @@
       height:12px;
       background:#0f0f0f;
       border-radius:8px;
-      z-index:2;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+      z-index:4;
     }
-    .device-ipad {
-      border:6px solid #ffffff;
-      border-radius:18px;
-      width:360px;
-      height:480px;
-      background:#0f0f0f;
-      box-shadow:0 10px 40px rgba(0,0,0,.5);
+    .screen{
+      width:100%;
+      height:100%;
+      overflow:hidden;
     }
-    .device-macbook {
-      width:min(520px,88vw);
-      perspective:1200px;
-      transform-style:preserve-3d;
+    .screen img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
-    .device-macbook .lid {
-      border-radius:12px 12px 0 0;
-      padding:8px;
-      background:#202020;
-      box-shadow:0 16px 38px rgba(0,0,0,.45);
-      border:1px solid #ffffff;
-      transform:translateZ(12px) rotateX(.5deg);
-    }
-    .device-macbook .lid .screen {
-      height:clamp(220px,40vw,320px);
-    }
-    .device-macbook .base {
-      height:30px;
-      border-radius:0 0 10px 10px;
-      background:#141414;
-      border:1px solid #ffffff;
-      border-top:none;
-      width:104%;
-      margin-left:-2%;
-      position:relative;
-      box-shadow:0 18px 48px rgba(0,0,0,.55);
-      transform:translateZ(0) rotateX(-1.5deg);
-    }
-    .device-macbook .keyboard {
-      position:absolute;
-      left:6%;
-      right:6%;
-      top:6px;
-      height:22px;
-      border-radius:6px;
-      background:linear-gradient(#0f0f0f,#121212),
-                 repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.06) 6px 7px,transparent 7px 13px);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.6);
-    }
-    .device-browser {
-      width:min(520px,88vw);
-      border:2px solid #ffffff;
+
+    /* Browser frame */
+    .device-browser{
+      width:560px;
+      max-width:92vw;
+      border:2px solid #fff;
       border-radius:12px;
       background:#0f0f10;
-      box-shadow:0 16px 40px rgba(0,0,0,.55);
-      transform:translateZ(6px) rotateX(.25deg);
+      box-shadow:0 12px 40px rgba(0,0,0,.55);
     }
-    .device-browser .chrome {
-      height:32px;
-      background:linear-gradient(180deg,#f5f5f5,#e5e5e5);
-      border-bottom:1px solid #ffffff;
-      border-radius:12px 12px 0 0;
+    .chrome{
+      height:36px;
+      background:#e5e5e5;
+      border-bottom:1px solid #fff;
       display:flex;
       align-items:center;
       gap:8px;
       padding:0 12px;
+      border-radius:12px 12px 0 0;
     }
-    .dot {
-      width:10px;
-      height:10px;
+    .dot{
+      width:10px;height:10px;
       border-radius:50%;
       background:#9ca3af;
     }
-    .device-browser .screen {
-      height:clamp(220px,40vw,320px);
+
+    /* iPad Frame */
+    .device-ipad{
+      border:6px solid #fff;
+      border-radius:18px;
+      width:360px;
+      height:480px;
+      background:#0f0f0f;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,.5);
+    }
+
+    /* Macbook */
+    .device-macbook{
+      width:600px;
+      max-width:94vw;
+    }
+    .device-macbook .lid{
+      border:1px solid #fff;
+      border-radius:12px 12px 0 0;
+      background:#202020;
+      padding:8px;
+    }
+    .device-macbook .lid .screen{
+      height:300px;
+      border-radius:6px;
+      overflow:hidden;
+    }
+    .device-macbook .base{
+      height:30px;
+      background:#111;
+      border:1px solid #fff;
+      border-top:none;
       border-radius:0 0 12px 12px;
     }
 
-    .device img {
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    /* Hover Overlay → Opens Case Study */
+    .gallery a{
+      position:relative;
+      text-decoration:none;
     }
-
-    /* OVERLAY */
-    .gallery-overlay {
+    .gallery a::after{
+      content:"View Case Study";
       position:absolute;
       inset:0;
-      background:linear-gradient(145deg,rgba(0,0,0,.94),rgba(12,4,14,.96));
+      background:rgba(0,0,0,.55);
+      color:#D4AF37;
       display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:18px 18px 16px;
-      opacity:0;
-      transition:opacity .25s ease;
-    }
-    .gallery-item:hover .gallery-overlay { opacity:1; }
-
-    .overlay-label {
-      font-size:0.7rem;
-      text-transform:uppercase;
-      letter-spacing:0.2em;
-      color:#facc15;
-      margin-bottom:6px;
-    }
-    .overlay-title {
-      font-size:1.05rem;
-      font-weight:600;
-      margin-bottom:4px;
-    }
-    .overlay-meta {
-      font-size:0.8rem;
-      color:#e5e7eb;
-      margin-bottom:10px;
-    }
-    .overlay-link {
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.18em;
-      display:inline-flex;
       align-items:center;
-      gap:8px;
-      color:#fef3c7;
+      justify-content:center;
+      font-weight:bold;
+      font-size:1.1rem;
+      opacity:0;
+      transition:.35s;
+      border-radius:inherit;
     }
-    .overlay-link span.chevron { font-size:1rem; }
-
+    .gallery a:hover::after{
+      opacity:1;
+    }
   </style>
 </head>
+
 <body>
   <div class="page">
+    <h1>Roger’s Enterprises · Campaign Gallery</h1>
+    <p class="desc">Hover any frame to open the full case study.</p>
 
-    <a href="index.html#work" class="back-link">
-      <span class="arrow">←</span>
-      <span>Back to Portfolio</span>
-    </a>
+    <div class="gallery">
 
-    <header>
-      <div class="brand-tagline">Roger’s Enterprises • Jewelry Retail</div>
-      <h1 class="luxe-title">Campaign Gallery</h1>
-      <p>
-        Black Friday, seasonal gifting, and high-touch reminder campaigns across
-        web, email, mobile, and social. These frames reuse the exact mocks from
-        my main portfolio and simply add a hover overlay that links into the
-        deeper case study.
-      </p>
-    </header>
-
-    <section class="gallery-grid">
-
-      <!-- 1. Early Black Friday – Desktop (browser) -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-browser">
-            <div class="chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="screen">
-              <img src="https://i.imgur.com/iJlPGrV.png" alt="Roger's Enterprises Early Black Friday desktop hero" />
-            </div>
+      <!-- BLACK FRIDAY DESKTOP -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-browser">
+          <div class="chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Case Study</div>
-          <div class="overlay-title">Early Black Friday – Today Only</div>
-          <div class="overlay-meta">
-            Web hero and email alignment that carried a single “Today Only” story
-            across TV, radio, social, push, and SMS to drive a +21% conversion lift
-            and +$980K in incremental revenue.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+          <div class="screen">
+            <img src="https://i.imgur.com/iJlPGrV.png" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 2. Let’s Link Mobile Ads – iPhone -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-iphone">
-            <div class="notch"></div>
-            <div class="screen">
-              <img src="https://i.imgur.com/6bt8T98.jpeg" alt="Roger's iPhone Let’s Link mobile ad" />
-            </div>
-          </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Mobile</div>
-          <div class="overlay-title">“Let’s Link” Mobile Units</div>
-          <div class="overlay-meta">
-            Short-form mobile units mirrored email creative for message match
-            across SMS, push, and paid placements, driving +13% conversion and
-            +$420K in incremental revenue.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+      <!-- DRESS DAD UP PHONE -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-iphone">
+          <div class="notch"></div>
+          <div class="screen">
+            <img src="https://i.imgur.com/6bt8T98.jpeg" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 3. Drop Rectangle Earring – iPhone -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-iphone">
-            <div class="notch"></div>
-            <div class="screen">
-              <img src="https://i.imgur.com/6H9dQo9.jpeg" alt="Roger's drop rectangle earring mobile layout" />
-            </div>
-          </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Mobile</div>
-          <div class="overlay-title">Drop Rectangle Earring Feature</div>
-          <div class="overlay-meta">
-            Single-SKU highlight aligned to social creative and radio mentions,
-            emphasizing scarcity, quality, and styling to deliver +10% conversion
-            on featured inventory.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+      <!-- INSTAGRAM EARRINGS -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-iphone">
+          <div class="notch"></div>
+          <div class="screen">
+            <img src="https://i.imgur.com/6H9dQo9.jpeg" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 4. Surprise Today Only – iPad -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-ipad">
-            <div class="screen">
-              <img src="https://i.imgur.com/UGzlV3W.png" alt="Roger's Surprise Today Only tablet layout" />
-            </div>
-          </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Tablet</div>
-          <div class="overlay-title">“Surprise Today Only” Extension</div>
-          <div class="overlay-meta">
-            Tablet variant of the core Black Friday story, tuned for in-store and
-            couch browsing with larger type, simplified CTAs, and a clear hero
-            offer.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+      <!-- SURPRISE TODAY ONLY (iPad) -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-ipad">
+          <div class="screen">
+            <img src="https://i.imgur.com/UGzlV3W.png" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 5. Scroll A – iPad -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-ipad">
-            <div class="screen">
-              <img src="https://i.imgur.com/b8QppHM.jpeg" alt="Roger's reminder tablet layout A" />
-            </div>
-          </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Tablet</div>
-          <div class="overlay-title">Reminder Journey A</div>
-          <div class="overlay-meta">
-            Abandoned browse/cart reminder that leaned on reassurance copy and
-            back-in-stock signals to recover otherwise lost orders.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+      <!-- CONSIDER THIS A SIGN -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-ipad">
+          <div class="screen">
+            <img src="https://i.imgur.com/b8QppHM.jpeg" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 6. Scroll B – iPad -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-ipad">
-            <div class="screen">
-              <img src="https://i.imgur.com/3IsDlgf.jpeg" alt="Roger's reminder tablet layout B" />
-            </div>
-          </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Tablet</div>
-          <div class="overlay-title">Reminder Journey B</div>
-          <div class="overlay-meta">
-            Price-drop framing plus quality guarantees; this variation focused on
-            value and trust to close hesitant shoppers.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+      <!-- IT’S WELL DESERVED -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-ipad">
+          <div class="screen">
+            <img src="https://i.imgur.com/3IsDlgf.jpeg" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 7. Desktop Scroll – Browser -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-browser">
-            <div class="chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="screen">
-              <img src="https://i.imgur.com/LTqeB8X.jpeg" alt="Roger's multi-section desktop layout" />
-            </div>
+      <!-- MOTHERS DAY DESKTOP -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-browser">
+          <div class="chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Web</div>
-          <div class="overlay-title">Desktop Scroll Experience</div>
-          <div class="overlay-meta">
-            Multi-section desktop hero layout that kept story continuity from
-            email through to final product grid, lifting completion rate and
-            average order value.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+          <div class="screen">
+            <img src="https://i.imgur.com/LTqeB8X.jpeg" alt="">
           </div>
         </div>
       </a>
 
-      <!-- 8. MacBook Scroll – Laptop -->
-      <a href="rogers-enterprises-case-study.html" class="gallery-item">
-        <div class="device-wrap">
-          <div class="device device-macbook">
-            <div class="lid">
-              <div class="screen">
-                <img src="https://i.imgur.com/UH4xL1U.jpeg" alt="Roger's desktop journey on laptop" />
-              </div>
-            </div>
-            <div class="base">
-              <div class="keyboard"></div>
-            </div>
+      <!-- WHOOP DESKTOP (Jewelry Sets) -->
+      <a href="case-rogers-early-black-friday.html">
+        <div class="device device-browser">
+          <div class="chrome">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
           </div>
-        </div>
-        <div class="gallery-overlay">
-          <div class="overlay-label">Web</div>
-          <div class="overlay-title">MacBook Journey View</div>
-          <div class="overlay-meta">
-            Long-form desktop journey showing how “Today Only” evolved into
-            follow-ups, cross-sells, and support messaging while maintaining a
-            luxury feel.
-          </div>
-          <div class="overlay-link">
-            <span>View Case Study</span><span class="chevron">↗</span>
+          <div class="screen">
+            <img src="https://i.imgur.com/E8TK0Si.jpeg" alt="">
           </div>
         </div>
       </a>
 
-    </section>
+    </div>
   </div>
 </body>
 </html>
