@@ -2,120 +2,294 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roger’s Enterprises – Gallery | Judith C. L. Morris</title>
-
-  <!-- Fonts + Tailwind (match other pages) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <title>Roger's Enterprises – Campaign Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #3b0764 0, #020617 55%, #000 100%);
-      color: #e5e7eb;
+      margin: 0;
+      padding: 40px 20px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background: #050509;
+      color: #f7f7f7;
     }
-    .chrome-title {
-      font-family: "Cinzel Decorative", serif;
+
+    a {
+      color: #f7f7f7;
+      text-decoration: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    .back-link span.arrow {
+      font-size: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+    }
+
+    header p {
+      margin: 0 0 30px;
+      max-width: 720px;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .brand-tagline {
+      font-size: 0.9rem;
+      text-transform: uppercase;
       letter-spacing: 0.18em;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+
+    /* --- GALLERY LAYOUT --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: radial-gradient(circle at top left, #3c1820, #050509);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    /* --- PHONE FRAME + SCREEN --- */
+    .device-wrap {
+      position: relative;
+      width: 100%;
+      padding: 30px 18px; /* space around phone */
+      box-sizing: border-box;
+    }
+
+    .device-frame {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      aspect-ratio: 9 / 19;
+      background-image: url("images/shared/phone-gold-frame.png");
+      /* ⬆️ CHANGE THIS PATH TO YOUR ACTUAL WHITE+GOLD PHONE PNG */
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .device-screen {
+      width: 72%;
+      /* tweak 70–76% if you need tighter fit */
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+      object-fit: cover;
+    }
+
+    /* --- HOVER OVERLAY --- */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.9),
+        rgba(12, 4, 14, 0.96)
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .overlay-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+
+    .overlay-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .overlay-meta {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .overlay-link {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      opacity: 0.95;
+    }
+
+    .overlay-link span.chevron {
+      font-size: 1rem;
     }
   </style>
 </head>
+<body>
+  <a href="index.html" class="back-link">
+    <span class="arrow">←</span>
+    <span>All Brands</span>
+  </a>
 
-<body class="min-h-screen">
-  <main class="max-w-6xl mx-auto px-4 py-10 md:py-16">
-    <header class="mb-10">
-      <p class="text-xs tracking-[0.35em] uppercase text-violet-300 mb-3">
-        Retail · Jewelry
-      </p>
-      <h1 class="chrome-title text-3xl md:text-4xl text-yellow-300 mb-3">
-        Roger’s Enterprises · Campaign Gallery
-      </h1>
-      <p class="text-sm md:text-base text-slate-300 max-w-2xl">
-        Early Black Friday “today only” pushes, abandoned cart flows, and cross-device
-        continuity across email, SMS, mobile, push notification, display, and web.
-        Hover any frame to open the detailed case study in the main portfolio.
-      </p>
-    </header>
+  <header>
+    <div class="brand-tagline">Roger's Enterprises • Jewelry Retail</div>
+    <h1>Campaign Gallery</h1>
+    <p>
+      Early Black Friday “today only” pushes, abandoned cart flows, and
+      cross-device continuity across email, SMS, mobile, push notification,
+      display, and web. Hover any frame to open the detailed case study in the
+      main portfolio.
+    </p>
+  </header>
 
-    <!-- GALLERY GRID -->
-    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Desktop hero -->
-      <div class="relative group rounded-2xl overflow-hidden border border-slate-700/70 bg-black/60">
-        <img
-          src="https://i.imgur.com/j1lPGrV.png"
-          alt="Roger’s Early Black Friday desktop hero email"
-          class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent
-                    opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
-          <p class="text-[0.65rem] tracking-[0.3em] uppercase text-slate-400 mb-1">
-            Desktop · Email
-          </p>
-          <h2 class="text-sm font-semibold mb-2">
-            “Surprise Today Only” Black Friday hero
-          </h2>
-          <a
-            href="portfolio.html#brand-rogers"
-            class="inline-flex items-center text-xs font-semibold text-yellow-300"
-          >
-            View full case study →
-          </a>
+  <section class="gallery-grid">
+    <!-- Black Friday hero -->
+    <a href="rogers-enterprises-case-study.html" class="gallery-item">
+      <div class="device-wrap">
+        <div class="device-frame">
+          <img
+            class="device-screen"
+            src="images/rogers/black-friday-hero.png"
+            alt="Roger's Enterprises Black Friday hero email on mobile"
+          />
+          <!-- ⬆️ CHANGE TO YOUR BLACK FRIDAY SCREENSHOT FILE -->
         </div>
       </div>
-
-      <!-- iPad version -->
-      <div class="relative group rounded-2xl overflow-hidden border border-slate-700/70 bg-black/60">
-        <img
-          src="https://i.imgur.com/eUkWfLU.jpeg"
-          alt="Roger’s Early Black Friday iPad layout"
-          class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent
-                    opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
-          <p class="text-[0.65rem] tracking-[0.3em] uppercase text-slate-400 mb-1">
-            Tablet · Email
-          </p>
-          <h2 class="text-sm font-semibold mb-2">
-            Tablet hero for gift-worthy jewelry
-          </h2>
-          <a
-            href="portfolio.html#brand-rogers"
-            class="inline-flex items-center text-xs font-semibold text-yellow-300"
-          >
-            View full case study →
-          </a>
+      <div class="gallery-overlay">
+        <div class="overlay-label">Case Study</div>
+        <div class="overlay-title">Black Friday Hero</div>
+        <div class="overlay-meta">
+          “Today only” Black Friday campaign with high-urgency creative,
+          mobile-first layout, and strong CTAs.
+        </div>
+        <div class="overlay-link">
+          <span>View Case Study</span>
+          <span class="chevron">↗</span>
         </div>
       </div>
+    </a>
 
-      <!-- Mobile version -->
-      <div class="relative group rounded-2xl overflow-hidden border border-slate-700/70 bg-black/60">
-        <img
-          src="https://i.imgur.com/0Bi9V1V.jpeg"
-          alt="Roger’s Early Black Friday mobile view"
-          class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent
-                    opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
-          <p class="text-[0.65rem] tracking-[0.3em] uppercase text-slate-400 mb-1">
-            Mobile · Email
-          </p>
-          <h2 class="text-sm font-semibold mb-2">
-            Mobile-first “Today Only” layout
-          </h2>
-          <a
-            href="portfolio.html#brand-rogers"
-            class="inline-flex items-center text-xs font-semibold text-yellow-300"
-          >
-            View full case study →
-          </a>
+    <!-- Breast Cancer Awareness -->
+    <a href="rogers-enterprises-case-study.html" class="gallery-item">
+      <div class="device-wrap">
+        <div class="device-frame">
+          <img
+            class="device-screen"
+            src="images/rogers/breast-cancer-awareness.png"
+            alt="Roger's Enterprises Breast Cancer Awareness email on mobile"
+          />
+          <!-- ⬆️ CHANGE TO YOUR BCA SCREENSHOT FILE -->
         </div>
       </div>
-    </section>
+      <div class="gallery-overlay">
+        <div class="overlay-label">Awareness</div>
+        <div class="overlay-title">Breast Cancer Awareness</div>
+        <div class="overlay-meta">
+          Cause-driven creative that highlights donation messaging without
+          losing clarity on the offer.
+        </div>
+        <div class="overlay-link">
+          <span>View Case Study</span>
+          <span class="chevron">↗</span>
+        </div>
+      </div>
+    </a>
 
-    <footer class="mt-10 text-xs text-slate-500">
-      <a href="brandsgallery.html" class="underline underline-offset-4">← Back to Campaign Brands</a>
-    </footer>
-  </main>
+    <!-- Giftable product grid -->
+    <a href="rogers-enterprises-case-study.html" class="gallery-item">
+      <div class="device-wrap">
+        <div class="device-frame">
+          <img
+            class="device-screen"
+            src="images/rogers/gift-grid.png"
+            alt="Roger's Enterprises giftable product grid email on mobile"
+          />
+          <!-- ⬆️ CHANGE TO YOUR GIFT GRID SCREENSHOT FILE -->
+        </div>
+      </div>
+      <div class="gallery-overlay">
+        <div class="overlay-label">Merchandising</div>
+        <div class="overlay-title">Giftable Product Grid</div>
+        <div class="overlay-meta">
+          Structured merchandising for best-sellers and price points that
+          supports both browsing and buying.
+        </div>
+        <div class="overlay-link">
+          <span>View Case Study</span>
+          <span class="chevron">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- High-intent CTA module -->
+    <a href="rogers-enterprises-case-study.html" class="gallery-item">
+      <div class="device-wrap">
+        <div class="device-frame">
+          <img
+            class="device-screen"
+            src="images/rogers/high-intent-cta.png"
+            alt="Roger's Enterprises high-intent CTA module on mobile"
+          />
+          <!-- ⬆️ CHANGE TO YOUR CTA SCREENSHOT FILE -->
+        </div>
+      </div>
+      <div class="gallery-overlay">
+        <div class="overlay-label">Conversion</div>
+        <div class="overlay-title">High-Intent CTA Module</div>
+        <div class="overlay-meta">
+          Tight CTA modules that drive both online and in-store traffic from a
+          single mobile-first design.
+        </div>
+        <div class="overlay-link">
+          <span>View Case Study</span>
+          <span class="chevron">↗</span>
+        </div>
+      </div>
+    </a>
+  </section>
 </body>
 </html>
