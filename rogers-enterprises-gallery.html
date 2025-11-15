@@ -1,269 +1,670 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Roger’s Enterprises – Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judith C. L. Morris</title>
 
-  <!-- Luxe Chrome Brand Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    :root{
-      --gold:#D4AF37;
-      --ink:#0a0a0a;
-      --card:#111;
-      --line:#171717;
-    }
-    html, body{
-      margin:0;
-      padding:0;
-      background:var(--ink);
-      color:#f3f4f6;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-    }
-    .page{
-      width:min(1140px,92vw);
-      margin:40px auto 60px;
-    }
-    h1{
+    <style>
+    :root{--gold:#D4AF37;--ink:#0a0a0a;--card:#111;--line:#171717}
+    html,body{background:var(--ink);color:#f3f4f6;scroll-behavior:smooth}
+    .container-x{width:min(1140px,92vw);margin-inline:auto}
+    .font-inter{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+
+    /* Luxe chrome title */
+    .luxe-chrome-text{
       font-family:'Cinzel Decorative',serif;
-      font-size:2.4rem;
-      text-align:center;
-      margin-bottom:10px;
       background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 15%,#b88a2a 35%,#f4e7b2 50%,#9a6a12 65%,#f6f2da 82%,#7a5310 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 2px 8px rgba(0,0,0,.45);
-      letter-spacing:-.02em;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 1px 0 rgba(255,255,255,.22),0 2px 8px rgba(0,0,0,.45);letter-spacing:-.02em
     }
-    p.desc{text-align:center;color:#ccc;margin-bottom:30px;}
+    .cta{border:1px solid rgba(255,255,255,.25);padding:.85rem 1.15rem;border-radius:999px;font-weight:700;text-transform:uppercase;transition:.3s;color:#f3f4f6}
+    .cta:hover{background:var(--gold);color:#000;border-color:var(--gold)}
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:28px;
-      justify-items:center;
-    }
+    /* Devices (white frames) */
+    .device{position:relative;display:inline-block;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+    .device .screen{background:#111;overflow:hidden;width:100%;height:100%;border-radius:inherit;border:1px solid #e5e7eb}
+    .device-iphone{border:4px solid #D4AF37;border-radius:28px;width:220px;height:440px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+    .device-iphone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:56px;height:12px;background:#0f0f0f;border-radius:8px;z-index:2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+    .device-ipad{border:6px solid #D4AF37;border-radius:18px;width:360px;height:480px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+    .device-macbook{width:min(620px,92vw);perspective:1200px;transform-style:preserve-3d}
+    .device-macbook .lid{border-radius:12px 12px 0 0;padding:8px;background:#202020;box-shadow:0 16px 38px rgba(0,0,0,.45);border:1px solid #D4AF37;transform:translateZ(12px) rotateX(.5deg)}
+    .device-macbook .lid .screen{height:clamp(240px,44vw,360px)}
+    .device-macbook .base{height:32px;border-radius:0 0 10px 10px;background:#141414;border:1px solid #D4AF37;border-top:none;width:104%;margin-left:-2%;position:relative;box-shadow:0 18px 48px rgba(0,0,0,.55);transform:translateZ(0) rotateX(-1.5deg)}
+    .device-macbook .keyboard{position:absolute;left:6%;right:6%;top:6px;height:22px;border-radius:6px;background:linear-gradient(#0f0f0f,#121212),repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.06) 6px 7px,transparent 7px 13px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.6)}
+    .device-browser{width:min(560px,92vw);border:2px solid #D4AF37;border-radius:12px;background:#0f0f10;box-shadow:0 16px 40px rgba(0,0,0,.55);transform:translateZ(6px) rotateX(.25deg)}
+    .device-browser .chrome{height:36px;background:linear-gradient(180deg,#f5f5f5,#e5e5e5);border-bottom:1px solid #D4AF37;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:8px;padding:0 12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#9ca3af}
+    .device-browser .screen{height:clamp(240px,45vw,360px);border-radius:0 0 12px 12px}
 
-    /* Device Frames */
-    .device{
-      position:relative;
-      display:inline-block;
-      transition:.4s;
-    }
-    .device:hover{transform:translateY(-3px);}
+    .proj-card{position:relative;display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:center;padding:18px;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 44px rgba(0,0,0,.55);transition:box-shadow .5s,border-color .5s,transform .5s cubic-bezier(.2,.8,.2,1);text-align:center;margin-inline:auto}
+    .proj-card:hover{transform:translateY(-3px) translateZ(6px);box-shadow:0 22px 64px rgba(212,175,55,.18);border-color:rgba(212,175,55,.35)}
 
-    .device-iphone{
-      border:4px solid #fff;
-      border-radius:28px;
-      background:#0f0f0f;
-      width:220px;
-      height:440px;
-      overflow:hidden;
-      box-shadow:0 10px 30px rgba(0,0,0,.55);
-      position:relative;
-    }
-    .device-iphone .notch{
-      position:absolute;
-      top:8px;
-      left:50%;
-      transform:translateX(-50%);
-      width:56px;
-      height:12px;
-      background:#0f0f0f;
-      border-radius:8px;
-      z-index:4;
-    }
-    .screen{
-      width:100%;
-      height:100%;
-      overflow:hidden;
-    }
-    .screen img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .accent-vs { border-color:#D4AF37 }
+    .accent-rogers { border-color:#D4AF37 }
+    .accent-crains { border-color:#D4AF37 }
+    .accent-suntimes { border-color:#D4AF37 }
+    .accent-fcb { border-color:#D4AF37 }
+    .accent-toyota { border-color:#D4AF37 }
+
+    /* Center brand grids */
+    .brand-grid{display:grid;grid-template-columns:repeat(2,minmax(240px,1fr));gap:24px;justify-items:center;align-items:center}
+    @media (max-width: 820px){.brand-grid{grid-template-columns:1fr}}
+
+    /* Scroll stacks */
+    .scroll-stack{height:100%;overflow:hidden;cursor:pointer}
+    .scroll-track{display:block}
+    .auto-scroll-40{animation:autoScroll40 45s linear infinite;animation-play-state:paused}
+    .play{animation-play-state:running !important}
+    @keyframes autoScroll40{
+      0%{transform:translateY(0)}
+      45%{transform:translateY(0)}
+      55%{transform:translateY(-100%)}
+      100%{transform:translateY(-100%)}
     }
 
-    /* Browser frame */
-    .device-browser{
-      width:560px;
-      max-width:92vw;
-      border:2px solid #fff;
-      border-radius:12px;
-      background:#0f0f10;
-      box-shadow:0 12px 40px rgba(0,0,0,.55);
-    }
-    .chrome{
-      height:36px;
-      background:#e5e5e5;
-      border-bottom:1px solid #fff;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:0 12px;
-      border-radius:12px 12px 0 0;
-    }
-    .dot{
-      width:10px;height:10px;
-      border-radius:50%;
-      background:#9ca3af;
-    }
+    .screen img{display:block;width:100%;height:100%;object-fit:cover}
+    .contain-fit img{object-fit:contain !important;background:#0f0f0f}
+    .top-align img{object-position:top}
+    .crop-suntimes-9 img{object-position:center top}
+    .crop-suntimes-9{clip-path:inset(0 0 6% 0 round 0)}
+    .crop-suntimes-15 img{object-position:center top}
+    .crop-suntimes-15{clip-path:inset(8% 0 0 0 round 0)}
 
-    /* iPad Frame */
-    .device-ipad{
-      border:6px solid #fff;
-      border-radius:18px;
-      width:360px;
-      height:480px;
-      background:#0f0f0f;
-      overflow:hidden;
-      box-shadow:0 10px 40px rgba(0,0,0,.5);
-    }
+    .pill{border:1px solid #4b5563;border-radius:999px;padding:.45rem 1rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#e5e7eb}
 
-    /* Macbook */
-    .device-macbook{
-      width:600px;
-      max-width:94vw;
-    }
-    .device-macbook .lid{
-      border:1px solid #fff;
-      border-radius:12px 12px 0 0;
-      background:#202020;
-      padding:8px;
-    }
-    .device-macbook .lid .screen{
-      height:300px;
-      border-radius:6px;
-      overflow:hidden;
-    }
-    .device-macbook .base{
-      height:30px;
-      background:#111;
-      border:1px solid #fff;
-      border-top:none;
-      border-radius:0 0 12px 12px;
-    }
+    /* Caption block under devices */
+    .neat-caption{max-width:560px;text-align:left;border:1px solid #2a2a2a;background:#0b0b0b;border-radius:12px;padding:12px}
+    .neat-caption p{margin:.3rem 0}
+    .neat-caption .u{color:#f5f5f5}
+    .neat-caption .v{color:#d1d5db}
+    .neat-caption .em{color:#f3e8c8}
+    .neat-caption .stats{color:#cbd5e1}
+    .neat-caption .love{color:#d4af37}
 
-    /* Hover Overlay → Opens Case Study */
-    .gallery a{
-      position:relative;
-      text-decoration:none;
-    }
-    .gallery a::after{
-      content:"View Case Study";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      color:#D4AF37;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:bold;
-      font-size:1.1rem;
-      opacity:0;
-      transition:.35s;
-      border-radius:inherit;
-    }
-    .gallery a:hover::after{
-      opacity:1;
-    }
-  </style>
+    /* Big Tech vault card */
+    .vault{border:1px dashed rgba(212,175,55,.55);background:linear-gradient(180deg,#0d0d0d,#0a0a0a);border-radius:16px;padding:22px;box-shadow:0 12px 36px rgba(0,0,0,.55);max-width:880px;margin:0 auto}
+
+    /* Buttons */
+    .btn{display:inline-block;border:1px solid rgba(255,255,255,.25);padding:.85rem 1.15rem;border-radius:999px;font-weight:700;text-transform:uppercase;transition:.3s;color:#f3f4f6}
+    .btn:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+    </style>
 </head>
 
 <body>
-  <div class="page">
-    <h1>Roger’s Enterprises · Campaign Gallery</h1>
-    <p class="desc">Hover any frame to open the full case study.</p>
 
-    <div class="gallery">
+    <nav class="fixed top-4 left:1/2 left-1/2 -translate-x-1/2 z-50 px-5 py-2 rounded-full border border-gray-600 bg-black/40 backdrop-blur-md">
+        <ul class="flex gap-6 text-xs md:text-sm tracking-widest uppercase">
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#strategy">Strategy</a></li>     
+            <li><a href="#big-tech">Big Tech</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-      <!-- BLACK FRIDAY DESKTOP -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-browser">
-          <div class="chrome">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          </div>
-          <div class="screen">
-            <img src="https://i.imgur.com/iJlPGrV.png" alt="">
-          </div>
+    <header class="container-x text-center pt-32 pb-10">
+        <img src="https://i.imgur.com/ZUsH68O.jpeg" alt="Judith portrait" class="mx-auto w-40 h-40 rounded-full border-4 border-[var(--gold)] mb-6 shadow-lg">
+        <h1 class="luxe-chrome-text text-5xl mb-4">Judith C. L. Morris</h1>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto">Director-level CRM & Automation leader blending data, design, and disciplined experimentation to grow revenue and retention.</p>
+        <p class="text-gray-300 max-w-3xl mx-auto mt-4">
+            I design full-funnel journeys across email, web, mobile, and paid media—shaping segmentation, creative, and testing into measurable uplift and incremental revenue. I loved building these campaigns and I’ve curated the visuals here from work I personally led or contributed to throughout my career.
+        </p>
+    </header>
+    
+    <section id="brands" class="container-x pb-6 text-center">
+        <h2 class="luxe-chrome-text text-3xl mb-4">Brands</h2>
+        <div class="flex flex-wrap gap-2 mb-8 justify-center">
+            <span class="pill">All</span><span class="pill">Roger's Enterprises</span><span class="pill">Victoria's Secret</span><span class="pill">FCB Chicago</span><span class="pill">Crain's</span><span class="pill">Chicago Sun-Times</span>
         </div>
-      </a>
+    </section>
 
-      <!-- DRESS DAD UP PHONE -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-iphone">
-          <div class="notch"></div>
-          <div class="screen">
-            <img src="https://i.imgur.com/6bt8T98.jpeg" alt="">
-          </div>
+    <section id="work" class="container-x pb-8 text-center">
+        <h2 class="luxe-chrome-text text-1xl mb-6">Click the image once to scroll and again to return to original image.</h2>
+        <div id="projects-container" class="space-y-12"></div>
+    </section>
+
+    <section id="big-tech" class="container-x py-16 border-t border-[#27272A] text-center">
+        <h2 class="luxe-chrome-text text-3xl mb-6">Big Tech</h2>
+        <div class="vault">
+            <h3 class="text-xl font-semibold mb-2 flex items-center justify-center gap-2">
+                <span>Private Vault</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#D4AF37" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 14a5 5 0 1 1 3.9 1.9l-2.3 2.3h-2v2H4v-2H2v-2h3.6l2.3-2.2A5.05 5.05 0 0 1 7 14Zm5-7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+                </svg>
+            </h3>
+            <p class="text-gray-200 leading-relaxed">
+                Inside: <strong>Meta</strong>, <strong>Zynga</strong>, and <strong>Salesforce</strong> experience—full journey strategies, Meta Ads best practices, SFMC/Data Cloud architecture notes, and more.
+            </p>
+            <p class="text-sm text-gray-400 mt-2">Access available to qualified opportunities upon request.</p>
         </div>
-      </a>
+    </section>
 
-      <!-- INSTAGRAM EARRINGS -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-iphone">
-          <div class="notch"></div>
-          <div class="screen">
-            <img src="https://i.imgur.com/6H9dQo9.jpeg" alt="">
-          </div>
+    <section id="skills" class="container-x pb-10 border-t border-[#27272A] text-center">
+        <h2 class="luxe-chrome-text text-3xl mb-6">Skills</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-300 justify-items-center">
+            <div>UX / Journey Design</div><div>CRM Architecture (SFMC)</div><div>Segmentation & Personalization</div>
+            <div>A/B & MVT Testing</div><div>Attribution & Analytics</div><div>Paid Social & Display</div>
+            <div>Web / E-commerce CRO</div><div>Lifecycle Strategy</div><div>Creative Direction</div>
         </div>
-      </a>
+    </section>
 
-      <!-- SURPRISE TODAY ONLY (iPad) -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-ipad">
-          <div class="screen">
-            <img src="https://i.imgur.com/UGzlV3W.png" alt="">
-          </div>
+    <section id="contact" class="container-x text-center py-10 border-t border-[#27272A]">
+        <h2 class="luxe-chrome-text text-3xl mb-6">Contact</h2>
+        <div class="flex items-center justify-center gap-3">
+            <a class="btn" href="mailto:jclairemorris@yahoo.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/judithclmorris" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-      </a>
+        <p class="text-gray-400 mt-3">Remote-first · Chicago-based</p>
+    </section> 
 
-      <!-- CONSIDER THIS A SIGN -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-ipad">
-          <div class="screen">
-            <img src="https://i.imgur.com/b8QppHM.jpeg" alt="">
-          </div>
-        </div>
-      </a>
+    <footer class="text-center text-sm text-gray-400 pb-10">© 2025 JudithCLMorris.com</footer>
 
-      <!-- IT’S WELL DESERVED -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-ipad">
-          <div class="screen">
-            <img src="https://i.imgur.com/3IsDlgf.jpeg" alt="">
-          </div>
-        </div>
-      </a>
+    <script>
+    /* ====== PROJECTS ====== */
+    const projects = [
+        /* ----------------- Victoria’s Secret ----------------- */
+        {
+            title: "Victoria’s Secret — Integrated Journey",
+            tags: "Integrated • Email • Web",
+            category: "Integrated",
+            brand: "vs",
+            device: ["iphone","browser","ipad"],
+            images: [
+                "https://i.imgur.com/AZfRJCj.jpeg",
+                "https://i.imgur.com/wMbFR0H.png",
+                "https://i.imgur.com/ZvHcoDO.jpeg"
+            ],
+            kpi: "Objective: Seasonal push. Results: Semi-Annual Sale conversion <strong>+22%</strong>, <strong>+15% AOV</strong> from mobile-first sequencing."
+        },
 
-      <!-- MOTHERS DAY DESKTOP -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-browser">
-          <div class="chrome">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          </div>
-          <div class="screen">
-            <img src="https://i.imgur.com/LTqeB8X.jpeg" alt="">
-          </div>
-        </div>
-      </a>
+        /* ----------------- FCB Chicago (with Toyota FS grouped here) ----------------- */
+        {
+            title: "FCB Chicago — Recommendation Engines & Dynamic Content",
+            tags: "Email • Web • Personalization",
+            category: "Integrated",
+            brand: "fcb",
+            device: ["iphone","browser"],
+            images: [
+                "https://i.imgur.com/8DPdaI9.jpeg",
+        
+            ],
+            kpi: "Personalize at scale with real-time recs; modular content tested across segments.",
+            metrics: {conv:"+14%", revenue:"+$610K"},
+            urgency: "Recommendations update while interest is hottest.",
+            value: "Shoppers get the right category choices instantly.",
+            emotion: "It feels like the site understands your taste.",
+            love: "I loved tuning the rec logic with engineering until the lift held steady."
+        },
+        {
+            title: "Toyota Financial Services — Lease Renewal (with FCB)",
+            tags: "Lifecycle • Web • Survey-Informed",
+            category: "Financial",
+            brand: "fcb",  /* grouped under FCB as requested */
+            scrollDevice: "macbook",
+            scrollMode: "none",
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/hV16yVB.jpeg"],
+            kpi: "Pre-work customer survey uncovered confusion points; page and email copy reworked to address top barriers.",
+            metrics: {conv:"+11%", revenue:"+$1.4M"},
+            urgency: "Renew before rate changes take effect.",
+            value: "Fewer steps and clearer benefits reduced abandonment.",
+            emotion: "Confidence that everything is handled correctly.",
+            love: "I loved translating survey insights into copy and flow that felt simple."
+        },
 
-      <!-- WHOOP DESKTOP (Jewelry Sets) -->
-      <a href="case-rogers-early-black-friday.html">
-        <div class="device device-browser">
-          <div class="chrome">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          </div>
-          <div class="screen">
-            <img src="https://i.imgur.com/E8TK0Si.jpeg" alt="">
-          </div>
-        </div>
-      </a>
+        /* ----------------- Roger’s Enterprises (Retail) ----------------- */
+        /* Black Friday cluster FIRST (includes phone variants you asked to pull up) */
+        {
+            title: "Roger’s Enterprises — Desktop (Early Black Friday: Today Only)",
+            tags: "Retail • Web",
+            category: "Retail",
+            brand: "rogers",
+            bf: true,
+            scrollDevice: "browser",
+            scrollMode: "none",
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/iJlPGrV.png"],
+            kpi: "Creative Director decision: launch Early Black Friday to stay competitive across email, web, social, push, SMS, TV, and radio.",
+            metrics: {conv:"+21%", revenue:"+$980K"},
+            urgency: "Doorbusters end at midnight—limited sizes move fast.",
+            value: "One bold hero + single CTA simplified decisions.",
+            emotion: "Treat-yourself energy with gift-worthy value.",
+            love: "I loved calling the early launch and watching revenue spike in real time."
+        },
+        {
+            title: "Roger’s — iPad (Surprise Today Only)",
+            tags: "Retail • Tablet",
+            category: "Retail",
+            brand: "rogers",
+            bf: true,
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: [
+                "https://imgur.com/iJlPGrV.png",
+                "https://i.imgur.com/UGzlV3W.png",
+        
+            ],
+            kpi: "Short-form mobile units mirrored email offers for continuity across push/SMS.",
+            metrics: {conv:"+13%", revenue:"+$420K"},
+            urgency: "Your favorites are almost gone—tap to finish.",
+            value: "Fast load + scannable copy speed decisions.",
+            emotion: "That satisfying one-tap checkout feeling.",
+            love: "I loved how effortless this was to skim on the go."
+        },
+        {
+            title: "Roger’s — iPhone (Drop Rectangle Earring)",
+            tags: "Retail • Mobile",
+            category: "Retail",
+            brand: "rogers",
+            bf: true, /* pulled up to BF cluster */
+            scrollDevice: "iphone",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/6H9dQo9.jpeg","https://i.imgur.com/GxrpsBk.png"],
+            kpi: "Single-SKU emphasis matched to social + radio callouts for urgency.",
+            metrics: {conv:"+10%", revenue:"+$260K"},
+            urgency: "Limited run—secure your size before sell-out.",
+            value: "Clear benefits + price framing reduce hesitation.",
+            emotion: "Feel proud of a smart, stylish pick.",
+            love: "I loved pairing reminder cadence with a warm brand voice."
+        },
+        {
+            title: "Roger’s — iPhone (Drop Rectangle Earring)",
+            tags: "Retail • Mobile",
+            category: "Retail",
+            brand: "rogers",
+            bf: true, /* pulled up to BF cluster */
+            scrollDevice: "iphone",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/flB4s08.jpeg"],
+            kpi: "Two-frame tablet variant extended reach to store traffic.",
+            metrics: {conv:"+12%", revenue:"+$610K"},
+            urgency: "Don’t miss your size—prices roll back tonight.",
+            value: "Big, legible frames make value crystal clear.",
+            emotion: "That I-got-it-before-it-sold-out glow.",
+            love: "I loved dialing the headline for maximum punch."
+        },
+        {
+            title: "Roger’s — iPad (Scroll) A",
+            tags: "Retail • Tablet",
+            category: "Retail",
+            brand: "rogers",
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/b8QppHM.jpeg","https://i.imgur.com/AeORRAQ.jpeg"],
+            kpi: "Abandoned browse/cart reminder with back-in-stock nudge.",
+            metrics: {conv:"+9%", revenue:"+340K"},
+            urgency: "Your picks are moving—complete your order.",
+            value: "Reassurance copy removes last-mile friction.",
+            emotion: "Peace of mind that it’s the perfect fit.",
+            love: "I loved seeing return visitors convert on touch two."
+        },
+        {
+            title: "Roger’s — iPad (Scroll) B",
+            tags: "Retail • Tablet",
+            category: "Retail",
+            brand: "rogers",
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/3IsDlgf.jpeg","https://i.imgur.com/AeORRAQ.jpeg"],
+            kpi: "Price-drop framing with quality guarantees.",
+            metrics: {conv:"+7%", revenue:"+$220K"},
+            urgency: "Prices just dropped—finish your cart.",
+            value: "Value + trust signals boost completion.",
+            emotion: "Confidence you chose beautifully and wisely.",
+            love: "I loved threading value props where shoppers paused."
+        },
+        {
+            title: "Roger’s Enterprises — iPad (Scroll) C",
+            tags: "Retail • Tablet",
+            category: "Retail",
+            brand: "rogers",
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: [
+                "https://i.imgur.com/gCoeEww.jpeg",
+                "https://i.imgur.com/AeORRAQ.jpeg"
+            ],
+            kpi: "Abandoned Browse/Cart — Tablet C."
+        },
+        {
+            title: "Roger’s — Desktop (Scroll)",
+            tags: "Retail • Web",
+            category: "Retail",
+            brand: "rogers",
+            scrollDevice: "browser",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/LTqeB8X.jpeg","https://i.imgur.com/E8TK0Si.jpeg","https://i.imgur.com/L8xbp1S.jpeg"],
+            kpi: "Email-to-site continuity anchored motivation.",
+            metrics: {conv:"+10%", revenue:"+$410K"},
+            urgency: "Offer ending—return to your picks now.",
+            value: "Tighter message match reduces bounce.",
+            emotion: "Re-discover the piece that caught your eye.",
+            love: "I loved how the desktop hero tied the story together."
+        },
+        {
+            title: "Roger’s — MacBook (Scroll)",
+            tags: "Retail • Web",
+            category: "Retail",
+            brand: "rogers",
+            scrollDevice: "macbook",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/UH4xL1U.jpeg","https://i.imgur.com/YtI5olH.jpeg","https://i.imgur.com/XQFOIJS.jpeg","https://i.imgur.com/IasY53v.jpeg","https://i.imgur.com/NV2tCeD.jpeg"],
+            kpi: "Sticky CTA and clearer benefits on desktop.",
+            metrics: {conv:"+8%", revenue:"+$270K"},
+            urgency: "Inventory is thinning—complete the set.",
+            value: "Clarity reduces choice fatigue.",
+            emotion: "That ‘gift secured’ relief.",
+            love: "I loved refining scroll timing for readability."
+        },
+        {
+            title: "Roger’s — iPad (Surprise Today Only)",
+            tags: "Retail • Tablet",
+            category: "Retail",
+            brand: "rogers",
+            bf: true,
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: [
+                "https://i.imgur.com/SLfu8Vc.jpeg",
+                "https://i.imgur.com/coL9uwp.jpeg",
+        
+            ],
+            kpi: "Short-form mobile units mirrored email offers for continuity across push/SMS.",
+            metrics: {conv:"+13%", revenue:"+$420K"},
+            urgency: "Your favorites are almost gone—tap to finish.",
+            value: "Fast load + scannable copy speed decisions.",
+            emotion: "That satisfying one-tap checkout feeling.",
+            love: "I loved how effortless this was to skim on the go."
+        },
+        /* ----------------- Crain’s Chicago Business ----------------- */
+        {
+            title: "Crain’s Chicago Business — iPhone",
+            tags: "Publishing • Mobile",
+            category: "Publishing",
+            brand: "crains",
+            device: ["iphone"],
+            images: ["https://i.imgur.com/Nlas1si.jpeg","https://i.imgur.com/DAQFkjk.jpeg"],
+            kpi: "Premium placements tuned for CTR & lead flow.",
+            metrics: {conv:"+6%", revenue:"+$120K"},
+            urgency: "Subscribe now to unlock today’s moves.",
+            value: "Cleaner hierarchy improves skim speed.",
+            emotion: "Stay ahead of the story every morning.",
+            love: "I loved finessing mobile typography."
+        },
+        {
+            title: "Crain’s — People on the Move (Browser)",
+            tags: "Publishing • Web",
+            category: "Publishing",
+            brand: "crains",
+            scrollDevice: "browser",
+            scrollMode: "none",
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/hSYKbmf.png"],
+            scrollCrops: ["top-align"],
+            kpi: "Top-aligned headline to protect key signal.",
+            metrics: {conv:"+4%", revenue:"+$90K"},
+            urgency: "See who’s rising now—don’t miss it.",
+            value: "Headline remains unmissable above the fold.",
+            emotion: "Celebrate momentum in your industry.",
+            love: "I loved the crisp, editorial feel."
+        },
+        {
+            title: "Crain’s — People on the Move (iPhone)",
+            tags: "Publishing • Mobile",
+            category: "Publishing",
+            brand: "crains",
+            scrollDevice: "iphone",
+            scrollMode: "none",
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/hSYKbmf.png"],
+            scrollCrops: ["top-align"],
+            kpi: "Mobile view locks onto the list instantly.",
+            metrics: {conv:"+4%", revenue:"+$70K"},
+            urgency: "New leaders posted today—tap in.",
+            value: "Immediate relevance for mobile scanners.",
+            emotion: "Feel connected to Chicago’s heartbeat.",
+            love: "I loved making the headline unmissable on small screens."
+        },
 
-    </div>
-  </div>
+        /* ----------------- Chicago Sun-Times ----------------- */
+        {
+            title: "Sun-Times — Paywall (iPhone)",
+            tags: "Publishing • Conversion",
+            category: "Publishing",
+            brand: "suntimes",
+            scrollDevice: "iphone",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/eUkWfLU.jpeg","https://i.imgur.com/dDi9V1V.jpeg"],
+            scrollCrops: ["crop-suntimes-9","crop-suntimes-15"],
+            kpi: "Single ‘Most Popular’ option reduced paradox of choice.",
+            metrics: {conv:"+11%", revenue:"+$1.2M"},
+            urgency: "Support local journalism today.",
+            value: "Clear path to pick a plan and continue.",
+            emotion: "Join the community that keeps Chicago informed.",
+            love: "I loved the mission-forward message."
+        },
+        {
+            title: "Sun-Times — Paywall (iPad)",
+            tags: "Publishing • Conversion",
+            category: "Publishing",
+            brand: "suntimes",
+            scrollDevice: "ipad",
+            scrollMode: "auto",
+            stopAtEnd: true,
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/eUkWfLU.jpeg","https://i.imgur.com/dDi9V1V.jpeg"],
+            scrollCrops: ["crop-suntimes-9","crop-suntimes-15"],
+            kpi: "More breathing room for benefits copy on tablet.",
+            metrics: {conv:"+9%", revenue:"+$760K"},
+            urgency: "Intro price ends soon—join now.",
+            value: "Benefit clarity lowered bounce.",
+            emotion: "Feel proud supporting independent reporting.",
+            love: "I loved the clean editorial look."
+        },
+        {
+            title: "Sun-Times — Homepage (MacBook)",
+            tags: "Publishing • Homepage",
+            category: "Publishing",
+            brand: "suntimes",
+            scrollDevice: "macbook",
+            scrollMode: "none",
+            scrollContain: true,
+            scrollStack: ["https://i.imgur.com/muc7Gl2.jpeg"],
+            kpi: "Headline preservation across breakpoints.",
+            metrics: {conv:"+5%", revenue:"+$210K"},
+            urgency: "Today’s top story is live.",
+            value: "Hierarchy holds context on busy days.",
+            emotion: "Stay grounded in what matters to Chicago.",
+            love: "I loved tightening layout on a busy page."
+        }
+    ];
+
+    const brandNames = {
+        vs:"Victoria’s Secret",
+        fcb:"FCB Chicago",
+        rogers:"Roger’s Enterprises",
+        crains:"Crain’s Chicago Business",
+        suntimes:"Chicago Sun-Times"
+    };
+
+    /* ---------- Device helpers ---------- */
+    function deviceFrameOpen(type){
+        if(type==='iphone')  return `<div class="device device-iphone"><div class="notch"></div><div class="screen">`;
+        if(type==='ipad')    return `<div class="device device-ipad"><div class="screen">`;
+        if(type==='macbook') return `<div class="device device-macbook"><div class="lid"><div class="screen">`;
+        return `<div class="device device-browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="screen">`;
+    }
+    function deviceFrameClose(type){
+        if(type==='macbook') return `</div></div><div class="base"><div class="keyboard"></div></div></div>`;
+        return `</div></div>`;
+    }
+    function deviceBlock(type, imgUrl){
+        const safe = imgUrl || '';
+        const img = safe ? `<img src="${safe}" alt="">` : '';
+        if(type==='iphone')  return `<div class="device device-iphone"><div class="notch"></div><div class="screen">${img}</div></div>`;
+        if(type==='ipad')    return `<div class="device device-ipad"><div class="screen">${img}</div></div>`;
+        if(type==='macbook') return `<div class="device device-macbook"><div class="lid"><div class="screen">${img}</div></div><div class="base"><div class="keyboard"></div></div></div>`;
+        return `<div class="device device-browser"><div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="screen">${img}</div></div>`;
+    }
+
+    // One device that vertically scrolls through multiple images
+    function scrollDeviceBlock(p){
+        const type = p.scrollDevice || 'browser';
+        const open = deviceFrameOpen(type);
+        const close = deviceFrameClose(type);
+
+        const trackClass = (p.scrollMode === 'auto') ? 'scroll-track auto-scroll-40' : 'scroll-track';
+        const trackStyle = (p.stopAtEnd === true)
+            ? ' style="animation:autoScroll40 45s linear forwards;animation-play-state:paused" data-anim="autoScroll40 45s linear forwards"`
+            : '';
+
+        const containClass = p.scrollContain ? ' contain-fit' : '';
+        const outerClass = `scroll-stack${containClass}`;
+
+        const items = (p.scrollStack || []).map((src, i) => {
+            const cropClass = (p.scrollCrops && p.scrollCrops[i]) ? p.scrollCrops[i] : '';
+            return `<div class="${cropClass||''}" style="width:100%;height:100%"><img src="${src}" alt=""></div>`;
+        }).join('');
+
+        return `
+            ${open}
+            <div class="${outerClass}" onclick="toggleScroll(this)" title="Click to play / pause">
+                <div class="${trackClass}"${trackStyle}>
+                ${items}
+                </div>
+            </div>
+            ${close}
+        `;
+    }
+
+    /* ---------- Grouped rendering ---------- */
+    function groupByBrand(items){
+        return items.reduce((acc,p)=>{ (acc[p.brand] ||= []).push(p); return acc; },{});
+    }
+
+    function captionBlock(p){
+        const conv = p.metrics?.conv || "+0%";
+        const rev  = p.metrics?.revenue || "+$0";
+        const u = p.urgency || "";
+        const v = p.value || "";
+        const e = p.emotion || "";
+        const love = p.love || "";
+        return `
+            <div class="neat-caption">
+                <p class="u"><strong>Urgency:</strong> <span class="v">${u}</span></p>
+                <p class="u"><strong>Value:</strong> <span class="v">${v}</span></p>
+                <p class="u"><strong>Connection:</strong> <span class="em">${e}</span></p>
+                <p class="stats">Conversions increased by <strong>${conv}</strong>.</p>
+                <p class="stats">Incremental revenue increased by <strong>${rev}</strong>.</p>
+                <p class="love">${love}</p>
+            </div>
+        `;
+    }
+
+    function renderBrandSection(brandKey, items){
+        // Put Black Friday first for Roger’s and pull requested mobile ads up
+        if(brandKey==='rogers'){
+            items = [...items.filter(i=>i.bf), ...items.filter(i=>!i.bf)];
+        }
+
+        const accent =
+            brandKey==='vs' ? 'accent-vs' :
+            brandKey==='rogers' ? 'accent-rogers' :
+            brandKey==='crains' ? 'accent-crains' :
+            brandKey==='suntimes' ? 'accent-suntimes' :
+            brandKey==='fcb' ? 'accent-fcb' : '';
+
+        // Only render cards that actually have media (removes empties)
+        const deviceBlocks = items.map(p=>{
+            let media = '';
+            
+            // Determine if devices should be grouped horizontally and centered (for multi-device layouts)
+            let deviceGroupClass = ''; 
+            if(p.device && p.device.length > 1){
+                // This class ensures horizontal alignment (flex) and centers them (justify-center)
+                deviceGroupClass = 'flex items-end justify-center gap-3'; 
+            }
+
+            if(p.scrollStack && p.scrollStack.length) media = scrollDeviceBlock(p);
+            else if(p.device && p.images){
+                const blocks = p.device.map((t,i)=> p.images[i] ? deviceBlock(t, p.images[i]) : '').filter(Boolean);
+                media = `<div class="${deviceGroupClass}">${blocks.join('')}</div>`; 
+            }
+            
+            if(!media) return '';
+            return `<div class="proj-card ${accent}">${media}${captionBlock(p)}</div>`;
+        }).filter(Boolean).join('');
+
+        if(!deviceBlocks) return '';
+
+        return `
+            <section class="border-t border-[#1e1e1e] pt-8 text-center">
+                <h3 class="text-2xl luxe-chrome-text mb-4">${brandNames[brandKey]||brandKey}</h3>
+                <div class="brand-grid">
+                ${deviceBlocks}
+                </div>
+            </section>
+        `;
+    }
+
+    function renderProjects(){
+        const grouped = groupByBrand(projects);
+        const order = ["rogers","vs","fcb","crains","suntimes"];
+        const html = order.filter(k=>grouped[k]).map(k=>renderBrandSection(k, grouped[k])).join('');
+        document.getElementById("projects-container").innerHTML = html;
+    }
+
+    /* Click-to-play / replay */
+    function toggleScroll(outer){
+        const track = outer.querySelector('.scroll-track');
+        if(!track) return;
+        const saved = track.getAttribute('data-anim');
+        const state = getComputedStyle(track).animationPlayState;
+
+        if(state === 'running'){
+            if(saved){
+                track.style.animation = 'none';
+                track.offsetHeight; // reflow
+                track.style.animation = saved;
+                track.style.animationPlayState = 'paused';
+            }else{
+                track.classList.remove('play');
+                track.style.animation = 'none';
+                track.offsetHeight;
+                track.style.animation = '';
+            }
+            return;
+        }
+        if(saved){ track.style.animationPlayState = 'running'; }
+        else{ track.classList.add('play'); }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderProjects);
+    </script>
 </body>
 </html>
