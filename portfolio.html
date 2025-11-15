@@ -506,7 +506,6 @@
         connection: "Treat-yourself energy with gift-worthy value.",
         conv: "+21%",
         revenue: "+$980K",
-        love: "I decided to launch Early Black Friday across several marketing channels to stay competitive and saw a sharp spike in revenue in real time.",
         caseStudyUrl: "rogers-early-black-friday.html"
       },
       {
@@ -524,8 +523,7 @@
         value: "Fast load + scannable copy speed decisions.",
         connection: "That satisfying one-tap checkout feeling.",
         conv: "+13%",
-        revenue: "+$420K",
-        love: "I loved how effortless this was to skim on the go.",
+        revenue: "+$420K"
         caseStudyUrl: "rogers-surprise-today-only.html"
       },
       {
@@ -544,7 +542,6 @@
         connection: "Feel proud of a smart, stylish pick.",
         conv: "+10%",
         revenue: "+$260K",
-        love: "I loved pairing reminder cadence with a warm brand voice.",
         caseStudyUrl: "rogers-drop-rectangle-earring-a.html"
       },
       {
@@ -562,7 +559,6 @@
         connection: "That I-got-it-before-it-sold-out glow.",
         conv: "+12%",
         revenue: "+$610K",
-        love: "I loved dialing the headline for maximum punch.",
         caseStudyUrl: "rogers-drop-rectangle-earring-b.html"
       },
       {
@@ -581,7 +577,6 @@
         connection: "Peace of mind that it’s the perfect fit.",
         conv: "+9%",
         revenue: "+$340K",
-        love: "I loved seeing return visitors convert on touch two.",
         caseStudyUrl: "rogers-reminder-a.html"
       },
       {
@@ -600,7 +595,6 @@
         connection: "Confidence you chose beautifully and wisely.",
         conv: "+7%",
         revenue: "+$220K",
-        love: "I loved threading value props where shoppers paused.",
         caseStudyUrl: "rogers-reminder-b.html"
       },
       {
@@ -620,7 +614,6 @@
         connection: "Re-discover the piece that caught your eye.",
         conv: "+10%",
         revenue: "+$410K",
-        love: "I loved how the desktop hero tied the story together.",
         caseStudyUrl: "rogers-desktop-scroll.html"
       },
       {
@@ -642,7 +635,6 @@
         connection: "That ‘gift secured’ relief.",
         conv: "+8%",
         revenue: "+$270K",
-        love: "I loved refining scroll timing for readability.",
         caseStudyUrl: "rogers-macbook-scroll.html"
       },
 
@@ -662,7 +654,6 @@
         connection: "Shoppers felt the brand everywhere without fatigue.",
         conv: "+22%",
         revenue: "+$0.0K",
-        love: "I loved pairing creative direction with disciplined testing.",
         caseStudyUrl: "victorias-secret-integrated.html"
       },
 
@@ -682,7 +673,6 @@
         connection: "It feels like the site understands your taste.",
         conv: "+14%",
         revenue: "+$610K",
-        love: "I loved tuning the rec logic with engineering until the lift held steady.",
         caseStudyUrl: "fcb-recs.html"
       },
       {
@@ -700,7 +690,6 @@
         connection: "Confidence that everything is handled correctly.",
         conv: "+11%",
         revenue: "+$1.4M",
-        love: "I loved translating survey insights into copy and flow that felt simple.",
         caseStudyUrl: "toyota-lease-renewal.html"
       },
 
@@ -719,7 +708,6 @@
         connection: "Stay ahead of the story every morning.",
         conv: "+6%",
         revenue: "+$120K",
-        love: "I loved finessing mobile typography.",
         caseStudyUrl: "crains-mobile-ads.html"
       },
       {
@@ -738,7 +726,6 @@
         connection: "Celebrate momentum in your industry.",
         conv: "+4%",
         revenue: "+$90K",
-        love: "I loved the crisp, editorial feel.",
         caseStudyUrl: "crains-potm-browser.html"
       },
       {
@@ -756,8 +743,7 @@
         value: "Immediate relevance for mobile scanners.",
         connection: "Feel connected to Chicago’s heartbeat.",
         conv: "+4%",
-        revenue: "+$70K",
-        love: "I loved making the headline unmissable on small screens.",
+        revenue: "+$70K",     
         caseStudyUrl: "crains-potm-iphone.html"
       },
 
@@ -779,7 +765,6 @@
         connection: "Join the community that keeps Chicago informed.",
         conv: "+11%",
         revenue: "+$1.2M",
-        love: "I loved the mission-forward message.",
         caseStudyUrl: "suntimes-paywall-iphone.html"
       },
       {
@@ -799,13 +784,12 @@
         connection: "Feel proud supporting independent reporting.",
         conv: "+9%",
         revenue: "+$760K",
-        love: "I loved the clean editorial look.",
         caseStudyUrl: "suntimes-paywall-ipad.html"
       },
       {
-        key: "suntimes-homepage",
+        key: "Newsletters Page",
         brand: "suntimes",
-        title: "Sun-Times — Homepage",
+        title: "Sun-Times — Newsletters",
         deviceType: "macbook",
         scrollStack: [
           "https://i.imgur.com/muc7Gl2.jpeg"
@@ -813,11 +797,10 @@
         scrollMode: "none",
         contain: true,
         urgency: "Today’s top story is live.",
-        value: "Hierarchy holds context on busy days.",
+        value: "Needed to make sure readers who selected multiple newsletters received a single email with all newsletters listed instead of one email per newsletter.",
         connection: "Stay grounded in what matters to Chicago.",
         conv: "+5%",
         revenue: "+$210K",
-        love: "I loved tightening layout on a busy page.",
         caseStudyUrl: "suntimes-homepage.html"
       }
     ];
@@ -894,24 +877,15 @@
         ${close}
       `;
     }
-
-    function captionBlock(p) {
-      return `
-        <div class="neat-caption">
-          <p class="label"><strong>Urgency:</strong> <span class="value">${p.urgency || ""}</span></p>
-          <p class="label"><strong>Value:</strong> <span class="value">${p.value || ""}</span></p>
-          <p class="label"><strong>Connection:</strong> <span class="em">${p.connection || ""}</span></p>
-          <p class="stats">Conversions increased by <strong>${p.conv || "+0%"}</strong>.</p>
-          <p class="stats">Incremental revenue increased by <strong>${p.revenue || "+$0"}</strong>.</p>
-          <p class="love">${p.love || ""}</p>
-          ${
-            p.caseStudyUrl
-              ? `<div class="mt-3"><a class="btn" href="${p.caseStudyUrl}">View full case study →</a></div>`
-              : ""
-          }
-        </div>
-      `;
-    }
+function captionBlock(p) {
+  return `
+    <div class="neat-caption">
+      ${p.caseStudyUrl
+        ? `<a class="btn" href="${p.caseStudyUrl}">View full case study →</a>`
+        : ""}
+    </div>
+  `;
+}
 
     function groupByBrand(items) {
       return items.reduce((acc, p) => {
@@ -1004,5 +978,6 @@
   </script>
 </body>
 </html>
+
 
 
