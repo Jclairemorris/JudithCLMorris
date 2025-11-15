@@ -1,391 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victoria's Secret – Campaign Gallery | Judith C. L. Morris</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victoria’s Secret Gallery | Judith C. L. Morris</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Fonts + Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
-      --gold:#D4AF37;
-      --ink:#050109;
-      --card:#111;
-      --line:#27111c;
-      --berry:#1a0714;
+    :root{--gold:#D4AF37;--ink:#0a0a0a;--card:#111;--line:#171717}
+    html,body{background:var(--ink);color:#f3f4f6;scroll-behavior:smooth}
+    .container-x{width:min(1140px,92vw);margin-inline:auto}
+
+    .luxe-chrome-text{
+      font-family:'Cinzel Decorative',serif;
+      background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 15%,#b88a2a 35%,#f4e7b2 50%,#9a6a12 65%,#f6f2da 82%,#7a5310 100%);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 1px 0 rgba(255,255,255,.22),0 2px 8px rgba(0,0,0,.45);
+      letter-spacing:-.02em
     }
 
-    * { box-sizing:border-box; }
-
-    html, body {
-      margin:0;
-      padding:0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at top, #2a1030 0, #050109 55%, #020007 100%);
-      color:#f9fafb;
-    }
-
-    a { color:inherit; text-decoration:none; }
-
-    .page {
-      max-width:1200px;
-      margin:0 auto;
-      padding:32px 20px 80px;
-    }
-
-    .back-link {
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      font-size:0.8rem;
+    .btn{
+      display:inline-block;
+      border:1px solid rgba(255,255,255,.25);
+      padding:.7rem 1.15rem;
+      border-radius:999px;
+      font-weight:600;
       text-transform:uppercase;
       letter-spacing:.16em;
-      padding:6px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.3);
-      background:rgba(0,0,0,.4);
+      font-size:.8rem;
+      transition:.3s;
+      color:#f3f4f6;
     }
-
-    .back-link:hover {
-      border-color:var(--gold);
-      color:var(--gold);
-    }
-
-    header {
-      margin-top:28px;
-      margin-bottom:26px;
-    }
-
-    .eyebrow {
-      font-size:0.75rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:#d1d5db;
-      margin-bottom:8px;
-    }
-
-    h1 {
-      margin:0 0 4px;
-      font-family:'Cinzel Decorative', serif;
-      font-size:2.6rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 18%,#b88a2a 40%,#f4e7b2 58%,#9a6a12 75%,#f6f2da 90%,#7a5310 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 1px 0 rgba(255,255,255,.18),0 6px 22px rgba(0,0,0,.9);
-    }
-
-    h2 {
-      margin:0;
-      font-size:0.9rem;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-    }
-
-    .subhead {
-      margin-top:18px;
-      max-width:640px;
-      font-size:0.95rem;
-      color:#e5e7eb;
-      line-height:1.6;
-    }
-
-    /* Gallery layout */
-    .gallery-grid {
-      margin-top:32px;
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:22px;
-    }
-
-    @media (max-width: 1024px) {
-      .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    }
-
-    @media (max-width: 720px) {
-      .gallery-grid { grid-template-columns:1fr; }
-    }
-
-    .tile {
-      position:relative;
-      padding:18px 16px 16px;
-      border-radius:24px;
-      background:radial-gradient(circle at top, #3a1224 0, #14030e 55%, #050109 100%);
-      border:1px solid rgba(255,255,255,.06);
-      box-shadow:0 16px 40px rgba(0,0,0,.8);
-      overflow:hidden;
-    }
-
-    .tile-header {
-      font-size:0.7rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:#e5e7eb;
-      margin-bottom:10px;
-    }
-
-    .device-wrap {
-      display:flex;
-      justify-content:center;
-      margin-bottom:14px;
-    }
+    .btn:hover{background:var(--gold);color:#000;border-color:var(--gold)}
 
     /* Devices */
-    .device {
+    .device{position:relative;display:inline-block;transition:.5s}
+    .device .screen{background:#111;overflow:hidden;width:100%;height:100%;border-radius:inherit;border:1px solid #eee}
+
+    .device-iphone{border:4px solid #D4AF37;border-radius:28px;width:220px;height:440px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.55)}
+    .device-iphone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:56px;height:12px;background:#0f0f0f;border-radius:8px;z-index:2}
+
+    .device-ipad{border:6px solid #D4AF37;border-radius:18px;width:360px;height:480px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.55)}
+
+    .device-browser{width:min(560px,92vw);border:2px solid #D4AF37;border-radius:12px;background:#0f0f10;box-shadow:0 16px 40px rgba(0,0,0,.55)}
+    .device-browser .chrome{height:36px;background:#e5e5e5;border-bottom:1px solid #D4AF37;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:8px;padding:0 12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#9ca3af}
+
+    .device-browser .screen{height:clamp(240px,45vw,360px);border-radius:0 0 12px 12px}
+
+    .screen img{display:block;width:100%;height:100%;object-fit:cover}
+
+    .proj-card{
       position:relative;
-      display:inline-block;
-      transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
-    }
-
-    .device .screen {
+      padding:22px;
       background:#111;
-      overflow:hidden;
-      width:100%;
-      height:100%;
-      border-radius:inherit;
-      border:1px solid #e5e7eb;
-    }
-
-    .device-iphone {
-      border:4px solid var(--gold);
-      border-radius:28px;
-      width:210px;
-      height:430px;
-      background:#050505;
-      box-shadow:0 10px 40px rgba(0,0,0,.7);
-    }
-
-    .device-iphone .notch {
-      position:absolute;
-      top:8px;
-      left:50%;
-      transform:translateX(-50%);
-      width:56px;
-      height:12px;
-      background:#050505;
-      border-radius:8px;
-      z-index:2;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-
-    .device-browser {
-      width:260px;
-      border-radius:16px;
-      border:2px solid var(--gold);
-      background:#05050a;
-      box-shadow:0 10px 40px rgba(0,0,0,.7);
-    }
-
-    .device-browser .chrome {
-      height:30px;
-      background:linear-gradient(180deg,#f5f5f5,#e4e4e4);
-      border-bottom:1px solid var(--gold);
-      border-radius:14px 14px 0 0;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:0 10px;
-    }
-
-    .dot {
-      width:9px;
-      height:9px;
-      border-radius:999px;
-      background:#9ca3af;
-    }
-
-    .device-browser .screen {
-      height:330px;
-      border-radius:0 0 14px 14px;
-    }
-
-    .device-ipad {
-      border:5px solid var(--gold);
-      border-radius:20px;
-      width:260px;
-      height:360px;
-      background:#050505;
-      box-shadow:0 10px 40px rgba(0,0,0,.7);
-    }
-
-    .device img {
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .tile-body {
-      font-size:0.8rem;
-      text-align:left;
-    }
-
-    .tile-title {
-      font-weight:600;
-      margin-bottom:6px;
-      color:#f9fafb;
-    }
-
-    .tile-metric {
-      font-size:0.78rem;
-      color:#e5e7eb;
-      margin-bottom:4px;
-    }
-
-    .tile-copy {
-      font-size:0.78rem;
-      color:#cbd5e1;
-      line-height:1.5;
-    }
-
-    /* Overlay to view case study */
-    .tile-overlay {
-      position:absolute;
-      inset:0;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      padding-bottom:18px;
-      background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.05));
-      opacity:0;
-      transition:opacity .3s;
-    }
-
-    .tile-overlay span {
-      padding:8px 18px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.35);
-      background:rgba(0,0,0,.7);
-      font-size:0.78rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-    }
-
-    .tile:hover .tile-overlay {
-      opacity:1;
-    }
-
-    .tile:hover .device {
-      transform:translateY(-4px);
-      box-shadow:0 20px 55px rgba(0,0,0,.9);
-    }
-
-    footer {
-      margin-top:38px;
-      font-size:0.75rem;
-      color:#9ca3af;
+      border:1px solid #222;
+      border-radius:18px;
+      box-shadow:0 12px 44px rgba(0,0,0,.55);
+      transition:.3s;
       text-align:center;
     }
+    .proj-card:hover{border-color:#D4AF37;box-shadow:0 22px 64px rgba(212,175,55,.18)}
+
+    .brand-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:32px;justify-items:center}
+    @media(max-width:860px){.brand-grid{grid-template-columns:1fr}}
+
   </style>
 </head>
+
 <body>
-  <div class="page">
 
-    <a href="brands.html" class="back-link">← All Brands</a>
+  <!-- HEADER -->
+  <header class="container-x pt-10 pb-6">
+    <div class="flex items-center justify-between gap-4 flex-wrap">
+      <div>
+        <p class="text-xs tracking-[0.22em] uppercase text-gray-400 mb-2">Brand Gallery</p>
+        <h1 class="luxe-chrome-text text-3xl sm:text-4xl">Victoria’s Secret</h1>
+      </div>
 
-    <header>
-      <div class="eyebrow">Retail · Intimates &amp; Beauty</div>
-      <h1>Victoria's Secret</h1>
-      <h2>Campaign Gallery</h2>
-      <p class="subhead">
-        Mobile-first Semi-Annual Sale journey spanning email, homepage hero, and in-app placements.
-        One offer story carried through the funnel lifted both conversion and average order value.
-      </p>
-    </header>
+      <!-- Already linking correctly -->
+      <a href="brands.html" class="btn">← Back to Brands</a>
+    </div>
 
-    <section class="gallery-grid">
+    <p class="text-gray-300 mt-4 max-w-2xl text-sm">
+      Clean, mobile-first and desktop creative across email and web. No overlays, no case studies — just visuals.
+    </p>
+  </header>
 
-      <!-- Card 1: Email / iPhone -->
-      <article class="tile">
-        <div class="tile-header">Email · Mobile</div>
-        <div class="device-wrap">
+  <!-- GALLERY -->
+  <main class="container-x pb-16">
+    <section class="border-t border-[#1e1e1e] pt-10">
+      <div class="brand-grid">
+
+        <!-- iPhone -->
+        <div class="proj-card">
           <div class="device device-iphone">
             <div class="notch"></div>
             <div class="screen">
-              <img src="https://i.imgur.com/AZfRJCj.jpeg" alt="Victoria's Secret Semi-Annual Sale email on iPhone" />
+              <img src="https://i.imgur.com/AZfRJCj.jpeg" alt="VS iPhone Email">
             </div>
           </div>
+          <p class="text-gray-300 text-sm mt-3">Mobile email for Semi-Annual Sale.</p>
         </div>
-        <div class="tile-body">
-          <div class="tile-title">“Semi-Annual Sale” hero email</div>
-          <div class="tile-metric">
-            +22% conversions · +15% AOV
-          </div>
-          <p class="tile-copy">
-            Mobile-first layout with bold hero, tight copy, and a single, high-intent CTA focused on bras &amp; panties.
-            Email set the offer stakes and framed the event as an unmissable moment.
-          </p>
-        </div>
-        <a href="portfolio.html" class="tile-overlay">
-          <span>View case study →</span>
-        </a>
-      </article>
 
-      <!-- Card 2: Homepage / Browser -->
-      <article class="tile">
-        <div class="tile-header">Web · Homepage</div>
-        <div class="device-wrap">
+        <!-- Desktop / Browser -->
+        <div class="proj-card">
           <div class="device device-browser">
-            <div class="chrome">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
+            <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
             <div class="screen">
-              <img src="https://i.imgur.com/wMbFR0H.png" alt="Victoria's Secret Semi-Annual Sale homepage hero" />
+              <img src="https://i.imgur.com/wMbFR0H.png" alt="VS Desktop Web Hero">
             </div>
           </div>
+          <p class="text-gray-300 text-sm mt-3">Web hero using the seasonal sale creative.</p>
         </div>
-        <div class="tile-body">
-          <div class="tile-title">Homepage hero continuity</div>
-          <div class="tile-metric">
-            +22% conversions · +15% AOV (journey result)
-          </div>
-          <p class="tile-copy">
-            Site hero mirrored email creative so shoppers saw the same message when they clicked through,
-            reducing friction and helping them land directly in the sale.
-          </p>
-        </div>
-        <a href="portfolio.html" class="tile-overlay">
-          <span>View case study →</span>
-        </a>
-      </article>
 
-      <!-- Card 3: App / iPad -->
-      <article class="tile">
-        <div class="tile-header">App · Tablet</div>
-        <div class="device-wrap">
+        <!-- iPad -->
+        <div class="proj-card">
           <div class="device device-ipad">
             <div class="screen">
-              <img src="https://i.imgur.com/ZvHcoDO.jpeg" alt="Victoria's Secret Semi-Annual Sale app or mobile hero" />
+              <img src="https://i.imgur.com/ZvHcoDO.jpeg" alt="VS Tablet Layout">
             </div>
           </div>
+          <p class="text-gray-300 text-sm mt-3">Tablet layout for high-AOV browsing.</p>
         </div>
-        <div class="tile-body">
-          <div class="tile-title">In-app &amp; mobile reinforcement</div>
-          <div class="tile-metric">
-            +22% conversions · +15% AOV (journey result)
-          </div>
-          <p class="tile-copy">
-            In-app units echoed the same event story and offer tiers so customers who browsed on mobile
-            could re-engage quickly, no matter where they entered the funnel.
-          </p>
-        </div>
-        <a href="portfolio.html" class="tile-overlay">
-          <span>View case study →</span>
-        </a>
-      </article>
 
-      <!-- Empty slots stay unused if you only want 3 cards -->
+      </div>
     </section>
+  </main>
 
-    <footer>
-      © 2025 Judith C. L. Morris · Victoria's Secret campaign gallery
-    </footer>
-  </div>
+  <footer class="text-center text-xs text-gray-500 pb-10">© 2025 Judith C. L. Morris</footer>
+
 </body>
 </html>
