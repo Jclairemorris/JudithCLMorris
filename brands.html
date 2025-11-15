@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Victoria’s Secret Gallery | Judith C. L. Morris</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brands | Judith C. L. Morris</title>
 
   <!-- Fonts + Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -15,6 +15,7 @@
     .container-x{width:min(1140px,92vw);margin-inline:auto}
     .font-inter{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
 
+    /* Luxe chrome title */
     .luxe-chrome-text{
       font-family:'Cinzel Decorative',serif;
       background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 15%,#b88a2a 35%,#f4e7b2 50%,#9a6a12 65%,#f6f2da 82%,#7a5310 100%);
@@ -29,31 +30,26 @@
       border-radius:999px;
       font-weight:600;
       text-transform:uppercase;
-      font-size:.8rem;
-      letter-spacing:.16em;
+      font-size:.75rem;
+      letter-spacing:.18em;
       transition:.3s;
       color:#f3f4f6;
     }
     .btn:hover{background:var(--gold);color:#000;border-color:var(--gold)}
 
-    /* Devices (gold trim, same as your main file) */
+    /* Devices (same as portfolio) */
     .device{position:relative;display:inline-block;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
     .device .screen{background:#111;overflow:hidden;width:100%;height:100%;border-radius:inherit;border:1px solid #e5e7eb}
     .device-iphone{border:4px solid #D4AF37;border-radius:28px;width:220px;height:440px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.5)}
     .device-iphone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:56px;height:12px;background:#0f0f0f;border-radius:8px;z-index:2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
     .device-ipad{border:6px solid #D4AF37;border-radius:18px;width:360px;height:480px;background:#0f0f0f;box-shadow:0 10px 40px rgba(0,0,0,.5)}
-    .device-macbook{width:min(620px,92vw);perspective:1200px;transform-style:preserve-3d}
-    .device-macbook .lid{border-radius:12px 12px 0 0;padding:8px;background:#202020;box-shadow:0 16px 38px rgba(0,0,0,.45);border:1px solid #D4AF37;transform:translateZ(12px) rotateX(.5deg)}
-    .device-macbook .lid .screen{height:clamp(240px,44vw,360px)}
-    .device-macbook .base{height:32px;border-radius:0 0 10px 10px;background:#141414;border:1px solid #D4AF37;border-top:none;width:104%;margin-left:-2%;position:relative;box-shadow:0 18px 48px rgba(0,0,0,.55);transform:translateZ(0) rotateX(-1.5deg)}
-    .device-macbook .keyboard{position:absolute;left:6%;right:6%;top:6px;height:22px;border-radius:6px;background:linear-gradient(#0f0f0f,#121212),repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.06) 6px 7px,transparent 7px 13px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.6)}
-    .device-browser{width:min(560px,92vw);border:2px solid #D4AF37;border-radius:12px;background:#0f0f10;box-shadow:0 16px 40px rgba(0,0,0,.55);transform:translateZ(6px) rotateX(.25deg)}
+    .device-browser{width:min(560px,92vw);border:2px solid #D4AF37;border-radius:12px;background:#0f0f10;box-shadow:0 16px 40px rgba(0,0,0,.55)}
     .device-browser .chrome{height:36px;background:linear-gradient(180deg,#f5f5f5,#e5e5e5);border-bottom:1px solid #D4AF37;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:8px;padding:0 12px}
     .dot{width:10px;height:10px;border-radius:50%;background:#9ca3af}
     .device-browser .screen{height:clamp(240px,45vw,360px);border-radius:0 0 12px 12px}
-
     .screen img{display:block;width:100%;height:100%;object-fit:cover}
 
+    /* Grid + cards */
     .brand-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:28px;justify-items:center;align-items:flex-start}
     @media (max-width: 820px){.brand-grid{grid-template-columns:1fr}}
 
@@ -61,8 +57,8 @@
       position:relative;
       display:flex;
       flex-direction:column;
-      gap:16px;
-      justify-content:center;
+      gap:18px;
+      justify-content:flex-start;
       align-items:center;
       padding:20px;
       border-radius:18px;
@@ -79,84 +75,158 @@
       border-color:rgba(212,175,55,.35);
     }
 
+    .accent-rogers{border-color:#D4AF37}
     .accent-vs{border-color:#D4AF37}
+    .accent-fcb{border-color:#D4AF37}
+    .accent-crains{border-color:#D4AF37}
+    .accent-suntimes{border-color:#D4AF37}
 
-    .subtitle{
-      color:#d1d5db;
+    .brand-label{
+      font-size:.8rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:#9ca3af;
+    }
+    .brand-title{
+      font-size:1.05rem;
+      font-weight:600;
+      color:#f9fafb;
+    }
+    .brand-copy{
       font-size:.9rem;
-      max-width:620px;
-      margin:0 auto;
+      color:#d1d5db;
+      max-width:320px;
     }
   </style>
 </head>
 <body class="font-inter">
 
-  <!-- TOP BAR -->
-  <header class="container-x pt-10 pb-6">
+  <!-- HEADER -->
+  <header class="container-x pt-10 pb-8">
     <div class="flex items-center justify-between gap-4 flex-wrap">
       <div>
         <p class="text-xs tracking-[0.22em] uppercase text-gray-400 mb-2">
-          Brand Gallery
+          Campaign Galleries
         </p>
-        <h1 class="luxe-chrome-text text-3xl sm:text-4xl">Victoria’s Secret</h1>
+        <h1 class="luxe-chrome-text text-3xl sm:text-4xl">Brands</h1>
+        <p class="mt-3 text-sm text-gray-300 max-w-2xl">
+          Tap a brand to open its gallery-only view. Each gallery uses the same white-device,
+          gold-trim frames as your main portfolio — no overlays, just clean visuals.
+        </p>
       </div>
       <div class="flex justify-end">
-        <!-- Back to brands page -->
-        <a href="brands.html" class="btn">← Back to Brands</a>
+        <!-- Back to main portfolio -->
+        <a href="portfolio.html" class="btn">← Back to Portfolio</a>
       </div>
     </div>
-    <p class="subtitle mt-4">
-      Semi-Annual Sale journeys across email, web, and mobile — shown in the same white-device,
-      gold-trim frames as the rest of your portfolio. No overlays, just clean visuals.
-    </p>
   </header>
 
-  <!-- GALLERY -->
+  <!-- BRAND CARDS -->
   <main class="container-x pb-14">
     <section class="border-t border-[#1e1e1e] pt-8">
       <div class="brand-grid">
 
-        <!-- Card 1: iPhone -->
-        <div class="proj-card accent-vs">
-          <div class="device device-iphone">
-            <div class="notch"></div>
-            <div class="screen">
-              <!-- same file already used in your JS projects array -->
-              <img src="https://i.imgur.com/AZfRJCj.jpeg" alt="Victoria’s Secret Semi-Annual Sale – iPhone email">
-            </div>
-          </div>
-          <p class="text-sm text-gray-300">
-            Mobile-first email creative designed to drive Semi-Annual Sale clicks on the go.
-          </p>
-        </div>
-
-        <!-- Card 2: Desktop / Browser -->
-        <div class="proj-card accent-vs">
-          <div class="device device-browser">
+        <!-- Roger’s Enterprises -->
+        <div class="proj-card accent-rogers">
+          <div class="device device-browser mb-2">
             <div class="chrome">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
             </div>
             <div class="screen">
-              <!-- same file already used in your JS projects array -->
-              <img src="https://i.imgur.com/wMbFR0H.png" alt="Victoria’s Secret Semi-Annual Sale – desktop web hero">
+              <img src="https://i.imgur.com/iJlPGrV.png" alt="Roger’s Enterprises Black Friday hero on desktop">
             </div>
           </div>
-          <p class="text-sm text-gray-300">
-            Web hero aligning with email and paid media for a seamless, cross-channel experience.
-          </p>
+          <div>
+            <div class="brand-label">Retail · Jewelry</div>
+            <div class="brand-title mt-1">Roger’s Enterprises</div>
+            <p class="brand-copy mt-2">
+              Early Black Friday “today only” pushes and abandoned cart flows across email, SMS, mobile, and web.
+            </p>
+          </div>
+          <a href="rogers-enterprises-gallery.html" class="btn mt-2">
+            View Full Gallery →
+          </a>
         </div>
 
-        <!-- Card 3: iPad -->
+        <!-- Victoria’s Secret -->
         <div class="proj-card accent-vs">
-          <div class="device device-ipad">
+          <div class="device device-iphone mb-2">
+            <div class="notch"></div>
             <div class="screen">
-              <!-- same file already used in your JS projects array -->
-              <img src="https://i.imgur.com/ZvHcoDO.jpeg" alt="Victoria’s Secret Semi-Annual Sale – tablet layout">
+              <img src="https://i.imgur.com/AZfRJCj.jpeg" alt="Victoria’s Secret Semi-Annual Sale mobile email">
             </div>
           </div>
-          <p class="text-sm text-gray-300">
-            Tablet layout tuned for browsing, with hierarchy that keeps offers clear and shoppable.
-          </p>
+          <div>
+            <div class="brand-label">Retail · Intimates</div>
+            <div class="brand-title mt-1">Victoria’s Secret</div>
+            <p class="brand-copy mt-2">
+              Semi-Annual Sale journeys across email, app, and landing page — built mobile-first for conversion.
+            </p>
+          </div>
+          <a href="victorias-secret-gallery.html" class="btn mt-2">
+            View Full Gallery →
+          </a>
+        </div>
+
+        <!-- FCB Chicago / Toyota FS -->
+        <div class="proj-card accent-fcb">
+          <div class="device device-ipad mb-2">
+            <div class="screen">
+              <img src="https://i.imgur.com/8DPdaI9.jpeg" alt="FCB Chicago dynamic content creative">
+            </div>
+          </div>
+          <div>
+            <div class="brand-label">Agency · Automotive & Retail</div>
+            <div class="brand-title mt-1">FCB Chicago / Toyota FS</div>
+            <p class="brand-copy mt-2">
+              Recommendation engines, dynamic email content, and lease-renewal flows tuned from survey insights.
+            </p>
+          </div>
+          <a href="fcb-chicago-gallery.html" class="btn mt-2">
+            View Full Gallery →
+          </a>
+        </div>
+
+        <!-- Crain’s Chicago Business -->
+        <div class="proj-card accent-crains">
+          <div class="device device-iphone mb-2">
+            <div class="notch"></div>
+            <div class="screen">
+              <img src="https://i.imgur.com/Nlas1si.jpeg" alt="Crain’s Chicago Business mobile creative">
+            </div>
+          </div>
+          <div>
+            <div class="brand-label">Publishing · B2B</div>
+            <div class="brand-title mt-1">Crain’s Chicago Business</div>
+            <p class="brand-copy mt-2">
+              Subscription journeys and “People on the Move” placements tuned for CTR, lead flow, and premium ad sales.
+            </p>
+          </div>
+          <a href="portfolio.html#brand-crains" class="btn mt-2">
+            View Highlights →
+          </a>
+        </div>
+
+        <!-- Chicago Sun-Times -->
+        <div class="proj-card accent-suntimes">
+          <div class="device device-browser mb-2">
+            <div class="chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="screen">
+              <img src="https://i.imgur.com/eUkWfLU.jpeg" alt="Chicago Sun-Times paywall design">
+            </div>
+          </div>
+          <div>
+            <div class="brand-label">Publishing · Consumer</div>
+            <div class="brand-title mt-1">Chicago Sun-Times</div>
+            <p class="brand-copy mt-2">
+              Paywall experiments, homepage tuning, and plan-selection tests to grow digital subscriptions.
+            </p>
+          </div>
+          <a href="portfolio.html#brand-suntimes" class="btn mt-2">
+            View Highlights →
+          </a>
         </div>
 
       </div>
