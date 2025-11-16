@@ -1,183 +1,71 @@
-<!-- cache-bust-2025-02-15-v4 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campaign Galleries – Brands | Judith C. L. Morris</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    :root{
-      --gold:#D4AF37;
-      --ink:#050509;
-      --card:#111111;
-      --line:#171717;
-    }
-    body{
-      background:#000;
-      color:#fff;
-      font-family:Inter, sans-serif;
-    }
-    .luxe-chrome-text{
-      font-family:'Cinzel Decorative',serif;
-      background:linear-gradient(180deg,#fff,#e7cf86,#bba35c,#a9863f,#f6cd7a);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .btn{
-      padding:.7rem 1.3rem;
-      border:1px solid rgba(255,255,255,.3);
-      border-radius:999px;
-      display:inline-block;
-      text-transform:uppercase;
-      font-size:.75rem;
-      letter-spacing:.2em;
-      color:#fff;
-      transition:.3s;
-    }
-    .btn:hover{
-      background:var(--gold);
-      color:#000;
-      border-color:var(--gold);
-    }
-    .section-label{
-      text-transform:uppercase;
-      letter-spacing:.28em;
-      font-size:.75rem;
-      color:#aaa;
-    }
-  </style>
+  <title>Brand Galleries</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<!-- FIXED TOP NAV (links back into portfolio) -->
-<header class="w-full flex justify-center py-6 bg-black sticky top-0 z-50">
-  <nav class="flex gap-8 text-xs tracking-[0.22em] uppercase">
-    <a href="portfolio.html#brands">BRANDS</a>
-    <a href="portfolio.html#work">WORK</a>
-    <a href="portfolio.html#strategy">STRATEGY</a>
-    <a href="portfolio.html#big-tech">BIG TECH</a>
-  </nav>
-</header>
+<main class="container">
 
-
-<!-- FIXED HERO SECTION -->
-<section class="pt-16 pb-10 text-center">
-  <p class="section-label mb-3">Campaign Galleries</p>
-
-  <h1 class="luxe-chrome-text text-3xl md:text-4xl mb-4">
-    BRANDS
-  </h1>
-
-  <p class="text-gray-300 max-w-2xl mx-auto text-sm leading-relaxed">
-    Tap a brand to open its gallery-only view. Each gallery uses the same
-    white-device, gold-trim frames as your main portfolio—clean visuals
-    and no overlays.
-  </p>
-
-  <div class="mt-6">
-    <a href="portfolio.html#brands" class="btn">← Back to Portfolio</a>
-  </div>
-</section>
-
-
-<!-- BRAND GRID -->
-<div class="px-6 pb-20">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-
-    <!-- ROGERS ENTERPRISES -->
-    <div class="proj-card">
-      <a href="brand-rogers.html" class="block">
-        <img src="rogers-hero.jpg"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="Rogers Black Friday Campaign" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Retail · Jewelry</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">Rogers Enterprises</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Early Black Friday, surprise “today only” pushes, abandoned cart flows, and cross-device continuity across email, SMS, mobile, push, and web.
-      </p>
-      <a href="brand-rogers.html" class="btn mt-4">View Full Gallery →</a>
+  <!-- ROGERS -->
+  <section class="brand-card">
+    <h2>Roger’s Enterprises Black Friday</h2>
+    <div class="preview-frame">
+      <img src="images/rogers-hero.jpg" alt="Roger’s Enterprises creative" class="preview-image">
     </div>
+    <a href="brand-rogers.html" class="btn">View Full Gallery →</a>
+  </section>
 
-    <!-- VICTORIA'S SECRET -->
-    <div class="proj-card">
-      <a href="brand-vs.html" class="block">
-        <img src="vs-hero.jpg"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="Victoria’s Secret Campaign" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Retail · Intimates</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">Victoria’s Secret</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Semi-annual sale journeys spanning email, social, and landing pages—optimized mobile-first for conversion.
-      </p>
-      <a href="brand-vs.html" class="btn mt-4">View Full Gallery →</a>
+  <!-- VICTORIA'S SECRET -->
+  <section class="brand-card">
+    <h2>Victoria’s Secret</h2>
+    <div class="preview-frame">
+      <img src="images/vs-hero.jpg" alt="Victoria’s Secret creative" class="preview-image">
     </div>
+    <a href="brand-vs.html" class="btn">View Full Gallery →</a>
+  </section>
 
-    <!-- FCB / PACCAR -->
-    <div class="proj-card">
-      <a href="brand-fcb.html" class="block">
-        <img src="paccar-hero.jpg"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="PACCAR Parts Campaign" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Agency · Automotive</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">FCB Chicago / PACCAR</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Recommendation engines, dynamic content, and survey-driven lease renewal journeys for high-stakes financial decisions.
-      </p>
-      <a href="brand-fcb.html" class="btn mt-4">View Full Gallery →</a>
+  <!-- PACCAR -->
+  <section class="brand-card">
+    <h2>PACCAR</h2>
+    <div class="preview-frame">
+      <img src="images/paccar-hero.jpg" alt="PACCAR campaign" class="preview-image">
     </div>
+    <a href="brand-fcb.html" class="btn">View Full Gallery →</a>
+  </section>
 
-    <!-- CRAIN'S CHICAGO BUSINESS -->
-    <div class="proj-card">
-      <a href="brand-crains.html" class="block">
-        <img src="crains-hero.jpg"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="Crain’s Chicago Business Lollapalooza Coverage" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Publishing · B2B</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">Crain’s Chicago Business</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Editorial-grade layouts, “People on the Move” placements, and subscription flows built for both journalism and performance.
-      </p>
-      <a href="brand-crains.html" class="btn mt-4">View Full Gallery →</a>
+  <!-- CRAIN'S -->
+  <section class="brand-card">
+    <h2>Crain’s Chicago Business</h2>
+    <div class="preview-frame">
+      <img src="images/crains-hero.jpg" alt="Crain’s Chicago Business creative" class="preview-image">
     </div>
+    <a href="brand-crains.html" class="btn">View Full Gallery →</a>
+  </section>
 
-    <!-- CHICAGO SUN-TIMES -->
-    <div class="proj-card">
-      <a href="brand-suntimes.html" class="block">
-        <img src="suntimes-hero.jpg"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="Chicago Sun-Times Subscription Layout" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Publishing · Consumer</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">Chicago Sun-Times</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Paywall experiences, homepage hierarchy, and subscription conversion tuned for mission-forward storytelling.
-      </p>
-      <a href="brand-suntimes.html" class="btn mt-4">View Full Gallery →</a>
+  <!-- CHICAGO SUN-TIMES -->
+  <section class="brand-card">
+    <h2>Chicago Sun-Times</h2>
+    <div class="preview-frame">
+      <img src="images/suntimes-hero.jpg" alt="Chicago Sun-Times layout" class="preview-image">
     </div>
+    <a href="brand-suntimes.html" class="btn">View Full Gallery →</a>
+  </section>
 
-    <!-- META / ZYNGA / SALESFORCE -->
-    <div class="proj-card">
-      <a href="brand-meta.html" class="block">
-        <img src="image.png"
-             class="w-full max-h-80 object-contain rounded-lg border border-[#D4AF37]"
-             alt="Meta / Zynga / Salesforce Private Vault" />
-      </a>
-      <p class="mt-4 text-xs uppercase tracking-[.12em] text-gray-400">Big Tech · Private Vault</p>
-      <h3 class="mt-1 font-semibold uppercase tracking-wide">Meta, Zynga, Salesforce &amp; more</h3>
-      <p class="text-gray-300 text-sm mt-2">
-        Journey maps, SFMC/Data Cloud architecture, and performance walk-throughs available in a private vault for qualified opportunities.
-      </p>
-      <a href="brand-meta.html" class="btn mt-4">Request Walkthrough →</a>
+  <!-- META + ZYNGA + SALESFORCE -->
+  <section class="brand-card">
+    <h2>Meta / Zynga / Salesforce</h2>
+    <div class="preview-frame">
+      <img src="images/meta-hero.jpg" alt="Meta / Zynga / Salesforce creative" class="preview-image">
     </div>
+    <a href="brand-meta.html" class="btn">View Full Gallery →</a>
+  </section>
 
-  </div>
-</div>
+</main>
+
+</body>
+</html>
