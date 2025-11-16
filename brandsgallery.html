@@ -7,7 +7,7 @@
 
   <!-- Fonts + Tailwind -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;700&display=swap"
     rel="stylesheet"
   />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,305 +16,241 @@
     :root {
       --gold:#D4AF37;
       --ink:#050509;
+      --eggplant:#130a30;
+      --card:#0b062b;
+    }
+
+    html, body{
+      min-height:100%;
     }
 
     body{
       margin:0;
-      min-height:100vh;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      color:#f3f4f6;
-      background:radial-gradient(circle at top,#221652 0%,#050509 50%,#000000 100%);
+      color:#f9fafb;
       scroll-behavior:smooth;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:radial-gradient(circle at top,#221650 0,#050320 55%,#050509 100%);
     }
 
     .luxe-chrome-text{
-      font-family:"Cinzel Decorative",serif;
-      background:linear-gradient(120deg,#fff4c0 0%,#ffd36a 35%,#f8b347 55%,#ffefc2 80%,#f4c86a 100%);
+      font-family:'Cinzel Decorative', serif;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      background:linear-gradient(120deg,#fef7d0 0%,#f5d793 25%,#f1b74f 50%,#f7e2a9 75%,#fefbf0 100%);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
-      text-shadow:0 0 20px rgba(0,0,0,.75);
-      letter-spacing:.08em;
+      text-shadow:0 0 14px rgba(0,0,0,.75);
     }
 
     .section-label{
       text-transform:uppercase;
-      letter-spacing:.28em;
+      letter-spacing:.22em;
       font-size:.75rem;
       color:#9ca3af;
     }
 
     .brand-card{
-      background:rgba(0,0,0,.5);
+      background:radial-gradient(circle at top,#1e133f 0,#080418 55%,#050309 100%);
       border-radius:1.75rem;
-      border:1px solid rgba(244,214,141,.35);
-      box-shadow:0 24px 60px rgba(0,0,0,.9);
-      padding:1.75rem 1.5rem 1.9rem;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      border:1px solid rgba(212,175,55,.75);
+      padding:2rem 1.75rem 2.25rem;
+      box-shadow:0 24px 60px rgba(0,0,0,.7);
+      position:relative;
+    }
+
+    .brand-card h3{
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:1rem;
+      margin-top:.35rem;
+    }
+
+    .brand-card p{
+      font-size:.9rem;
     }
 
     .preview-frame{
-      margin-top:1.4rem;
-      margin-bottom:1.2rem;
+      margin-top:1.25rem;
       border-radius:1.5rem;
-      border:1px solid rgba(244,214,141,.45);
-      padding:.55rem;
-      background:radial-gradient(circle at top,rgba(255,255,255,.06) 0%,rgba(0,0,0,.93) 70%);
-      box-shadow:0 20px 40px rgba(0,0,0,.8);
+      padding:.3rem;
+      border:1px solid rgba(212,175,55,.7);
+      background:radial-gradient(circle at top left,#43318b 0,#05030f 60%);
     }
 
     .preview-image{
       display:block;
       width:100%;
-      height:auto;
-      border-radius:1.25rem;
-      object-fit:cover;
+      height:260px;       /* keeps all cards same height */
+      border-radius:1.2rem;
+      object-fit:cover;   /* crops without stretching */
     }
 
     .btn{
       display:inline-block;
-      border:1px solid rgba(250,250,250,.4);
+      margin-top:1.25rem;
+      padding:.65rem 1.75rem;
       border-radius:999px;
-      padding:.75rem 1.9rem;
-      font-size:.78rem;
+      border:1px solid rgba(250,250,250,.8);
+      font-size:.8rem;
+      font-weight:600;
       letter-spacing:.18em;
       text-transform:uppercase;
-      font-weight:600;
-      text-decoration:none;
-      color:#f9fafb;
-      background:radial-gradient(circle at top,var(--gold) 0%,#3a215f 40%,#050509 100%);
-      box-shadow:0 0 0 1px rgba(0,0,0,.5),0 18px 35px rgba(0,0,0,.85);
-      transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease;
       text-align:center;
+      transition:all .2s ease;
     }
 
     .btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 22px 45px rgba(0,0,0,.95);
-      color:#050509;
-      background:radial-gradient(circle at top,#fff7d1 0%,var(--gold) 40%,#fce7a7 100%);
-    }
-
-    @media (min-width:1024px){
-      .brand-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
+      background:var(--gold);
+      color:#000;
+      border-color:var(--gold);
     }
   </style>
 </head>
+<body class="font-inter">
+  <main id="brands" class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-16 pb-20">
+    <p class="section-label">Portfolio · Brand Overview</p>
+    <h1 class="luxe-chrome-text text-3xl sm:text-4xl md:text-5xl mt-4">
+      Campaign Brands &amp; Device Previews
+    </h1>
 
-<body>
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20" id="brands">
-    <header class="mb-14">
-      <p class="section-label mb-3">Portfolio · Brand Overview</p>
-      <h1 class="luxe-chrome-text text-4xl sm:text-5xl lg:text-[3.25rem] leading-tight">
-        CAMPAIGN BRANDS &amp; DEVICE PREVIEWS
-      </h1>
-      <p class="mt-5 max-w-3xl text-sm sm:text-base text-gray-300 leading-relaxed">
-        This page is a quick index of the brands and devices I've designed for. Click a brand to see
-        the full gallery, then open the detailed case studies for the campaigns that interest you.
-      </p>
-    </header>
+    <p class="text-gray-200 text-sm sm:text-base mt-6 max-w-3xl leading-relaxed">
+      In graduate school, my instructor — then an editor at the
+      <span class="italic">Chicago Tribune</span> — told us: “You’re going to
+      have to learn the tech side and how to advertise on smartphones.” They
+      did not lie. This page is a quick index of the brands and devices
+      I’ve designed for. Click a brand to see the full gallery, then open
+      the detailed case studies for the campaigns that interest you.
+    </p>
 
-    <section class="grid gap-10 md:grid-cols-2 brand-grid">
-      <!-- ROGER'S ENTERPRISES -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Retail · Jewelry</p>
-          <h2 class="font-semibold text-lg tracking-wide">Roger’s Enterprises</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Early Black Friday “today only” pushes, abandoned cart flows, and cross-device
-            continuity across email, SMS, mobile, push, and web.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="rogers"
-              src="rogers-hero.jpg"
-              alt="Roger’s Enterprises Black Friday campaign creative"
-              class="preview-image"
-            />
-          </div>
+    <!-- Brand grid -->
+    <section class="mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+
+      <!-- Rogers -->
+      <article id="rogers" class="brand-card">
+        <p class="section-label text-xs">Retail · Jewelry</p>
+        <h3>Roger’s Enterprises</h3>
+        <p class="text-gray-300 mt-2">
+          Early Black Friday “today only” pushes, abandoned cart flows, and
+          cross-device continuity across email, SMS, mobile, push, and web.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="rogers-hero.jpg"
+            alt="Roger’s Enterprises Black Friday surprise sale creative"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-rogers.html" class="btn">View full gallery →</a>
       </article>
 
-      <!-- VICTORIA'S SECRET -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Retail · Intimates</p>
-          <h2 class="font-semibold text-lg tracking-wide">Victoria’s Secret</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Mobile-first semi-annual sale journeys with coordinated email, app, web, display ads,
-            and landing page creative tuned for conversion and AOV.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="vs"
-              src="vs-hero.jpg"
-              alt="Victoria’s Secret mobile sale campaign creative"
-              class="preview-image"
-            />
-          </div>
+      <!-- Victoria's Secret -->
+      <article id="vs" class="brand-card">
+        <p class="section-label text-xs">Retail · Intimates</p>
+        <h3>Victoria’s Secret</h3>
+        <p class="text-gray-300 mt-2">
+          Mobile-first semi-annual sale journeys with coordinated email,
+          app, web, display ads and landing page creative tuned for
+          conversion and AOV.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="vs-hero.jpg"
+            alt="Victoria’s Secret mobile sale creative"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-vs.html" class="btn">View full gallery →</a>
       </article>
 
       <!-- FCB / PACCAR -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Agency · Financial Services</p>
-          <h2 class="font-semibold text-lg tracking-wide">FCB Chicago / PACCAR</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Recommendation engines, dynamic content, and survey-driven lease renewal journeys
-            for high-stakes financial decisions.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="fcb"
-              src="fcb-hero.jpg"
-              alt="PACCAR genuine parts lease renewal campaign creative"
-              class="preview-image"
-            />
-          </div>
+      <article id="fcb" class="brand-card">
+        <p class="section-label text-xs">Agency · Financial Services</p>
+        <h3>FCB Chicago / PACCAR</h3>
+        <p class="text-gray-300 mt-2">
+          Recommendation engines, dynamic content, and survey-driven lease
+          renewal journeys for high-stakes financial decisions.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="paccar-hero.jpg"
+            alt="PACCAR genuine parts lease renewal campaign"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-fcb.html" class="btn">View full gallery →</a>
       </article>
 
-      <!-- CRAIN'S CHICAGO BUSINESS -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Publishing · B2B</p>
-          <h2 class="font-semibold text-lg tracking-wide">Crain’s Chicago Business</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Editorial-grade layouts, “People on the Move” placements, and subscription flows
-            tuned for CTR and lead flow.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="crains"
-              src="crains-hero.jpg"
-              alt="Crain’s Chicago Business campaign creative"
-              class="preview-image"
-            />
-          </div>
+      <!-- Crain's -->
+      <article id="crains" class="brand-card">
+        <p class="section-label text-xs">Publishing · B2B</p>
+        <h3>Crain’s Chicago Business</h3>
+        <p class="text-gray-300 mt-2">
+          Editorial-grade layouts, “People on the Move” placements, and
+          subscription flows tuned for CTR and lead flow.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="crains-hero.jpg"
+            alt="Crain’s Chicago Business Lollapalooza creative"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-crains.html" class="btn">View full gallery →</a>
       </article>
 
-      <!-- CHICAGO SUN-TIMES -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Publishing · Consumer</p>
-          <h2 class="font-semibold text-lg tracking-wide">Chicago Sun-Times</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Paywall flows, homepage hierarchy, and plan selection experiences tuned for
-            subscription conversion and mission-forward storytelling.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="suntimes"
-              src="suntimes-hero.jpg"
-              alt="Chicago Sun-Times newsletter and paywall creative"
-              class="preview-image"
-            />
-          </div>
+      <!-- Sun-Times -->
+      <article id="suntimes" class="brand-card">
+        <p class="section-label text-xs">Publishing · Consumer</p>
+        <h3>Chicago Sun-Times</h3>
+        <p class="text-gray-300 mt-2">
+          Paywall flows, homepage hierarchy, and plan selection experiences
+          tuned for subscription conversion and mission-forward storytelling.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="suntimes-hero.jpg"
+            alt="Chicago Sun-Times newsletter hub layout"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-suntimes.html" class="btn">View full gallery →</a>
       </article>
 
-      <!-- META / ZYNGA / SALESFORCE -->
-      <article class="brand-card">
-        <div>
-          <p class="section-label mb-2 text-xs">Big Tech · Private Vault</p>
-          <h2 class="font-semibold text-lg tracking-wide">Meta, Zynga, Salesforce &amp; more</h2>
-          <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-            Journey maps, SFMC/Data Cloud architecture, and performance tests that live
-            in a private vault — walk-throughs available for qualified opportunities.
-          </p>
-          <div class="preview-frame">
-            <img
-              data-key="meta"
-              src="meta-hero.jpg"
-              alt="Meta / Zynga / Salesforce private vault artwork"
-              class="preview-image"
-            />
-          </div>
+      <!-- Meta / Zynga / Salesforce -->
+      <article id="meta" class="brand-card">
+        <p class="section-label text-xs">Big Tech · Private Vault</p>
+        <h3>Meta, Zynga, Salesforce &amp; more</h3>
+        <p class="text-gray-300 mt-2">
+          Journey maps, SFMC/Data Cloud architecture, and performance tests
+          that live in a private vault — walk-throughs available for qualified
+          opportunities.
+        </p>
+
+        <div class="preview-frame">
+          <img
+            src="meta-hero.jpg"
+            alt="Meta / Zynga / Salesforce private vault hero artwork"
+            class="preview-image"
+          />
         </div>
+
         <a href="brand-meta.html" class="btn">Request walkthrough →</a>
       </article>
+
     </section>
   </main>
-
-  <script>
-    // Fallbacks for messy filenames / locations so this works with what you already have.
-    const FALLBACKS = {
-      rogers: [
-        "rogers-hero.jpg",
-        "images/rogers-hero.jpg",
-        "rogers-preview.jpg",
-        "images/rogers-preview.jpg",
-        "rogers-preview.jpg.PNG",
-        "images/rogers-preview.jpg.PNG"
-      ],
-      vs: [
-        "vs-hero.jpg",
-        "images/vs-hero.jpg",
-        "vs-preview.jpg",
-        "images/vs-preview.jpg"
-      ],
-      fcb: [
-        "fcb-hero.jpg",
-        "images/fcb-hero.jpg",
-        "paccar-hero.jpg",
-        "images/paccar-hero.jpg",
-        "fcb-preview.jpg",
-        "images/fcb-preview.jpg"
-      ],
-      crains: [
-        "crains-hero.jpg",
-        "images/crains-hero.jpg",
-        "crains-preview.jpg",
-        "images/crains-preview.jpg"
-      ],
-      suntimes: [
-        "suntimes-hero.jpg",
-        "images/suntimes-hero.jpg",
-        "suntimes-preview.jpg",
-        "images/suntimes-preview.jpg"
-      ],
-      meta: [
-        "meta-hero.jpg",
-        "images/meta-hero.jpg",
-        "meta-preview.jpg",
-        "images/meta-preview.jpg",
-        "meta-preview.jpg.jpeg",
-        "images/meta-preview.jpg.jpeg"
-      ]
-    };
-
-    window.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll("img[data-key]").forEach(img => {
-        const key = img.dataset.key;
-        const list = FALLBACKS[key] || [];
-        let index = 0;
-
-        img.addEventListener("error", function handler() {
-          index++;
-          if (index >= list.length) {
-            img.removeEventListener("error", handler);
-            return;
-          }
-          img.src = list[index];
-        });
-
-        // ensure first src is the first in the list
-        if (list.length > 0) {
-          img.src = list[0];
-        }
-      });
-    });
-  </script>
 </body>
 </html>
