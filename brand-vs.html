@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Victoria’s Secret – Brand Gallery | Judith C. L. Morris</title>
+  <title>Brand Gallery · Victoria’s Secret | Judith C. L. Morris</title>
 
   <!-- Fonts + Tailwind -->
   <link
@@ -13,19 +13,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root{
+    :root {
       --gold:#D4AF37;
-      --ink:#050509;
-    }
-
-    html,body{
-      min-height:100%;
     }
 
     body{
       margin:0;
+      min-height:100vh;
       color:#f9fafb;
-      scroll-behavior:smooth;
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background:
         radial-gradient(circle at top, #221650 0, #050320 55%, #050509 100%);
@@ -50,11 +45,17 @@
       color:#9ca3af;
     }
 
-    .btn-pill{
+    .gallery-shell{
+      max-width:1100px;
+      margin:0 auto;
+      padding:3.5rem 1.75rem 4rem;
+    }
+
+    .back-btn{
       display:inline-block;
-      padding:.55rem 1.6rem;
+      padding:.55rem 1.7rem;
       border-radius:999px;
-      border:1px solid rgba(250,250,250,.8);
+      border:1px solid rgba(250,250,250,.85);
       font-size:.75rem;
       font-weight:600;
       letter-spacing:.18em;
@@ -62,7 +63,8 @@
       text-align:center;
       transition:all .18s ease;
     }
-    .btn-pill:hover{
+
+    .back-btn:hover{
       background:var(--gold);
       color:#000;
       border-color:var(--gold);
@@ -71,133 +73,165 @@
     .device-card{
       background:radial-gradient(circle at top, #1e133f 0, #080418 55%, #050309 100%);
       border-radius:1.75rem;
-      border:1px solid rgba(212,175,55,.6);
-      padding:1.4rem 1.5rem 1.8rem;
-      box-shadow:0 20px 45px rgba(0,0,0,.7);
+      border:1px solid rgba(212,175,55,.85);
+      padding:1.75rem 1.5rem 2rem;
+      box-shadow:0 24px 60px rgba(0,0,0,.7);
+      position:relative;
     }
 
-    .device-frame{
-      margin-top:1rem;
+    .device-label-bar{
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      color:#e5e7eb;
+      padding:.55rem 1rem;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,.75);
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      margin-bottom:1.2rem;
+      background:radial-gradient(circle at top, rgba(212,175,55,.12), rgba(0,0,0,.8));
+    }
+
+    .device-label-bar span:nth-child(2){
+      opacity:.7;
+      font-weight:400;
+    }
+
+    .device-image-frame{
+      margin-top:.35rem;
       border-radius:1.5rem;
       padding:.35rem;
-      border:1px solid rgba(212,175,55,.8);
+      border:1px solid rgba(212,175,55,.7);
       background:radial-gradient(circle at top left,#43318b 0,#05030f 60%);
     }
 
-    .device-inner{
-      border-radius:1.3rem;
-      padding:.45rem;
-      background:linear-gradient(180deg,#05030f 0,#050509 100%);
-      border:1px solid rgba(212,175,55,.4);
-    }
-
-    .hero-image{
+    .device-image{
       display:block;
       width:100%;
-      border-radius:1.15rem;
+      border-radius:1.25rem;
       object-fit:cover;
+    }
+
+    .body-copy{
+      font-size:.9rem;
+      color:#d1d5db;
+      line-height:1.65;
+    }
+
+    @media (min-width: 900px){
+      .device-grid{
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:1.75rem;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-16">
-
-    <!-- Header + back button -->
-    <header class="flex items-center justify-between gap-4">
+  <main class="gallery-shell">
+    <header class="flex items-start justify-between gap-4 mb-10">
       <div>
-        <p class="section-label">Brand Gallery</p>
-        <h1 class="luxe-chrome-text text-3xl sm:text-4xl mt-3">
+        <p class="section-label mb-2">Brand Gallery</p>
+        <h1 class="luxe-chrome-text text-3xl sm:text-4xl">
           Victoria’s Secret
         </h1>
+        <p class="body-copy mt-4 max-w-xl">
+          Semi-annual sale journeys spanning email, social, app and landing pages.
+          This campaign focused on mobile-first creative, thumb-stopping imagery,
+          and clear promotional framing to lift click-through and conversion.
+        </p>
       </div>
 
-      <!-- BACK TO BRANDS WORKS HERE -->
-      <a href="brandsgallery.html#vs" class="btn-pill">
-        ← Back to brands
+      <a href="brandsgallery.html#vs" class="back-btn mt-1">
+        ← Back to Brands
       </a>
     </header>
 
-    <!-- THREE DEVICES -->
-    <section class="mt-10 grid gap-8 md:grid-cols-3">
+    <!-- DEVICE ROW -->
+    <section class="device-grid">
 
-      <!-- Device 1: Mobile feed (Facebook post) -->
+      <!-- 1. PHONE / SOCIAL FEED -->
       <article class="device-card">
-        <p class="section-label text-[0.65rem]">
-          Mobile feed creative · Primary device
-        </p>
-        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
-          Facebook / Instagram feed
-        </h2>
-        <div class="device-frame">
-          <div class="device-inner">
-            <!-- file is in the root: vs-hero.jpg -->
-            <img
-              src="vs-hero.jpg"
-              alt="Victoria’s Secret Facebook mobile sale creative"
-              class="hero-image"
-            />
-          </div>
+        <div class="device-label-bar">
+          <span>Mobile Feed Creative</span>
+          <span>Primary Device</span>
+          <span>Facebook / Instagram Feed</span>
         </div>
+
+        <div class="device-image-frame">
+          <!-- PHONE IMAGE: use your vertical social screenshot -->
+          <!-- Update src to the exact filename you uploaded (e.g. vs-phone.jpg) -->
+          <img
+            src="vs-hero.jpg"
+            alt="Victoria’s Secret Facebook / Instagram feed mobile sale creative"
+            class="device-image"
+          />
+        </div>
+
+        <p class="body-copy mt-3">
+          The hero creative leans into rich color, bold typography, and a clear
+          promotional hook (“$10 OFF full-priced bras”) while still feeling
+          aspirational. Placement in the feed was tuned for thumb-stopping impact
+          and quick comprehension of offer + CTA.
+        </p>
       </article>
 
-      <!-- Device 2: Email -->
+      <!-- 2. TABLET / PROMOTIONAL EMAIL -->
       <article class="device-card">
-        <p class="section-label text-[0.65rem]">
-          Email creative · Supporting device
-        </p>
-        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
-          Promotional email layout
-        </h2>
-        <div class="device-frame">
-          <div class="device-inner">
-            <!-- reuse the same asset for now -->
-            <img
-              src="vs-hero.jpg"
-              alt="Victoria’s Secret email creative for bra promotion"
-              class="hero-image"
-            />
-          </div>
+        <div class="device-label-bar">
+          <span>Promo Email Layout</span>
+          <span>Supporting Device</span>
+          <span>Tablet / Desktop View</span>
         </div>
+
+        <div class="device-image-frame">
+          <!-- TABLET/EMAIL IMAGE -->
+          <!-- Replace vs-email.jpg with your tablet/email screenshot filename -->
+          <img
+            src="vs-email.jpg"
+            alt="Victoria’s Secret promotional email layout for semi-annual sale"
+            class="device-image"
+          />
+        </div>
+
+        <p class="body-copy mt-3">
+          Email layouts carried the same hero art, but added copy depth for
+          style details, size range, and redemption info. Modules below the fold
+          cross-promoted matching sets and coordinating categories to increase
+          average order value.
+        </p>
       </article>
 
-      <!-- Device 3: Landing / app -->
+      <!-- 3. LAPTOP / APP OR LANDING PAGE -->
       <article class="device-card">
-        <p class="section-label text-[0.65rem]">
-          Landing / App · Supporting device
-        </p>
-        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
-          App / landing page hero
-        </h2>
-        <div class="device-frame">
-          <div class="device-inner">
-            <!-- same asset again, framed as a different device -->
-            <img
-              src="vs-hero.jpg"
-              alt="Victoria’s Secret app or landing page hero creative"
-              class="hero-image"
-            />
-          </div>
+        <div class="device-label-bar">
+          <span>App / Landing Page Hero</span>
+          <span>Supporting Device</span>
+          <span>MacBook / Laptop View</span>
         </div>
-      </article>
 
+        <div class="device-image-frame">
+          <!-- LAPTOP / LANDING IMAGE -->
+          <!-- Replace vs-landing.jpg with your MacBook / landing page screenshot filename -->
+          <img
+            src="vs-landing.jpg"
+            alt="Victoria’s Secret app or landing page hero for semi-annual sale"
+            class="device-image"
+          />
+        </div>
+
+        <p class="body-copy mt-3">
+          The app and landing page hero reiterated the core message, but
+          simplified surrounding UI to keep focus on product and CTA. All three
+          devices — feed, email, and landing — worked together to reinforce the
+          same creative story no matter where the customer entered the journey.
+        </p>
+      </article>
     </section>
 
-    <!-- Copy block -->
-    <section class="mt-10 max-w-3xl text-sm sm:text-base leading-relaxed text-gray-200 space-y-4">
-      <p>
-        Semi-annual sale journeys spanned email, social, app, and landing pages.
-        The hero creative leans into rich color, luxe styling, and a clear promotional
-        hook (“$10 OFF full-priced bras”) while still feeling aspirational.
-      </p>
-      <p>
-        Behind the scenes, journeys were set up to target recent bra purchasers,
-        lapsed shoppers, and high-intent browsers. Messaging across feed, email,
-        and app reinforced the same core offer while allowing device-specific
-        framing for click-through and conversion.
-      </p>
-    </section>
-
-    <footer class="mt-16 text-xs text-gray-500 text-center">
+    <footer class="mt-12 text-xs text-gray-500">
       © 2025 Judith C. L. Morris
     </footer>
   </main>
