@@ -50,28 +50,6 @@
       color:#9ca3af;
     }
 
-    .device-frame{
-      margin-top:2rem;
-      border-radius:1.75rem;
-      padding:.4rem;
-      border:1px solid rgba(212,175,55,.8);
-      background:radial-gradient(circle at top left,#43318b 0,#05030f 60%);
-    }
-
-    .device-inner{
-      border-radius:1.4rem;
-      padding:.5rem;
-      background:linear-gradient(180deg,#05030f 0,#050509 100%);
-      border:1px solid rgba(212,175,55,.45);
-    }
-
-    .hero-image{
-      display:block;
-      width:100%;
-      border-radius:1.2rem;
-      object-fit:cover;
-    }
-
     .btn-pill{
       display:inline-block;
       padding:.55rem 1.6rem;
@@ -84,18 +62,47 @@
       text-align:center;
       transition:all .18s ease;
     }
-
     .btn-pill:hover{
       background:var(--gold);
       color:#000;
       border-color:var(--gold);
     }
+
+    .device-card{
+      background:radial-gradient(circle at top, #1e133f 0, #080418 55%, #050309 100%);
+      border-radius:1.75rem;
+      border:1px solid rgba(212,175,55,.6);
+      padding:1.4rem 1.5rem 1.8rem;
+      box-shadow:0 20px 45px rgba(0,0,0,.7);
+    }
+
+    .device-frame{
+      margin-top:1rem;
+      border-radius:1.5rem;
+      padding:.35rem;
+      border:1px solid rgba(212,175,55,.8);
+      background:radial-gradient(circle at top left,#43318b 0,#05030f 60%);
+    }
+
+    .device-inner{
+      border-radius:1.3rem;
+      padding:.45rem;
+      background:linear-gradient(180deg,#05030f 0,#050509 100%);
+      border:1px solid rgba(212,175,55,.4);
+    }
+
+    .hero-image{
+      display:block;
+      width:100%;
+      border-radius:1.15rem;
+      object-fit:cover;
+    }
   </style>
 </head>
 <body>
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-16">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-16">
 
-    <!-- Top bar: label + back -->
+    <!-- Header + back button -->
     <header class="flex items-center justify-between gap-4">
       <div>
         <p class="section-label">Brand Gallery</p>
@@ -104,42 +111,90 @@
         </h1>
       </div>
 
+      <!-- BACK TO BRANDS WORKS HERE -->
       <a href="brandsgallery.html#vs" class="btn-pill">
         ← Back to brands
       </a>
     </header>
 
-    <!-- Device / hero creative -->
-    <section class="mt-10">
-      <p class="section-label text-xs mb-3">
-        Mobile feed creative · Primary device
-      </p>
+    <!-- THREE DEVICES -->
+    <section class="mt-10 grid gap-8 md:grid-cols-3">
 
-      <div class="device-frame">
-        <div class="device-inner">
-          <!-- IMPORTANT: this path matches your repo: file is in the root next to brand-vs.html -->
-          <img
-            src="vs-hero.jpg"
-            alt="Victoria’s Secret Facebook mobile sale creative"
-            class="hero-image"
-          />
+      <!-- Device 1: Mobile feed (Facebook post) -->
+      <article class="device-card">
+        <p class="section-label text-[0.65rem]">
+          Mobile feed creative · Primary device
+        </p>
+        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
+          Facebook / Instagram feed
+        </h2>
+        <div class="device-frame">
+          <div class="device-inner">
+            <!-- file is in the root: vs-hero.jpg -->
+            <img
+              src="vs-hero.jpg"
+              alt="Victoria’s Secret Facebook mobile sale creative"
+              class="hero-image"
+            />
+          </div>
         </div>
-      </div>
+      </article>
 
-      <!-- Description copy (your text) -->
-      <div class="mt-8 text-sm sm:text-base leading-relaxed text-gray-200 space-y-4 max-w-3xl">
-        <p>
-          The hero creative leans into rich color, bold imagery, and a clear promotional hook
-          (“$10 OFF full-priced bras”) while still feeling aspirational. The CTA and price lock
-          in the offer; the model choice and styling keep the tone luxe instead of discount-bin.
+      <!-- Device 2: Email -->
+      <article class="device-card">
+        <p class="section-label text-[0.65rem]">
+          Email creative · Supporting device
         </p>
-        <p>
-          Behind the scenes, this journey connected to triggered and scheduled email, on-site promo
-          modules, and in-app messaging to reinforce the offer across channels. Audience segments
-          were built around recency/frequency of bra purchases and intent signals from site browse
-          behavior.
+        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
+          Promotional email layout
+        </h2>
+        <div class="device-frame">
+          <div class="device-inner">
+            <!-- reuse the same asset for now -->
+            <img
+              src="vs-hero.jpg"
+              alt="Victoria’s Secret email creative for bra promotion"
+              class="hero-image"
+            />
+          </div>
+        </div>
+      </article>
+
+      <!-- Device 3: Landing / app -->
+      <article class="device-card">
+        <p class="section-label text-[0.65rem]">
+          Landing / App · Supporting device
         </p>
-      </div>
+        <h2 class="mt-2 text-sm font-semibold tracking-[0.16em] uppercase">
+          App / landing page hero
+        </h2>
+        <div class="device-frame">
+          <div class="device-inner">
+            <!-- same asset again, framed as a different device -->
+            <img
+              src="vs-hero.jpg"
+              alt="Victoria’s Secret app or landing page hero creative"
+              class="hero-image"
+            />
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Copy block -->
+    <section class="mt-10 max-w-3xl text-sm sm:text-base leading-relaxed text-gray-200 space-y-4">
+      <p>
+        Semi-annual sale journeys spanned email, social, app, and landing pages.
+        The hero creative leans into rich color, luxe styling, and a clear promotional
+        hook (“$10 OFF full-priced bras”) while still feeling aspirational.
+      </p>
+      <p>
+        Behind the scenes, journeys were set up to target recent bra purchasers,
+        lapsed shoppers, and high-intent browsers. Messaging across feed, email,
+        and app reinforced the same core offer while allowing device-specific
+        framing for click-through and conversion.
+      </p>
     </section>
 
     <footer class="mt-16 text-xs text-gray-500 text-center">
