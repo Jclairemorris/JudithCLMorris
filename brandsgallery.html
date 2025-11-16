@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campaign Galleries · Brands | Judith C. L. Morris</title>
+  <title>Victoria’s Secret · Brand Gallery | Judith C. L. Morris</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;700&display=swap"
@@ -12,25 +12,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
-      --gold:#D4AF37;
-      --ink:#050509;
-      --eggplant:#130a30;
-      --card:#050509;
-    }
-
-    html, body {
-      min-height: 100%;
-    }
+    :root { --gold:#D4AF37; }
 
     body {
       margin: 0;
+      padding: 0;
       color: #f9fafb;
-      scroll-behavior: smooth;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
         Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #221650 0, #050320 55%, #050509 100%);
+      background: radial-gradient(circle at top, #221650 0, #050320 55%, #050509 100%);
     }
 
     .luxe-chrome-text {
@@ -52,6 +42,22 @@
       text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
     }
 
+    .back-btn {
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 0.55rem 1.7rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: 0.18s;
+    }
+    .back-btn:hover {
+      background: var(--gold);
+      color: #050509;
+      border-color: var(--gold);
+    }
+
     .section-label {
       text-transform: uppercase;
       letter-spacing: 0.22em;
@@ -59,223 +65,173 @@
       color: #9ca3af;
     }
 
-    .brand-card {
-      background: radial-gradient(
-        circle at top,
-        #1b103a 0,
-        #050309 55%,
-        #020108 100%
-      );
-      border-radius: 1.75rem;
-      border: 1px solid rgba(212, 175, 55, 0.8);
-      padding: 2rem 1.75rem 2.25rem;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
-      position: relative;
-    }
-
-    .brand-card h3 {
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      margin-top: 0.35rem;
-    }
-
-    .brand-card p {
-      font-size: 0.9rem;
-    }
-
-    .preview-frame {
-      margin-top: 1.25rem;
-      border-radius: 1.5rem;
-      padding: 0.65rem;
+    .touchpoint {
+      background: radial-gradient(circle at top, #15101f 0, #040308 60%, #020107 100%);
+      border-radius: 2rem;
       border: 1px solid rgba(212, 175, 55, 0.9);
-      background: radial-gradient(circle at top left, #151222 0, #020108 70%);
+      padding: 1.9rem 1.8rem 1.6rem;
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.85);
     }
 
-    .preview-image {
+    .device-shell {
+      border-radius: 1.6rem;
+      background: #050509;
+      padding: 0.85rem;
+      border: 2px solid rgba(212, 175, 55, 0.95);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .device-inner {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .device-inner img {
       display: block;
       width: 100%;
-      height: 260px;
-      border-radius: 1.2rem;
+      height: auto;
       object-fit: cover;
-      background: #050509;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 1.4rem;
-      padding: 0.7rem 1.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(250, 250, 250, 0.85);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-align: center;
-      transition: all 0.18s ease;
-    }
-
-    .btn:hover {
-      background: var(--gold);
-      color: #050509;
-      border-color: var(--gold);
-    }
-
-    header nav a {
+    .metrics {
+      margin-top: 1.2rem;
+      border-radius: 1.25rem;
+      background: radial-gradient(circle at top, #151219 0, #050309 70%);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      padding: 1rem 1.1rem 0.9rem;
       font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      line-height: 1.5;
     }
 
-    header nav a.active {
-      color: var(--gold);
+    .metrics strong {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.68rem;
+      color: #e5e7eb;
+    }
+
+    .metrics-footer {
+      font-size: 0.7rem;
+      margin-top: 0.45rem;
+      color: #d1d5db;
     }
   </style>
 </head>
 <body>
+  <main class="max-w-6xl mx-auto px-6 pt-12 pb-20">
 
-  <!-- Simple top nav (approximate to what you had) -->
-  <header class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-6 flex items-center justify-between">
-    <div class="text-xs tracking-[0.3em] uppercase text-gray-300">
-      Judith C. L. Morris · Portfolio
+    <div class="flex justify-between items-start mb-10">
+      <div>
+        <p class="section-label">Brand Gallery</p>
+        <h1 class="text-3xl sm:text-4xl luxe-chrome-text mt-2">
+          Victoria’s Secret
+        </h1>
+        <p class="mt-4 text-gray-300 max-w-xl leading-relaxed text-sm sm:text-base">
+          Semi-annual sale journeys spanning email, social, app and landing pages.
+          Mobile-first creative, thumb-stopping imagery, and promotional framing
+          designed to lift click-through and conversion.
+        </p>
+      </div>
+
+      <a href="brandsgallery.html#vs" class="back-btn">← Back to Brands</a>
     </div>
-    <nav class="flex gap-6 text-gray-300">
-      <a href="brandsgallery.html" class="active">Brands</a>
-      <a href="work.html">Work</a>
-      <a href="strategy.html">Strategy</a>
-      <a href="bigtech.html">Big Tech</a>
-    </nav>
-  </header>
 
-  <main id="brands" class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-20">
-    <p class="section-label">Campaign Galleries</p>
-    <h1 class="luxe-chrome-text text-3xl sm:text-4xl md:text-5xl mt-4">
-      Brands
-    </h1>
+    <!-- 3-column device grid -->
+    <section class="grid md:grid-cols-3 gap-8">
 
-    <p class="text-gray-200 text-sm sm:text-base mt-6 max-w-3xl leading-relaxed">
-      Tap a brand to open its gallery-only view. Each gallery uses the same
-      white-device, gold-trim frames as your main portfolio—no overlays, just
-      clean visuals. Then open the detailed case studies for the campaigns that
-      interest you.
-    </p>
-
-    <!-- Brand grid: 2 rows x 3 columns -->
-    <section class="mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-
-      <!-- ROGER'S ENTERPRISES -->
-      <article class="brand-card" id="rogers">
-        <p class="section-label text-xs">Retail · Jewelry</p>
-        <h3>Roger’s Enterprises</h3>
-        <p class="text-gray-300 mt-2">
-          Early Black Friday “today only” pushes, abandoned cart flows, and
-          cross-device continuity across email, SMS, mobile, push, and web.
-        </p>
-        <div class="preview-frame">
-          <!-- your existing Black Friday preview image -->
-          <img
-            src="images/rogers-preview.jpg"
-            alt="Roger’s Enterprises Black Friday surprise sale creative"
-            class="preview-image"
-          />
+      <!-- MOBILE SOCIAL FEED · PHONE -->
+      <article class="touchpoint">
+        <div class="section-label text-xs mb-3">
+          Mobile Social Feed · Phone
         </div>
-        <a href="brand-rogers.html" class="btn">View full gallery →</a>
+
+        <div class="device-shell">
+          <div class="device-inner">
+            <img
+              src="images/vs-hero-phone.jpg"
+              alt="Victoria’s Secret mobile social feed – $10 OFF full-priced bras"
+            />
+          </div>
+        </div>
+
+        <div class="metrics mt-4">
+          <p><strong>Urgency</strong> Final-day “last chance” framing with a clear
+            $10-off hook on full-priced bras.</p>
+          <p class="mt-1"><strong>Value</strong> High-impact offer framed against rich,
+            luxe color to keep the brand premium.</p>
+          <p class="mt-1"><strong>Connection</strong> Creative centers a confident Black
+            model and styling that feels celebratory, not discount-bin.</p>
+          <p class="metrics-footer">
+            Conversions increased by +18%.<br />
+            Incremental revenue increased by +$420K.
+          </p>
+        </div>
       </article>
 
-      <!-- VICTORIA’S SECRET -->
-      <article class="brand-card" id="vs">
-        <p class="section-label text-xs">Retail · Intimates</p>
-        <h3>Victoria’s Secret</h3>
-        <p class="text-gray-300 mt-2">
-          Semi-annual sale journeys spanning email, social, app and landing
-          pages—optimized mobile-first for conversion and AOV.
-        </p>
-        <div class="preview-frame">
-          <!-- use the new hero/phone screenshot you just uploaded -->
-          <img
-            src="images/vs-preview.jpg"
-            alt="Victoria’s Secret semi-annual sale mobile creative"
-            class="preview-image"
-          />
+      <!-- PROMO EMAIL LAYOUT · TABLET -->
+      <article class="touchpoint">
+        <div class="section-label text-xs mb-3">
+          Promo Email Layout · Tablet
         </div>
-        <a href="brand-vs.html" class="btn">View full gallery →</a>
+
+        <div class="device-shell">
+          <div class="device-inner">
+            <img
+              src="images/vs-hero-tablet.jpg"
+              alt="Victoria’s Secret semi-annual sale email layout on tablet"
+            />
+          </div>
+        </div>
+
+        <div class="metrics mt-4">
+          <p><strong>Urgency</strong> “Last day of the Semi-Annual Sale” headline
+            drives immediate clicks.</p>
+          <p class="mt-1"><strong>Value</strong> Product collage pairs hero sets with
+            complementary accessories for higher AOV.</p>
+          <p class="mt-1"><strong>Connection</strong> Copy leans into celebration and
+            self-treat language to keep the tone aspirational.</p>
+          <p class="metrics-footer">
+            Email CTR lifted by +22%.<br />
+            Incremental revenue increased by +$510K.
+          </p>
+        </div>
       </article>
 
-      <!-- FCB / PACCAR -->
-      <article class="brand-card" id="fcb">
-        <p class="section-label text-xs">Agency · Automotive</p>
-        <h3>FCB Chicago / PACCAR</h3>
-        <p class="text-gray-300 mt-2">
-          Recommendation engines, dynamic content, and survey-driven lease
-          renewal journeys for high-stakes financial decisions.
-        </p>
-        <div class="preview-frame">
-          <img
-            src="images/fcb-preview.jpg"
-            alt="PACCAR cold-weather parts email creative"
-            class="preview-image"
-          />
+      <!-- LANDING PAGE HERO · DESKTOP -->
+      <article class="touchpoint">
+        <div class="section-label text-xs mb-3">
+          Landing Page Hero · Desktop
         </div>
-        <a href="brand-fcb.html" class="btn">View full gallery →</a>
-      </article>
 
-      <!-- CRAIN’S CHICAGO BUSINESS -->
-      <article class="brand-card" id="crains">
-        <p class="section-label text-xs">Publishing · B2B</p>
-        <h3>Crain’s Chicago Business</h3>
-        <p class="text-gray-300 mt-2">
-          Lollapalooza “People on the Move” placements and subscription flows
-          tuned for CTR and lead flow.
-        </p>
-        <div class="preview-frame">
-          <img
-            src="images/crains-preview.jpg"
-            alt="Crain’s Chicago Business Lollapalooza mobile placement"
-            class="preview-image"
-          />
+        <div class="device-shell">
+          <div class="device-inner">
+            <img
+              src="images/vs-hero-desktop.jpg"
+              alt="Victoria’s Secret Semi-Annual Sale desktop hero"
+            />
+          </div>
         </div>
-        <a href="brand-crains.html" class="btn">View full gallery →</a>
-      </article>
 
-      <!-- CHICAGO SUN-TIMES -->
-      <article class="brand-card" id="suntimes">
-        <p class="section-label text-xs">Publishing · Consumer</p>
-        <h3>Chicago Sun-Times</h3>
-        <p class="text-gray-300 mt-2">
-          Paywall flows, homepage hierarchy, and plan selection experiences
-          tuned for subscription conversion and mission-forward storytelling.
-        </p>
-        <div class="preview-frame">
-          <img
-            src="images/suntimes-preview.jpg"
-            alt="Chicago Sun-Times newsletter / support the newsroom layout"
-            class="preview-image"
-          />
+        <div class="metrics mt-4">
+          <p><strong>Urgency</strong> Bold typographic hero announcing “The Semi-Annual
+            Sale – Ends Soon, Up to 60% Off”.</p>
+          <p class="mt-1"><strong>Value</strong> Clean, single-focus hero keeps the
+            discount and end date unmistakable.</p>
+          <p class="mt-1"><strong>Connection</strong> Color system stays on-brand
+            with VS pink while supporting a frictionless path to product grids.</p>
+          <p class="metrics-footer">
+            Landing-page click-through increased by +15%.<br />
+            Incremental revenue increased by +$360K.
+          </p>
         </div>
-        <a href="brand-suntimes.html" class="btn">View full gallery →</a>
-      </article>
-
-      <!-- META / PRIVATE VAULT -->
-      <article class="brand-card" id="meta">
-        <p class="section-label text-xs">Big Tech · Private Vault</p>
-        <h3>Meta, Zynga, Salesforce &amp; more</h3>
-        <p class="text-gray-300 mt-2">
-          Journey maps, SFMC/Data Cloud architecture, and performance tests
-          that live in a private vault—walk-throughs available for qualified
-          opportunities.
-        </p>
-        <div class="preview-frame">
-          <img
-            src="images/meta-preview.jpg"
-            alt="Colorful illustration representing Meta/Zynga/Salesforce private vault work"
-            class="preview-image"
-          />
-        </div>
-        <a href="brand-meta.html" class="btn">Request walkthrough →</a>
       </article>
 
     </section>
+
+    <footer class="text-xs text-gray-500 mt-10">
+      © 2025 Judith C. L. Morris
+    </footer>
   </main>
 </body>
 </html>
