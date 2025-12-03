@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Judith C. L. Morris | CRM • Digital • Creative Marketing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Judith C. L. Morris — CRM, digital, product, and creative marketing. I design data-informed, story-led customer journeys for retail, tech, and media brands." />
+
+  <!-- Body font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #050320;
+      --ink-soft: #a2a3c7;
+      --ink-strong: #f5f5ff;
+      --midnight: #0b0b2a;
+      --violet: #2f1f93;
+      --accent: #ff5fb5;
+      --card-bg: rgba(5, 3, 32, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.06);
+
+      /* Gold chrome baseline */
+      --gold: #d4af37;
+      --gold-mid: #b78a2f;
+      --gold-light: #f7e9b5;
+    }
+
+    /* === Custom font: Luxe Serif === */
+    @font-face {
+      font-family: "LuxeSerif";
+      src: url("fonts/LuxeSerif-Regular.woff2") format("woff2"),
+           url("fonts/LuxeSerif-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink-strong);
+      background:
+        radial-gradient(circle at top, #2f1f93 0%, #050320 55%) fixed,
+        #050320;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ====== Layout ====== */
+    .shell {
+      width: min(1120px, 100% - 40px);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 3, 32, 0.94),
+        rgba(5, 3, 32, 0.78),
+        transparent
+      );
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 229, 188, 0.5);
+      background: radial-gradient(circle at 20% 0%, #f7e9b5 0%, #d4af37 40%, #7f5a16 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(244, 229, 188, 0.35);
+      font-family: "LuxeSerif", serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark span {
+      transform: translateY(0.5px);
+    }
+
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .wordmark-main {
+      font-family: "LuxeSerif", serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .wordmark-sub {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        var(--gold-mid),
+        var(--gold-light),
+        var(--gold-mid)
+      );
+      transition: width 180ms ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      border-radius: 999px;
+      border: 1px solid rgba(247, 233, 181, 0.36);
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: radial-gradient(circle at 0 0, #f7e9b5 0%, #d4af37 35%, #7f5a16 100%);
+      color: #120a02;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 20px rgba(247, 233, 181, 0.35);
+    }
+
+    .nav-cta span {
+      font-size: 0.9em;
+    }
+
+    /* ====== Hero ====== */
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      padding: 64px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.35fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 32px;
+      }
+    }
+
+    .chrome-text {
+      font-family: "LuxeSerif", serif;
+      font-size: clamp(1.9rem, 2.8vw, 2.4rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      background: linear-gradient(
+        90deg,
+        var(--gold-mid) 0%,
+        var(--gold-light) 28%,
+        var(--gold) 50%,
+        var(--gold-light) 72%,
+        var(--gold-mid) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-body {
+      font-size: 0.98rem;
+      color: #d3d4f0;
+      max-width: 32rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      background: rgba(5, 3, 32, 0.75);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      padding: 9px 18px;
+      border: 1px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: background 160ms ease-out, transform 120ms ease-out, box-shadow 120ms ease-out, border-color 160ms ease-out;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #f7e9b5 0%, #d4af37 35%, #7f5a16 100%);
+      border-color: rgba(247, 233, 181, 0.5);
+      color: #120a02;
+      box-shadow: 0 0 24px rgba(247, 233, 181, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(247, 233, 181, 0.55);
+    }
+
+    .btn-ghost {
+      background: rgba(5, 3, 32, 0.7);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--ink-soft);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(5, 3, 32, 0.9);
+    }
+
+    /* Hero right side (bio / stats) */
+    .hero-panel {
+      border-radius: 24px;
+      padding: 20px 18px 16px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(
+          135deg,
+          rgba(247, 233, 181, 0.06),
+          rgba(5, 3, 32, 0.96)
+        );
+      box-shadow:
+        0 32px 60px rgba(0, 0, 0, 0.65),
+        0 0 0 0.5px rgba(247, 233, 181, 0.05) inset;
+    }
+
+    .hero-photo-wrap {
+      width: 150px;   /* was 120px */
+      height: 150px;  /* was 120px */
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border: 2px solid rgba(247, 233, 181, 0.6);
+      box-shadow: 0 0 24px rgba(247, 233, 181, 0.35);
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .hero-panel-title {
+      font-size: 0.86rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .hero-panel-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-light);
+    }
+
+    .hero-panel-body {
+      font-size: 0.9rem;
+      color: #d6d7f5;
+      margin-bottom: 14px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      padding: 9px 10px;
+      border-radius: 14px;
+      background: rgba(5, 3, 32, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .stat-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    .stat-note {
+      font-size: 0.7rem;
+      color: #a6a7cd;
+      margin-top: 2px;
+    }
+
+    /* ====== Sections ====== */
+    .section {
+      padding: 24px 0 12px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .section-kicker {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: "LuxeSerif", serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
+
+    .section-link {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+    }
+
+    .section-link span {
+      opacity: 0.7;
+      margin-left: 4px;
+    }
+
+    /* Feature grid (case studies) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: 18px;
+      padding: 13px 13px 11px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 150ms ease-out, box-shadow 150ms ease-out, border-color 150ms ease-out, background 150ms ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+      border-color: rgba(247, 233, 181, 0.25);
+      background: radial-gradient(circle at 0 0, rgba(247, 233, 181, 0.16), rgba(5, 3, 32, 0.96));
+    }
+
+    .card-kicker {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+    }
+
+    .card-title {
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .card-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+
+    .card-pill {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--ink-soft);
+      background: rgba(5, 3, 32, 0.9);
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 3px;
+    }
+
+    .card-arrow {
+      position: absolute;
+      right: 10px;
+      bottom: 9px;
+      font-size: 0.7rem;
+      opacity: 0.55;
+    }
+
+    /* Skills strip */
+    .skill-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .skill-chip {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.74rem;
+      background: rgba(5, 3, 32, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--ink-soft);
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 36px;
+      padding: 16px 0 20px;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+    }
+
+    .footer-links a span {
+      opacity: 0.7;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+  <header>
+    <div class="shell nav">
+      <div class="nav-left">
+        <div class="logo-mark">
+          <span>JM</span>
+        </div>
+        <div class="wordmark">
+          <div class="wordmark-main">Judith C. L. Morris</div>
+          <div class="wordmark-sub">CRM • Digital • Creative Marketing</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="brandsgallery.html">Work</a>
+        <a href="#skills">Focus</a>
+        <a href="brandsgallery.html">Brands Gallery</a>
+        <a href="mailto:jclairemorris@yahoo.com" class="nav-cta">
+          <span>Contact</span>
+          <span>↗</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="chrome-text">CRM • DIGITAL • CREATIVE MARKETING</div>
+
+          <h1 class="hero-title">
+            Strategic leader for
+            <span>CRM, digital, product,</span>
+            and creative marketing.
+          </h1>
+
+          <p class="hero-tagline">
+            Chicago-based • Remote-first • CRM, digital & product marketing, creative direction
+          </p>
+
+          <p class="hero-body">
+            I design customer journeys that look elevated on the surface and are wired underneath
+            for segmentation, testing, and measurable lift. I connect CRM architecture, digital
+            performance, product positioning, and creative direction so every touchpoint feels
+            intentional — and converts.
+          </p>
+
+          <div class="hero-pills">
+            <div class="pill">CRM & lifecycle strategy</div>
+            <div class="pill">Digital & performance marketing</div>
+            <div class="pill">Product marketing & positioning</div>
+            <div class="pill">Creative direction & content systems</div>
+            <div class="pill">MarTech & SFMC</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="brandsgallery.html" class="btn btn-primary">
+              View brands gallery
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="hero-photo-wrap">
+            <img src="https://i.imgur.com/ZV7KtE4.jpeg" alt="Portrait of Judith C. L. Morris" />
+          </div>
+
+          <div class="hero-panel-header">
+            <div class="hero-panel-title">Profile Snapshot</div>
+            <div class="hero-panel-tag">CRM • Digital • Creative</div>
+          </div>
+
+          <p class="hero-panel-body">
+            I’m a hands-on strategic lead who can move from narrative to numbers to nurture flow
+            without losing the thread. I’ve owned campaigns and journeys across retail, CPG,
+            higher ed, and media — partnering with product, sales, and engineering to make sure
+            ideas actually get built and perform.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-label">Industry Experience</div>
+              <div class="stat-value">10+ years</div>
+              <div class="stat-note">CRM, digital, brand</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Platforms</div>
+              <div class="stat-value">SFMC, Braze</div>
+              <div class="stat-note">+ Meta Ads, GA</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Strength</div>
+              <div class="stat-value">Strategy to execution</div>
+              <div class="stat-note">Cross-functional leadership</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Work Section ===== -->
+    <section class="section" id="work">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Selected Work</div>
+            <h2 class="section-title">Campaigns & brand stories</h2>
+          </div>
+          <a href="brandsgallery.html" class="section-link">
+            View full brands gallery <span>↗</span>
+          </a>
+        </div>
+
+        <div class="grid">
+          <!-- All cards match brands gallery; all link into it -->
+          <a href="brandsgallery.html#rogers" class="card">
+            <div class="card-kicker">Retail • Jewelry</div>
+            <div class="card-title">Roger’s Enterprises — Black Friday & evergreen ecosystem</div>
+            <div class="card-pill-row">
+              <span class="card-pill">Promo architecture</span>
+              <span class="card-pill">Creative direction</span>
+              <span class="card-pill">Testing</span>
+            </div>
+            <div class="card-meta">
+              <span>Seasonal surges and always-on storytelling that kept revenue moving without cheapening the brand.</span>
+            </div>
+            <div class="card-arrow">Open in gallery ↗</div>
+          </a>
+
+          <a href="brandsgallery.html#victorias-secret" class="card">
+            <div class="card-kicker">Retail • Intimates</div>
+            <div class="card-title">Victoria’s Secret — mobile-first semi-annual journeys</div>
+            <div class="card-pill-row">
+              <span class="card-pill">Lifecycle</span>
+              <span class="card-pill">Email & app</span>
+              <span class="card-pill">Testing</span>
+            </div>
+            <div class="card-meta">
+              <span>Coordinated app, email, and landing pages to drive AOV while staying true to a very specific brand voice.</span>
+            </div>
+            <div class="card-arrow">Open in gallery ↗</div>
+          </a>
+
+          <a href="brandsgallery.html#crains" class="card">
+            <div class="card-kicker">Publishing • B2B</div>
+            <div class="card-title">Crain’s Chicago Business — audience development</div>
+            <div class="card-pill-row">
+              <span class="card-pill">Audience strategy</span>
+              <span class="card-pill">Editorial campaigns</span>
+              <span class="card-pill">Lifecycle</span>
+            </div>
+            <div class="card-meta">
+              <span>Editorial-grade layouts and flows that respected both journalism and performance.</span>
+            </div>
+            <div class="card-arrow">Open in gallery ↗</div>
+          </a>
+
+          <a href="brandsgallery.html#sun-times" class="card">
+            <div class="card-kicker">Publishing • Consumer</div>
+            <div class="card-title">Chicago Sun-Times — paywall & plan selection flows</div>
+            <div class="card-pill-row">
+              <span class="card-pill">Paywall strategy</span>
+              <span class="card-pill">Conversion flows</span>
+              <span class="card-pill">Subscription</span>
+            </div>
+            <div class="card-meta">
+              <span>Homepage hierarchy and plan selection tuned for subscriber growth and mission-forward storytelling.</span>
+            </div>
+            <div class="card-arrow">Open in gallery ↗</div>
+          </a>
+
+          <a href="brandsgallery.html#isaca-iia" class="card">
+            <div class="card-kicker">Professional association • GRC</div>
+            <div class="card-title">ISACA & IIA — GRC Conference + certifications</div>
+            <div class="card-pill-row">
+              <span class="card-pill">Member journeys</span>
+              <span class="card-pill">Event campaigns</span>
+              <span class="card-pill">Retention</span>
+            </div>
+            <div class="card-meta">
+              <span>Integrated campaigns that filled conference seats, drove training enrollments, and nudged members to renew on time.</span>
+            </div>
+            <div class="card-arrow">Open in gallery ↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills / Focus ===== -->
+    <section class="section" id="skills">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Focus & toolkit</div>
+            <h2 class="section-title">Where I create the most value</h2>
+          </div>
+          <a href="brandsgallery.html" class="section-link">
+            See skills in action <span>↗</span>
+          </a>
+        </div>
+
+        <div class="skill-strip">
+          <div class="skill-chip">CRM & lifecycle architecture</div>
+          <div class="skill-chip">Digital & performance marketing</div>
+          <div class="skill-chip">Salesforce Marketing Cloud & MarTech</div>
+          <div class="skill-chip">Product marketing & positioning</div>
+          <div class="skill-chip">Email, SMS & push creative direction</div>
+          <div class="skill-chip">Segmentation & audience strategy</div>
+          <div class="skill-chip">Journey troubleshooting & QA</div>
+          <div class="skill-chip">Experimentation & A/B testing</div>
+          <div class="skill-chip">Brand & campaign storytelling</div>
+          <div class="skill-chip">Stakeholder & cross-functional leadership</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <div>
+        © <span id="year"></span> Judith C. L. Morris
+        <span style="opacity:0.65;"> All creative, strategy, and campaigns represented here are shared respectfully for portfolio purposes.</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:jclairemorris@yahoo.com">Email <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/judithclmorris" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+        <a href="brandsgallery.html">Brands gallery <span>↗</span></a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Set current year automatically
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
