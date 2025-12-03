@@ -3,496 +3,668 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Brands | Judith C. L. Morris</title>
+  <title>Case Studies | Judith C. L. Morris</title>
 
   <!-- Fonts + Tailwind -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
-      --gold: #d4af37;
-      --ink: #050316;
+    :root{
+      --gold:#D4AF37;
+      --ink:#050316;
     }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
-        "Segoe UI Emoji";
-      background: radial-gradient(circle at top, #2f1f93 0, #050316 55%);
-      color: #e5e7eb;
+    html,body{
+      margin:0;
+      padding:0;
+      background:radial-gradient(circle at top,#24155d 0,#050316 55%);
+      color:#e5e7eb;
+      scroll-behavior:smooth;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
-    .container-x {
-      width: min(1140px, 92vw);
-      margin-inline: auto;
+    .container-x{width:min(1140px,92vw);margin-inline:auto}
+
+    .luxe-chrome-text{
+      font-family:'Cinzel Decorative',serif;
+      background:linear-gradient(180deg,#f7f7f7 0%,#e7cf86 20%,#b88a2a 40%,#f4e7b2 60%,#9a6a12 80%,#f6f2da 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 1px 0 rgba(255,255,255,.22),0 4px 18px rgba(0,0,0,.65);
+      letter-spacing:-.03em;
     }
 
-    /* Luxe Serif gold-chrome heading */
-    .luxe-heading {
-      font-family: "Luxe Serif", "Times New Roman", serif;
-      background: linear-gradient(
-        180deg,
-        #fdf7e3 0%,
-        #f4d88a 20%,
-        #b7871f 45%,
-        #f3e7b5 60%,
-        #8b5c12 85%,
-        #fdf7e3 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.22),
-        0 6px 24px rgba(0, 0, 0, 0.55);
-      letter-spacing: -0.03em;
+    /* Buttons */
+    .btn-case-solid{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.9rem 1.7rem;
+      border-radius:999px;
+      border:1px solid var(--gold);
+      background:linear-gradient(135deg,#fdf7e3,#e2c46d,#b7871f);
+      color:#050316;
+      font-size:.78rem;
+      font-weight:600;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition:.25s;
+    }
+    .btn-case-solid:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 32px rgba(212,175,55,.45);
     }
 
-    /* DEVICE FRAMES */
-    .device-shell {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .btn-case-ghost{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.75rem 1.4rem;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,.5);
+      color:#e5e7eb;
+      font-size:.72rem;
+      font-weight:500;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      text-decoration:none;
+      background:transparent;
+      transition:.25s;
+    }
+    .btn-case-ghost:hover{
+      border-color:var(--gold);
+      color:#fefce8;
+      background:rgba(212,175,55,.12);
     }
 
-    .device-frame {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 1.6rem;
-      background: #f9fafb;
-      border: 2px solid var(--gold);
-      box-shadow:
-        0 14px 35px rgba(0, 0, 0, 0.75),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
-      padding: 0.65rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition:
-        box-shadow 0.35s ease,
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        background 0.35s ease;
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding:.35rem .9rem;
+      font-size:.7rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .pill-soft{background:rgba(148,163,184,.15);color:#e5e7eb;border:1px solid rgba(148,163,184,.4)}
+    .pill-gold{background:rgba(212,175,55,.08);color:#facc15;border:1px solid rgba(212,175,55,.6)}
+
+    article{
+      border-top:1px solid rgba(148,163,184,.2);
+      padding-top:3rem;
+      padding-bottom:2.5rem;
+    }
+    article:first-of-type{border-top:none}
+    .case-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.5fr) minmax(0,1.2fr);
+      gap:2.5rem;
+    }
+    @media (max-width:900px){
+      .case-grid{grid-template-columns:1fr}
     }
 
-    .device-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      overflow: hidden;
-      background: #020617;
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 0 25px rgba(0, 0, 0, 0.7);
-    }
+    ul{margin:0;padding-left:1.1rem}
+    li{margin-bottom:.25rem}
 
-    .device-screen img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      font-size:.75rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:#9ca3af;
+      text-decoration:none;
     }
-
-    /* Type-specific tweaks */
-    .device-mac .device-frame {
-      border-radius: 1.4rem;
-    }
-
-    .device-mac::after {
-      content: "";
-      position: absolute;
-      bottom: -0.45rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40%;
-      height: 0.3rem;
-      border-radius: 999px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.2),
-        rgba(250, 234, 177, 0.9),
-        rgba(255, 255, 255, 0.2)
-      );
-      opacity: 0.8;
-    }
-
-    .device-phone .device-frame {
-      max-width: 68%;
-      border-radius: 2.2rem;
-      padding: 0.55rem;
-    }
-
-    /* slightly tighter screen radius inside phone */
-    .device-phone .device-screen {
-      border-radius: 1.7rem;
-    }
-
-    .device-phone::before {
-      /* top speaker */
-      content: "";
-      position: absolute;
-      top: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 28%;
-      height: 0.18rem;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.75);
-      z-index: 10;
-    }
-
-    .device-phone::after {
-      /* bottom home indicator */
-      content: "";
-      position: absolute;
-      bottom: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 26%;
-      height: 0.22rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      opacity: 0.85;
-      z-index: 10;
-    }
-
-    .device-tablet .device-frame {
-      max-width: 85%;
-      border-radius: 1.3rem;
-      padding: 0.55rem;
-    }
-
-    .device-tablet::before {
-      /* tablet camera */
-      content: "";
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #fff, #1f2937);
-      box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.7);
-      z-index: 10;
-    }
-
-    /* Glow on card hover/focus */
-    .group:hover .device-frame,
-    .group:focus-visible .device-frame {
-      border-color: #f5e3a1;
-      background: radial-gradient(
-        circle at top,
-        #ffffff 0,
-        #fdf4cf 40%,
-        #f6e4a6 100%
-      );
-      box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.85),
-        0 0 40px rgba(212, 175, 55, 0.75);
-      transform: translateY(-2px);
-    }
-
-    .group:hover .device-screen img,
-    .group:focus-visible .device-screen img {
-      transform: scale(1.05);
-    }
+    .back-link:hover{color:#fefce8}
   </style>
 </head>
-<body class="pb-16">
-  <!-- HEADER -->
-  <header class="container-x pt-10 pb-8">
-    <p class="text-xs uppercase tracking-[0.25em] text-slate-300 mb-2">
-      Portfolio · Brand Overview
-    </p>
-    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400 mb-3">
-      Brands Gallery <span class="text-slate-500/80">(Table of Contents)</span>
-    </p>
-    <h1 class="luxe-heading text-3xl sm:text-4xl mb-4">
-      Campaign brands &amp; device previews
-    </h1>
-    <p class="text-sm sm:text-base text-slate-200 max-w-3xl leading-relaxed">
-      In graduate school, my instructor — then an editor at the
-      <span class="font-semibold">Chicago Tribune</span> — told us:
-      “You’re going to have to learn the tech side and how to advertise on
-      smartphones.” They did not lie. This page is a quick index of the brands
-      and devices I’ve designed for. Click a brand to see the full gallery,
-      then open the detailed case studies for the campaigns that interest you.
-    </p>
+<body>
 
-    <!-- Back to About button -->
-    <div class="mt-6">
-      <a
-        href="about.html"
-        class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[0.7rem] uppercase tracking-[0.24em] text-slate-100 hover:bg-white/10 hover:border-[var(--gold)] hover:text-amber-100 transition"
-      >
-        ← Back to About Page
+  <!-- Top bar / Back nav -->
+  <header class="border-b border-white/5">
+    <div class="container-x flex items-center justify-between gap-4 py-5">
+      <a href="portfolio.html#work" class="back-link">
+        ← Back to Portfolio
+      </a>
+      <a href="case-studies.html" class="btn-case-solid">
+        View All Case Studies
       </a>
     </div>
   </header>
 
-  <!-- BRAND GRID -->
-  <main class="container-x">
-    <div
-      class="grid gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr"
-    >
-      <!-- ROGER'S ENTERPRISES — MACBOOK -->
-      <a
-        href="brand-rogers.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Retail · Jewelry
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            Roger’s Enterprises
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Early Black Friday, surprise “today only” pushes, abandoned cart
-            flows, and cross-device continuity across email, SMS, mobile, and
-            web.
-          </p>
-        </div>
-        <div class="relative device-shell device-mac aspect-[16/10]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/iJlPGrV.png"
-                alt="Roger’s Early Black Friday hero"
-              />
-            </div>
-          </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →  
-        </span>
-      </a>
+  <!-- Page intro -->
+  <main class="container-x py-10 md:py-14 space-y-14">
+    <section class="max-w-3xl space-y-4">
+      <p class="text-xs tracking-[0.28em] uppercase text-slate-400">
+        Selected Work · Case Studies
+      </p>
+      <h1 class="luxe-chrome-text text-3xl sm:text-4xl md:text-5xl">
+        Campaigns that moved revenue, not just pixels.
+      </h1>
+      <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+        Each case study combines storytelling with the numbers hiring managers care about:
+        revenue, conversion, AOV, CAC, and list growth. These are snapshots of how I use CRM,
+        lifecycle, and creative direction to ship measurable outcomes across retail, publishing,
+        and big tech.
+      </p>
+    </section>
 
-      <!-- VICTORIA'S SECRET — IPHONE -->
-      <a
-        href="https://i.imgur.com/9EGLlw8.jpeg"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Retail · Intimates
+    <!-- ================= Rogers ================= -->
+    <section id="case-studies" class="space-y-16">
+      <article id="case-rogers">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Retail · Jewelry · B2C
           </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            Victoria’s Secret
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            Rogers Enterprises — Multi-Channel Holiday & Lifecycle Engine
           </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Mobile-first semi-annual sale journeys with coordinated email, app,
-            and landing page creative tuned for conversion and AOV.
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As Creative Director I led an omni-channel holiday and lifecycle engine that spanned
+            email, SMS, paid media, social, TV, radio, direct mail, and web. From Black Friday to
+            abandoned-cart journeys, I owned CRM strategy and creative to move both new and returning
+            customers at scale.
           </p>
-        </div>
-        <!-- uses the new screenshot, not the 2022 one -->
-        <div class="relative device-shell device-phone aspect-[9/16]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/9EGLlw8.jpeg"
-                alt="Victoria’s Secret Facebook promo"
-              />
-            </div>
-          </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →
-        </span>
-      </a>
+        </header>
 
-      <!-- FCB CHICAGO / TOYOTA FS — TABLET -->
-      <a
-        href="brand-fcb.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Agency · Financial Services
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            FCB Chicago &amp; Toyota Financial Services
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Recommendation engines, dynamic content, and survey-driven lease
-            renewal journeys for high-stakes financial decisions.
-          </p>
-        </div>
-        <div class="relative device-shell device-tablet aspect-[4/3]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/8DPdaI9.jpeg"
-                alt="FCB dynamic email preview"
-              />
+        <div class="case-grid text-sm text-slate-200">
+          <!-- Left: Context -->
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>Mass-market consumers, primarily women 25–55; value-conscious but brand-aware.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>B2C retail across ecommerce + store footprint.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Channel Mix</p>
+                <p>Email, SMS, paid media, social, web, TV, radio, direct mail.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">My Focus</p>
+                <p>Creative direction, CRM strategy, offer design, journey build, experimentation, and readouts.</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →
-        </span>
-      </a>
 
-      <!-- CRAIN'S CHICAGO BUSINESS — MACBOOK -->
-      <a
-        href="brand-crains.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Publishing · B2B
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            Crain’s Chicago Business
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Editorial-grade layouts, “People on the Move” placements, and
-            subscription flows built to respect both journalism and performance.
-          </p>
-        </div>
-        <div class="relative device-shell device-mac aspect-[16/10]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/Nlas1si.jpeg"
-                alt="Crain’s mobile layout"
-              />
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">Objectives</h3>
+                <ul class="space-y-1">
+                  <li>Make Black Friday a record-breaking revenue event.</li>
+                  <li>Use lifecycle + AI-powered recovery journeys to convert high-intent visitors.</li>
+                  <li>Grow the email file efficiently to lower future CAC.</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400 mb-2">My Role</h3>
+                <ul class="space-y-1">
+                  <li>Directed the omni-channel holiday engine across owned and paid channels.</li>
+                  <li>Designed AI-powered abandoned cart and browse journeys and evaluated performance.</li>
+                  <li>Owned testing roadmap (subject lines, promos, creative variants) and executive storytelling.</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →
-        </span>
-      </a>
 
-      <!-- CHICAGO SUN-TIMES — IPHONE -->
-      <a
-        href="brand-suntimes.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Publishing · Consumer
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            Chicago Sun-Times
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Paywall flows, homepage hierarchy, and plan selection experiences
-            tuned for subscription conversion and mission-forward storytelling.
-          </p>
-        </div>
-        <div class="relative device-shell device-phone aspect-[9/16]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/eUkWfLU.jpeg"
-                alt="Sun-Times paywall layout"
-              />
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">Key Initiatives</h3>
+              <ul class="space-y-1">
+                <li><span class="pill pill-gold mr-1">Black Friday</span> Early launch across all channels with hero “Today Only” creative.</li>
+                <li><span class="pill pill-soft mr-1">Free Diamonds</span> New-customer acquisition campaign during an off-peak month.</li>
+                <li><span class="pill pill-soft mr-1">Abandoned Cart/Browse</span> AI-powered 3-step recovery journey with dynamic imagery.</li>
+                <li><span class="pill pill-soft mr-1">Mother’s Day</span> High-value gifting campaign focused on premium AOV.</li>
+                <li><span class="pill pill-soft mr-1">Flash Sale</span> 48-hour urgency play using primarily owned channels.</li>
+              </ul>
             </div>
           </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →
-        </span>
-      </a>
 
-      <!-- ISACA / GRC — TABLET -->
-      <a
-        href="brand-isaca.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Professional Association · GRC
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            ISACA &amp; IIA — GRC Conference + Certifications
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Integrated GRC Conference campaigns and automated certification
-            journeys that drove registrations, filled training cohorts, and
-            nudged members to renew on time.
-          </p>
-        </div>
-        <div class="relative device-shell device-tablet aspect-[4/3]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/OQmsADS.jpeg"
-                alt="ISACA GRC Conference creative"
-              />
+          <!-- Right: Numbers -->
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-3">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400">Black Friday Mega Sale</p>
+              <ul class="space-y-1">
+                <li>⚡ <strong>$12.5MM</strong> in Black Friday campaign revenue, <strong>+35% YoY</strong>.</li>
+                <li>📧 <strong>150k+</strong> new emails collected during the holiday period.</li>
+                <li>💳 CAC held at approximately <strong>$22</strong> while scaling volume.</li>
+                <li>📈 Conversion rate and AOV exceeded internal holiday benchmarks.</li>
+              </ul>
             </div>
-          </div>
-        </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Open brand gallery →
-        </span>
-      </a>
 
-      <!-- META / BIG TECH VAULT — MACBOOK -->
-      <a
-        href="brand-meta.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
-      >
-        <div class="mb-4">
-          <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
-            Big Tech · Private Vault
-          </p>
-          <h2 class="mt-1 text-lg font-semibold text-slate-50">
-            Meta, Zynga, Salesforce &amp; more
-          </h2>
-          <p class="mt-2 text-xs text-slate-300">
-            Journey maps, SFMC/Data Cloud architecture, and performance tests
-            that live in a private vault — walk-throughs available for qualified
-            opportunities.
-          </p>
-        </div>
-        <div class="relative device-shell device-mac aspect-[16/10]">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="https://i.imgur.com/ZUsH68O.jpeg"
-                alt="Judith portrait"
-              />
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-3">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400">Free Diamonds Campaign</p>
+              <ul class="space-y-1">
+                <li>💎 Generated <strong>$1.8MM</strong> incremental revenue in an off-peak month.</li>
+                <li>🧲 Delivered a <strong>1.5%</strong> lift in first-time buyer conversion.</li>
+                <li>📧 Added <strong>85k+</strong> new subscribers to the email file.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-3">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400">AI Abandoned Cart / Browse</p>
+              <ul class="space-y-1">
+                <li>🔁 3-step journey: Cart → Browse → Final Offer with AI-generated product imagery.</li>
+                <li>👁️‍🗨️ Delivered roughly <strong>45%</strong> more impressions vs. the original single-touch flow.</li>
+                <li>📨 CTR increased around <strong>20%</strong> on key variants.</li>
+                <li>💰 Recovery conversion rate improved by <strong>18%</strong>, driving ~<strong>$4.1MM</strong> annualized revenue.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-3">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400">Mother’s Day & Flash Sale</p>
+              <ul class="space-y-1">
+                <li>🌷 Mother’s Day campaign drove approximately <strong>$3.2MM</strong> in three weeks.</li>
+                <li>⏱️ 48-hour Flash Sale generated <strong>$1.1MM</strong> in revenue.</li>
+              </ul>
             </div>
           </div>
         </div>
-        <span
-          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-        >
-          Request walkthrough →
-        </span>
-      </a>
-    </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-rogers.html" class="btn-case-ghost">
+            View Campaign Gallery
+          </a>
+        </div>
+      </article>
+
+      <!-- ================= Victoria’s Secret ================= -->
+      <article id="case-vs">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Retail · Intimates · B2C
+          </p>
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            Victoria’s Secret — Semi-Annual Sale Domination
+          </h2>
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As a Senior Analyst (contract) I supported Semi-Annual Sale and Holiday CRM efforts
+            across email, SMS, and paid media. Every journey, test, and hero had to land while
+            protecting the brand and hitting aggressive revenue targets.
+          </p>
+        </header>
+
+        <div class="case-grid text-sm text-slate-200">
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>Women 18–50; brand-loyal, trend-aware, shopping sales for replenishment and value.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>Global B2C retail and ecommerce.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Channel Mix</p>
+                <p>Email, SMS, web, paid + organic social, TV, radio, direct mail.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">My Focus</p>
+                <p>Lifecycle sequencing, promo architecture, segmentation, and creative direction for mobile-first journeys.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">Objectives & Approach</h3>
+              <ul class="space-y-1">
+                <li>Protect and grow revenue during one of the brand’s most important SAS + Holiday windows.</li>
+                <li>Design journeys that felt premium but performed like rigorously tested performance marketing.</li>
+                <li>Partner with Merchandising and Product to use bundling and tiered offers to raise AOV without eroding margin.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Channel Performance</p>
+              <ul class="space-y-1">
+                <li>📱 Drove <strong>50MM+</strong> top-of-funnel impressions across brand ecosystems.</li>
+                <li>📣 Cross-channel SAS + Holiday reach exceeded <strong>180MM+</strong> impressions.</li>
+                <li>📧 Email and SMS sequences carried a significant share of attributable online conversions.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Business Impact</p>
+              <ul class="space-y-1">
+                <li>💰 Supported SAS + Holiday CRM efforts driving about <strong>$18.5MM</strong> online revenue impact.</li>
+                <li>🧪 Directed email/SMS experimentation that increased AOV to roughly <strong>$78</strong>.</li>
+                <li>🎯 Helped stabilize CAC at around <strong>$14</strong> through segmentation and content sequencing optimization.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-vs.html" class="btn-case-ghost">
+            View Campaign Gallery
+          </a>
+        </div>
+      </article>
+
+      <!-- ================= FCB / AI personalization & Toyota FS ================= -->
+      <article id="case-fcb">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Agency · B2B Services
+          </p>
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            FCB Chicago — AI-Powered Personalization & Financial Journeys
+          </h2>
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As Senior Campaign Solutions Manager I partnered with cross-functional teams to ship
+            an AI-driven personalization engine for a major retailer and a high-response survey
+            program for Toyota Financial Services—turning research, creative, and data into real
+            revenue and retention value.
+          </p>
+        </header>
+
+        <div class="case-grid text-sm text-slate-200">
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>Varies by client: mass-market retail shoppers and auto finance customers.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>B2B agency work in support of B2C and B2B clients.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Channel Mix</p>
+                <p>Web offers, email, paid social, and survey programs.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">My Focus</p>
+                <p>Journey architecture, creative testing frameworks, UX messaging, and client-ready storytelling.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">AI-Driven Personalized Offers</h3>
+              <ul class="space-y-1">
+                <li>Launched an AI personalization engine to determine next-best offer based on real-time browsing and purchase history.</li>
+                <li>Deployed personalized blocks across web, email, and paid social retargeting.</li>
+                <li>Built creative testing frameworks that other accounts were able to reuse.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Retail Client Results</p>
+              <ul class="space-y-1">
+                <li>👀 Personalized offer units delivered <strong>25MM+</strong> impressions.</li>
+                <li>📈 Conversion rate lift of about <strong>+15%</strong> vs static experiences.</li>
+                <li>💳 AOV up roughly <strong>+12%</strong> to around <strong>$95</strong> with personalized bundles.</li>
+                <li>💰 Approximately <strong>$6MM</strong> attributable revenue from personalized offers.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Toyota Financial Services Survey</p>
+              <ul class="space-y-1">
+                <li>🧾 Led UX messaging and structure for a satisfaction survey program.</li>
+                <li>🗳️ Achieved around a <strong>95%</strong> response rate from the targeted audience.</li>
+                <li>📊 Insights reprioritized digital product features and service flows.</li>
+                <li>💸 Influenced an estimated <strong>$50MM</strong> in annual customer retention value.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-fcb.html" class="btn-case-ghost">
+            View Campaign Gallery
+          </a>
+        </div>
+      </article>
+
+      <!-- ================= ISACA / GRC ================= -->
+      <article id="case-isaca">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Professional Association · GRC · Certifications
+          </p>
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            ISACA &amp; IIA — GRC Conference &amp; “Big 5” Certification Journeys
+          </h2>
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As Senior Marketing Automation Manager I owned campaigns that did two jobs at once:
+            fill the GRC Conference with the right mix of governance, risk, and compliance
+            professionals, and keep certification holders engaged and renewed on time across
+            the “Big 5” (CISA, CISM, CRISC, CDPSE, CGEIT).
+          </p>
+        </header>
+
+        <div class="case-grid text-sm text-slate-200">
+          <!-- Left: Context & objectives -->
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>IT audit, cyber, risk, and compliance leaders; existing and aspiring ISACA certificants.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>Global professional association and conference business.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Channel Mix</p>
+                <p>Email, landing pages, social, in-product messaging, and marketing automation.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">My Focus</p>
+                <p>Campaign design, journey performance, certification renewal flows, and governance-aligned segmentation.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">GRC Conference Integrated Campaign</h3>
+              <ul class="space-y-1">
+                <li>Designed multi-touch journeys that exceeded registration goals by about <strong>10–15%</strong>.</li>
+                <li>Drove roughly <strong>60%</strong> of event registrations through email while reducing abandonment.</li>
+                <li>Segmented by past attendance, role, and certification to highlight CPE hours, hot topics, and networking.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">“Big 5” Certification Prep & Renewal</h3>
+              <ul class="space-y-1">
+                <li>Built certification renewal journeys that increased on-time renewals and member retention.</li>
+                <li>Developed governance-aligned segmentation and workflow logic across global markets.</li>
+                <li>Used predictive reminder cadences to prevent last-minute lapses.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right: Results -->
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">
+                GRC Conference Outcomes
+              </p>
+              <ul class="space-y-1">
+                <li>👥 Registration met target and closed around <strong>+10–15%</strong> above initial forecast.</li>
+                <li>📧 Email contributed an estimated <strong>60%</strong> of total registrations.</li>
+                <li>🧾 Landing-page refinements reduced abandonment and drove more paid registrations.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">
+                Certification & Renewal Impact
+              </p>
+              <ul class="space-y-1">
+                <li>🎓 Renewal journeys increased on-time certification renewals across the portfolio.</li>
+                <li>📊 Members saw copy tied to their real status (“You’re X CPE hours away”) making requirements feel concrete.</li>
+                <li>🔁 The combination of prep campaigns and renewal flows improved long-term value per member.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-isaca.html" class="btn-case-ghost">
+            View GRC Campaign Gallery
+          </a>
+        </div>
+      </article>
+
+      <!-- ================= Crain’s ================= -->
+      <article id="case-crains">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Publishing · B2B · Advertising
+          </p>
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            Crain’s Chicago Business — Audience Engagement & Interface Design
+          </h2>
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As Senior Database Marketing Manager I focused on ad performance and editorial
+            experience at the same time—delivering campaigns and UI that respected readers while
+            generating impressions, conversions, and premium ad revenue.
+          </p>
+        </header>
+
+        <div class="case-grid text-sm text-slate-200">
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>Business executives, professionals, and civic leaders in the region.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>B2B publishing and advertising.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">Lollapalooza Ad Campaign</h3>
+              <ul class="space-y-1">
+                <li>Delivered editorial and advertising campaigns generating <strong>10MM</strong> impressions and <strong>85k+</strong> conversions.</li>
+                <li>Designed high-performing creative variants achieving about <strong>25%</strong> CTR vs control.</li>
+                <li>Balanced editorial tone with advertiser performance demands using UX-driven layouts.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">“People on the Move” Homepage UI</h3>
+              <ul class="space-y-1">
+                <li>Redesigned the module to prioritize scannability, profile clicks, and newsletter sign-ups.</li>
+                <li>Balanced editorial needs with sponsorship and advertising priorities.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Lollapalooza Results</p>
+              <ul class="space-y-1">
+                <li>👀 About <strong>10MM</strong> total impressions.</li>
+                <li>🔗 Roughly <strong>85k+</strong> click-through conversions to the ticketing partner.</li>
+                <li>💰 Sold out premium ad inventory, generating about <strong>$500k</strong> in revenue.</li>
+              </ul>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">People on the Move Metrics</p>
+              <ul class="space-y-1">
+                <li>📈 Traffic to the section up roughly <strong>+15%</strong>.</li>
+                <li>👤 Profile CTR up approximately <strong>+10%</strong>.</li>
+                <li>📧 Newsletter sign-ups from this module up about <strong>+5%</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-crains.html" class="btn-case-ghost">
+            View Campaign Gallery
+          </a>
+        </div>
+      </article>
+
+      <!-- ================= Chicago Sun-Times ================= -->
+      <article id="case-suntimes">
+        <header class="mb-6 space-y-3">
+          <p class="text-xs tracking-[0.22em] uppercase text-slate-400">
+            Publishing · B2C · Membership
+          </p>
+          <h2 class="luxe-chrome-text text-2xl sm:text-3xl">
+            Chicago Sun-Times — Digital Membership & Experience
+          </h2>
+          <p class="text-sm sm:text-base text-slate-200 max-w-3xl">
+            As Senior Marketing Automation Manager I helped shift the Sun-Times from a hard
+            paywall to a membership-forward, email-gated model—engineering CRM systems and
+            journeys that grew the registered audience, improved email performance, and drove
+            donations and subscriptions without sacrificing access.
+          </p>
+        </header>
+
+        <div class="case-grid text-sm text-slate-200">
+          <div class="space-y-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Audience</p>
+                <p>Civic-minded local news readers across Chicagoland.</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-1">Business Type</p>
+                <p>B2C news + membership.</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">Paywall to Email-Gated Model</h3>
+              <ul class="space-y-1">
+                <li>Engineered a membership-forward CRM system during paywall transformation.</li>
+                <li>Transitioned from hard paywall to email-gated access for key content.</li>
+                <li>Introduced distinct segments: Member (donated) vs Non-Member (email-only).</li>
+              </ul>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-xs uppercase tracking-[0.22em] text-slate-400">Lifecycle & Newsletter Architecture</h3>
+              <ul class="space-y-1">
+                <li>Redesigned lifecycle architecture for 20+ vertical newsletters.</li>
+                <li>Built donor and subscription-focused onboarding series.</li>
+                <li>Improved segmentation logic so editorial-aligned messaging frameworks matched reader intent.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-1">
+              <p class="uppercase tracking-[0.22em] text-xs text-slate-400 mb-2">Audience & Revenue Impact</p>
+              <ul class="space-y-1">
+                <li>👥 Registered user base grew by <strong>300k+</strong> Non-Members in year one of the new model.</li>
+                <li>📧 Welcome + onboarding series converted roughly <strong>1.2%</strong> of new registrants to paying members.</li>
+                <li>📨 Newsletter open rates improved by about <strong>+22%</strong> across segments.</li>
+                <li>🔁 Subscriber churn decreased by around <strong>15%</strong> thanks to better lifecycle experience.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="brand-suntimes.html" class="btn-case-ghost">
+            View Campaign Gallery
+          </a>
+        </div>
+      </article>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="mt-12 border-t border-white/5">
-    <div
-      class="container-x flex flex-col items-center justify-between gap-4 py-6 text-[0.7rem] text-slate-400 sm:flex-row"
-    >
-      <span>© 2025 Judith C. L. Morris · CRM &amp; Automation Storytelling</span>
-      <span class="text-slate-500">
-        Case studies available on request for sensitive work.
-      </span>
+  <footer class="border-t border-white/5 mt-8">
+    <div class="container-x py-6 text-[0.7rem] text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>© 2025 Judith C. L. Morris · CRM & Automation Storytelling</span>
+      <span class="text-slate-500">Additional campaign details available on request.</span>
     </div>
   </footer>
 </body>
