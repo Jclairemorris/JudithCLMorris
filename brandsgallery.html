@@ -7,7 +7,7 @@
 
   <!-- Fonts + Tailwind -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
     rel="stylesheet"
   />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,8 +30,10 @@
       width: min(1140px, 92vw);
       margin-inline: auto;
     }
+
+    /* Luxe Serif gold-chrome heading */
     .luxe-heading {
-      font-family: "Cinzel Decorative", serif;
+      font-family: "Luxe Serif", "Times New Roman", serif;
       background: linear-gradient(
         180deg,
         #fdf7e3 0%,
@@ -48,13 +50,162 @@
         0 6px 24px rgba(0, 0, 0, 0.55);
       letter-spacing: -0.03em;
     }
+
+    /* DEVICE FRAMES */
+    .device-shell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .device-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.6rem;
+      background: #f9fafb;
+      border: 2px solid var(--gold);
+      box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+      padding: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        box-shadow 0.35s ease,
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .device-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      background: #020617;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Type-specific tweaks */
+    .device-mac .device-frame {
+      border-radius: 1.4rem;
+    }
+
+    .device-mac::after {
+      content: "";
+      position: absolute;
+      bottom: -0.45rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 0.3rem;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(250, 234, 177, 0.9),
+        rgba(255, 255, 255, 0.2)
+      );
+      opacity: 0.8;
+    }
+
+    .device-phone .device-frame {
+      max-width: 70%;
+      border-radius: 2rem;
+      padding: 0.5rem;
+    }
+
+    .device-phone::before {
+      /* top speaker */
+      content: "";
+      position: absolute;
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26%;
+      height: 0.18rem;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.75);
+      z-index: 10;
+    }
+
+    .device-phone::after {
+      /* bottom home indicator */
+      content: "";
+      position: absolute;
+      bottom: 17%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22%;
+      height: 0.22rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      opacity: 0.85;
+      z-index: 10;
+    }
+
+    .device-tablet .device-frame {
+      max-width: 85%;
+      border-radius: 1.3rem;
+      padding: 0.55rem;
+    }
+
+    .device-tablet::before {
+      /* tablet camera */
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff, #1f2937);
+      box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.7);
+      z-index: 10;
+    }
+
+    /* Glow on card hover/focus */
+    .group:hover .device-frame,
+    .group:focus-visible .device-frame {
+      border-color: #f5e3a1;
+      background: radial-gradient(
+        circle at top,
+        #ffffff 0,
+        #fdf4cf 40%,
+        #f6e4a6 100%
+      );
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.85),
+        0 0 40px rgba(212, 175, 55, 0.75);
+      transform: translateY(-2px);
+    }
+
+    .group:hover .device-screen img,
+    .group:focus-visible .device-screen img {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body class="pb-16">
   <!-- HEADER -->
   <header class="container-x pt-10 pb-8">
-    <p class="text-xs uppercase tracking-[0.25em] text-slate-300 mb-4">
+    <p class="text-xs uppercase tracking-[0.25em] text-slate-300 mb-2">
       Portfolio · Brand Overview
+    </p>
+    <p class="text-[0.7rem] uppercase tracking-[0.28em] text-slate-400 mb-3">
+      Brands Gallery <span class="text-slate-500/80">(Table of Contents)</span>
     </p>
     <h1 class="luxe-heading text-3xl sm:text-4xl mb-4">
       Campaign brands &amp; device previews
@@ -67,6 +218,16 @@
       and devices I’ve designed for. Click a brand to see the full gallery,
       then open the detailed case studies for the campaigns that interest you.
     </p>
+
+    <!-- Back to About button -->
+    <div class="mt-6">
+      <a
+        href="about.html"
+        class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[0.7rem] uppercase tracking-[0.24em] text-slate-100 hover:bg-white/10 hover:border-[var(--gold)] hover:text-amber-100 transition"
+      >
+        ← Back to About Page
+      </a>
+    </div>
   </header>
 
   <!-- BRAND GRID -->
@@ -74,10 +235,10 @@
     <div
       class="grid gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-fr"
     >
-      <!-- ROGER'S ENTERPRISES -->
+      <!-- ROGER'S ENTERPRISES — MACBOOK -->
       <a
         href="brand-rogers.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -92,29 +253,27 @@
             web.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/iJlPGrV.png"
-            alt="Roger’s Early Black Friday hero"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-mac aspect-[16/10]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/iJlPGrV.png"
+                alt="Roger’s Early Black Friday hero"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- VICTORIA'S SECRET -->
+      <!-- VICTORIA'S SECRET — IPHONE -->
       <a
-        href="brand-vs.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        href="https://i.imgur.com/9EGLlw8.jpeg"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -128,29 +287,27 @@
             and landing page creative tuned for conversion and AOV.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/AZfRJCj.jpeg"
-            alt="Victoria’s Secret mobile hero"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-phone aspect-[9/19]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/AZfRJCj.jpeg"
+                alt="Victoria’s Secret mobile hero"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- FCB CHICAGO / TOYOTA FS -->
+      <!-- FCB CHICAGO / TOYOTA FS — TABLET -->
       <a
         href="brand-fcb.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -164,29 +321,27 @@
             renewal journeys for high-stakes financial decisions.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/8DPdaI9.jpeg"
-            alt="FCB dynamic email preview"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-tablet aspect-[4/3]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/8DPdaI9.jpeg"
+                alt="FCB dynamic email preview"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- CRAIN'S CHICAGO BUSINESS -->
+      <!-- CRAIN'S CHICAGO BUSINESS — MACBOOK -->
       <a
         href="brand-crains.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -200,29 +355,27 @@
             subscription flows built to respect both journalism and performance.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/Nlas1si.jpeg"
-            alt="Crain’s mobile layout"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-mac aspect-[16/10]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/Nlas1si.jpeg"
+                alt="Crain’s mobile layout"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- CHICAGO SUN-TIMES -->
+      <!-- CHICAGO SUN-TIMES — IPHONE -->
       <a
         href="brand-suntimes.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -236,29 +389,27 @@
             tuned for subscription conversion and mission-forward storytelling.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/eUkWfLU.jpeg"
-            alt="Sun-Times paywall layout"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-phone aspect-[9/19]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/eUkWfLU.jpeg"
+                alt="Sun-Times paywall layout"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- ISACA / GRC -->
+      <!-- ISACA / GRC — TABLET -->
       <a
         href="brand-isaca.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -273,30 +424,27 @@
             nudged members to renew on time.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <!-- Replace src with your hosted image path for the hero -->
-          <img
-            src="https://i.imgur.com/OQmsADS.jpeg"
-            alt="ISACA GRC Conference creative"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            View full gallery →
-          </span>
+        <div class="relative device-shell device-tablet aspect-[4/3]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/OQmsADS.jpeg"
+                alt="ISACA GRC Conference creative"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Open brand gallery →
+        </span>
       </a>
 
-      <!-- META / BIG TECH VAULT -->
+      <!-- META / BIG TECH VAULT — MACBOOK -->
       <a
         href="brand-meta.html"
-        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)]"
+        class="group relative flex flex-col justify-between rounded-3xl border border-slate-700/70 bg-black/40 p-5 sm:p-6 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[var(--gold)] hover:shadow-[0_24px_70px_rgba(212,175,55,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]/80"
       >
         <div class="mb-4">
           <p class="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">
@@ -311,23 +459,21 @@
             opportunities.
           </p>
         </div>
-        <div
-          class="relative overflow-hidden rounded-2xl border border-[var(--gold)]/70 bg-black/60 aspect-[3/4]"
-        >
-          <img
-            src="https://i.imgur.com/ZUsH68O.jpeg"
-            alt="Judith portrait"
-            class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"
-          ></div>
-          <span
-            class="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
-          >
-            Request walkthrough →
-          </span>
+        <div class="relative device-shell device-mac aspect-[16/10]">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="https://i.imgur.com/ZUsH68O.jpeg"
+                alt="Judith portrait"
+              />
+            </div>
+          </div>
         </div>
+        <span
+          class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
+        >
+          Request walkthrough →
+        </span>
       </a>
     </div>
   </main>
