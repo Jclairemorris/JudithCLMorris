@@ -121,19 +121,24 @@
     }
 
     .device-phone .device-frame {
-      max-width: 70%;
-      border-radius: 2rem;
-      padding: 0.5rem;
+      max-width: 68%;
+      border-radius: 2.2rem;
+      padding: 0.55rem;
+    }
+
+    /* slightly tighter screen radius inside phone */
+    .device-phone .device-screen {
+      border-radius: 1.7rem;
     }
 
     .device-phone::before {
       /* top speaker */
       content: "";
       position: absolute;
-      top: 18%;
+      top: 8%;
       left: 50%;
       transform: translateX(-50%);
-      width: 26%;
+      width: 28%;
       height: 0.18rem;
       border-radius: 999px;
       background: rgba(148, 163, 184, 0.75);
@@ -144,10 +149,10 @@
       /* bottom home indicator */
       content: "";
       position: absolute;
-      bottom: 17%;
+      bottom: 8%;
       left: 50%;
       transform: translateX(-50%);
-      width: 22%;
+      width: 26%;
       height: 0.22rem;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.9);
@@ -266,7 +271,7 @@
         <span
           class="mt-3 inline-flex w-max rounded-full bg-black/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-slate-100"
         >
-          Open brand gallery →
+          Open brand gallery →  
         </span>
       </a>
 
@@ -287,12 +292,13 @@
             and landing page creative tuned for conversion and AOV.
           </p>
         </div>
-        <div class="relative device-shell device-phone aspect-[9/19]">
+        <!-- uses the new screenshot, not the 2022 one -->
+        <div class="relative device-shell device-phone aspect-[9/16]">
           <div class="device-frame">
             <div class="device-screen">
               <img
-                src="https://i.imgur.com/AZfRJCj.jpeg"
-                alt="Victoria’s Secret mobile hero"
+                src="https://i.imgur.com/9EGLlw8.jpeg"
+                alt="Victoria’s Secret Facebook promo"
               />
             </div>
           </div>
@@ -389,7 +395,7 @@
             tuned for subscription conversion and mission-forward storytelling.
           </p>
         </div>
-        <div class="relative device-shell device-phone aspect-[9/19]">
+        <div class="relative device-shell device-phone aspect-[9/16]">
           <div class="device-frame">
             <div class="device-screen">
               <img
