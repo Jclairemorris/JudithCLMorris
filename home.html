@@ -1,534 +1,363 @@
-html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Judith C. L. Morris | Events & Experiential Programs</title>
+  <title>Judith C. L. Morris | CRM • Creative • Events</title>
 
-  <!-- Inter only (match site) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind (match site) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --gold: #d4af37;
-      --gold-light: #f7e9b5;
-      --gold-deep: #7f5b16;
-      --ink: #040308;
+    :root{
+      --pink:#f6c1d1;
+      --pink-deep:#e78fb3;
+      --green:#2fbf9b;
+      --green-deep:#1e8f74;
+      --ink:#0b0f14;
+      --card:#0f172a;
+      --slate:#94a3b8;
+      --text:#e5e7eb;
     }
 
-    /* Luxe Serif – replace paths with your actual font files */
-    @font-face {
-      font-family: "LuxeSerif";
-      src:
-        url("fonts/LuxeSerif-Regular.woff2") format("woff2"),
-        url("fonts/LuxeSerif-Regular.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    body{
+    *{box-sizing:border-box;}
+    html,body{
       margin:0;
+      padding:0;
       min-height:100vh;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+      color:var(--text);
       background:
-        radial-gradient(circle at 0% 0%, #2b1347 0, transparent 55%),
-        radial-gradient(circle at 100% 0%, #143457 0, transparent 55%),
-        radial-gradient(circle at 0% 100%, #3b1b32 0, transparent 55%),
-        #040308;
-      color:#e5e7eb;
-      font-family:"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(circle at 0% 0%, rgba(246,193,209,.40) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(47,191,155,.38) 0, transparent 60%),
+        radial-gradient(circle at 30% 80%, rgba(231,143,179,.18) 0, transparent 60%),
+        #0b0f14;
+      overflow-x:hidden;
     }
 
-    .glass-card{
+    /* ===== Intro overlay (pink/green) ===== */
+    .intro-overlay{
+      position:fixed;
+      inset:0;
+      z-index:40;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:
-        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 55%),
-        rgba(15, 23, 42, 0.75);
-      border-radius: 1.5rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow:
-        0 24px 80px rgba(0, 0, 0, 0.85),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(26px);
+        radial-gradient(circle at 22% 10%, rgba(246,193,209,.95) 0, rgba(246,193,209,.22) 30%, transparent 60%),
+        radial-gradient(circle at 80% 88%, rgba(47,191,155,.85) 0, rgba(47,191,155,.18) 34%, transparent 62%),
+        #0b0f14;
+      animation:introFade 2.9s ease-out forwards;
     }
 
-    .chrome-title{
-      font-family:"LuxeSerif", serif;
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f5e7b5 20%,
-        #d4af37 40%,
-        #8a6420 70%,
-        #f8f1cf 100%
-      );
+    .intro-inner{
+      text-align:center;
+      padding:1.5rem 2.4rem;
+    }
+
+    .intro-mark{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:3.25rem;
+      height:3.25rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background: radial-gradient(circle at 20% 0%, #ffffff 0, var(--pink) 32%, var(--green) 100%);
+      box-shadow:0 0 26px rgba(246,193,209,.35), 0 18px 40px rgba(0,0,0,.7);
+      margin-bottom:1rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:700;
+      font-size:.9rem;
+      color:#071018;
+    }
+
+    .intro-title{
+      font-size:1.45rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:.45rem;
+      font-weight:700;
+      background: linear-gradient(135deg, #ffffff 0%, var(--pink) 35%, var(--green) 100%);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 2px 10px rgba(0,0,0,.6);
-      letter-spacing:.08em;
+      text-shadow:0 2px 12px rgba(0,0,0,.55);
     }
 
-    .pill-link{
-      border-radius:9999px;
-      border:1px solid rgba(148, 163, 184, 0.45);
-      padding:0.4rem 0.9rem;
-      font-size:0.75rem;
+    .intro-sub{
+      font-size:.72rem;
       text-transform:uppercase;
-      letter-spacing:0.14em;
+      letter-spacing:.28em;
+      color:#cbd5e1;
+      margin-bottom:1.1rem;
+    }
+
+    .intro-tagline{
+      font-size:.86rem;
+      max-width:30rem;
+      margin:0 auto;
       color:#e5e7eb;
-      display:inline-flex;
-      align-items:center;
-      gap:0.4rem;
-      background: rgba(15, 23, 42, 0.86);
-    }
-    .pill-link span.icon{
-      width:0.5rem; height:0.5rem;
-      border-radius:999px;
-      background: radial-gradient(circle at 30% 0%, #f97316 0, #e11d48 40%, #0ea5e9 100%);
-      box-shadow:0 0 14px rgba(56, 189, 248, 0.7);
+      opacity:.92;
+      line-height:1.5;
     }
 
-    .btn-gold{
-      border-radius:9999px;
-      padding:0.78rem 1.45rem;
-      border:1px solid rgba(212, 175, 55, 0.7);
-      background: radial-gradient(circle at top left, #fef9c3 0, #facc15 18%, #d4af37 52%, #7f5b16 100%);
-      color:#020617;
-      font-weight:700;
-      letter-spacing:0.12em;
+    @keyframes introFade{
+      0%{opacity:1; transform:scale(1);}
+      65%{opacity:1; transform:scale(1.02);}
+      100%{opacity:0; transform:scale(1.04); pointer-events:none;}
+    }
+
+    .container{
+      width:min(980px, 92vw);
+      margin-inline:auto;
+    }
+
+    /* ===== Hero card ===== */
+    .hero-wrap{
+      padding:72px 0 64px;
+    }
+
+    .hero-card{
+      border-radius:28px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(246,193,209,.18) 0, transparent 58%),
+        radial-gradient(circle at 100% 100%, rgba(47,191,155,.16) 0, transparent 58%),
+        rgba(15,23,42,.78);
+      border:1px solid rgba(203,213,225,.22);
+      box-shadow:0 26px 80px rgba(0,0,0,.82);
+      backdrop-filter: blur(22px);
+      padding:44px;
+      display:grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap:38px;
+      align-items:center;
+    }
+
+    @media (max-width: 820px){
+      .hero-card{
+        grid-template-columns:1fr;
+        padding:28px;
+      }
+      .hero-wrap{padding:56px 0 56px;}
+    }
+
+    .kicker{
+      font-size:.72rem;
+      letter-spacing:.34em;
       text-transform:uppercase;
-      font-size:0.75rem;
-      box-shadow:
-        0 10px 22px rgba(0, 0, 0, 0.75),
-        0 0 0 1px rgba(250, 204, 21, 0.25);
-      transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+      color:#cbd5e1;
+    }
+
+    h1{
+      margin:.9rem 0 .7rem;
+      font-size:2.5rem;
+      line-height:1.15;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      background: linear-gradient(135deg, #ffffff 0%, var(--pink) 40%, var(--green) 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 2px 12px rgba(0,0,0,.55);
+    }
+
+    .tagline{
+      margin:0 0 1.2rem;
+      color:#e5e7eb;
+      font-size:1rem;
+      line-height:1.55;
+      max-width: 40rem;
+    }
+
+    .meta{
+      color:#cbd5e1;
+      font-size:.9rem;
+      line-height:1.7;
+      max-width: 40rem;
+    }
+
+    .cta-row{
+      margin-top:1.9rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.85rem;
+    }
+
+    .btn{
       display:inline-flex;
       align-items:center;
-      gap:0.6rem;
       justify-content:center;
+      gap:.55rem;
+      padding:.9rem 1.55rem;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease, border-color .16s ease;
+      white-space:nowrap;
     }
-    .btn-gold:hover{
-      transform: translateY(-2px);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.85),
-        0 0 0 1px rgba(250, 204, 21, 0.45);
-      filter: brightness(1.05);
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--pink), var(--green));
+      color:#061018;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 14px 34px rgba(47,191,155,.22);
+    }
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow:0 20px 46px rgba(47,191,155,.34);
+      filter: brightness(1.03);
     }
 
     .btn-secondary{
-      border-radius:9999px;
-      padding:0.78rem 1.25rem;
-      border:1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(2,6,23,.35);
+      border:1px solid rgba(203,213,225,.35);
       color:#e5e7eb;
-      font-weight:600;
-      font-size:0.75rem;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
     }
     .btn-secondary:hover{
-      background: rgba(15, 23, 42, 1);
-      color:#f9fafb;
-      border-color: rgba(209, 213, 219, 0.9);
       transform: translateY(-1px);
+      border-color: rgba(47,191,155,.75);
+      box-shadow:0 14px 34px rgba(0,0,0,.45);
     }
 
-    .filter-input{
-      background: rgba(2, 6, 23, 0.45);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      border-radius: 9999px;
-      padding: 0.65rem 1rem;
-      color: #e5e7eb;
-      outline: none;
-      font-size: 0.9rem;
-    }
-    .filter-input:focus{
-      border-color: rgba(212, 175, 55, 0.65);
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+    /* Portrait card */
+    .portrait-wrap{
+      display:flex;
+      justify-content:center;
     }
 
-    .tag{
+    .portrait{
+      width:min(320px, 80vw);
+      border-radius:22px;
+      border:1px solid rgba(203,213,225,.25);
+      box-shadow:0 22px 70px rgba(0,0,0,.78);
+      overflow:hidden;
+      background: rgba(2,6,23,.35);
+    }
+
+    .portrait img{
+      width:100%;
+      height:auto;
+      display:block;
+      filter:saturate(1.05) contrast(1.03);
+    }
+
+    /* Top micro-nav */
+    .topbar{
+      padding:18px 0 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-size:.72rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:#cbd5e1;
+      opacity:.95;
+    }
+
+    .pill{
       display:inline-flex;
       align-items:center;
-      gap:.45rem;
-      border-radius:9999px;
-      border:1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(2, 6, 23, 0.35);
-      padding: 0.35rem 0.65rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(226, 232, 240, 0.85);
-    }
-    .tag::before{
-      content:"";
-      width:7px; height:7px;
-      border-radius:9999px;
-      background: radial-gradient(circle at 30% 0%, #f97316 0, #e11d48 40%, #0ea5e9 100%);
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
-    }
-
-    .card{
-      background:
-        radial-gradient(circle at top left, rgba(212, 175, 55, 0.10), transparent 55%),
-        rgba(15, 23, 42, 0.64);
-      border: 1px solid rgba(148, 163, 184, 0.30);
-      border-radius: 1.25rem;
-      box-shadow: 0 18px 50px rgba(0,0,0,0.6);
-    }
-
-    .divider{
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.42), transparent);
-    }
-
-    /* Small helper: make details feel luxe */
-    details{
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      border-radius: 1rem;
-      background: rgba(2, 6, 23, 0.35);
-      padding: 0.75rem 1rem;
-    }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight:600;
-      letter-spacing:0.08em;
+      gap:.5rem;
+      padding:.45rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(203,213,225,.28);
+      background: rgba(2,6,23,.28);
       color:#e5e7eb;
+      text-decoration:none;
     }
-    summary::-webkit-details-marker{display:none}
-    summary::after{
-      content:"▾";
-      float:right;
-      color: rgba(226, 232, 240, 0.7);
+
+    .pill-dot{
+      width:.55rem;
+      height:.55rem;
+      border-radius:999px;
+      background: radial-gradient(circle at 20% 0%, var(--pink) 0, var(--green) 100%);
+      box-shadow:0 0 16px rgba(246,193,209,.35);
     }
-    details[open] summary::after{content:"▴"}
+
+    footer{
+      padding:28px 0 22px;
+      text-align:center;
+      font-size:.72rem;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:#94a3b8;
+    }
   </style>
 </head>
 
-<body class="text-slate-100">
+<body>
 
-  <!-- Top nav (match site vibe) -->
-  <header class="w-full">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 pt-6 md:pt-8">
-      <div class="flex items-center gap-2 text-xs tracking-[0.22em] uppercase text-slate-300">
-        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>Events · Tradeshows · Partner Programs</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="brandsgallery.html" class="btn-secondary hidden sm:inline-flex">Back to Portfolio</a>
-        <a href="mailto:jclairemorris@yahoo.com" class="pill-link hidden sm:inline-flex">
-          <span class="icon"></span><span>Email Judith</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main class="max-w-6xl mx-auto px-6 pb-20 pt-10 md:pt-14">
-    <section class="glass-card px-6 md:px-10 py-10 md:py-12">
-      <p class="text-[0.68rem] tracking-[0.4em] uppercase text-slate-300">
-             </p>
-
-      <h1 class="chrome-title text-3xl sm:text-4xl md:text-5xl leading-tight mt-3">
-        Events & Experiential Programs
-      </h1>
-
-      <p class="text-sm md:text-base text-slate-200 max-w-3xl mt-4">
-        Selected programs demonstrating end-to-end ownership of industry conferences, tradeshows, partner events, and
-        experiential activations across regulated and commercial environments. Each card represents a program I owned
-        from planning and budget through run-of-show and post-event reporting.
+  <!-- Pink/Green intro overlay -->
+  <div class="intro-overlay" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-mark">JM</div>
+      <div class="intro-title">Judith C. L. Morris</div>
+      <div class="intro-sub">CRM · Creative · Events</div>
+      <p class="intro-tagline">
+        Strategy you can ship. Experiences people remember. Work that’s disciplined in the data.
       </p>
+    </div>
+  </div>
 
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
-        <div class="tag">End-to-end ownership</div>
-        <div class="tag">Run of show · vendors · budgets</div>
-        <div class="tag">KPIs · post-event optimization</div>
+  <main class="container">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:.55rem;">
+        <span class="pill-dot"></span>
+        <span>Chicago-based · Remote-first</span>
       </div>
+      <a class="pill" href="mailto:jclairemorris@yahoo.com">
+        <span class="pill-dot"></span>
+        <span>Email</span>
+      </a>
+    </div>
 
-      <div class="mt-8 divider"></div>
+    <section class="hero-wrap">
+      <div class="hero-card">
+        <div>
+          <div class="kicker">Product marketing · CRM · events & experiential</div>
+          <h1>Judith C. L. Morris</h1>
 
-      <!-- Filters -->
-      <div class="mt-7 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_auto] gap-3 items-center">
-        <input id="q" class="filter-input w-full" type="search" placeholder="Search (e.g., NADA, GRC, breakfast, launch…)" />
-        <select id="company" class="filter-input w-full">
-          <option value="all">All companies</option>
-          <option value="isaca">ISACA</option>
-          <option value="rogers">Rogers Enterprises</option>
-          <option value="cox">Cox Automotive / Manheim</option>
-          <option value="crain">Crain Communications</option>
-          <option value="zynga">Zynga</option>
-        </select>
-        <select id="type" class="filter-input w-full">
-          <option value="all">All event types</option>
-          <option value="conference">Conference</option>
-          <option value="tradeshow">Tradeshow</option>
-          <option value="partner">Partner event</option>
-          <option value="field">Field marketing</option>
-          <option value="executive">Executive program</option>
-          <option value="experiential">Experiential / Retail</option>
-          <option value="virtual">Virtual / Hybrid</option>
-          <option value="launch">Launch / Customer program</option>
-        </select>
-        <button id="reset" class="btn-gold w-full md:w-auto" type="button">
-          Reset <span class="text-slate-800">↺</span>
-        </button>
+          <p class="tagline">
+            Senior marketing leader blending CRM, creative direction, and event execution across retail, media, tech,
+            and regulated industries. I build programs that align stakeholders, move timelines, and produce measurable outcomes.
+          </p>
+
+          <p class="meta">
+            Inside you’ll find brand work, CRM journeys, case studies, and an events portfolio covering conferences,
+            tradeshows, partner programs, and launch experiences.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="brandsgallery.html">
+              Enter Portfolio <span aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn-secondary" href="events.html">
+              Events Page <span aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn-secondary" href="case-studies.html">
+              Case Studies <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <div class="portrait">
+            <img src="https://i.imgur.com/ZUsH68O.jpeg" alt="Judith C. L. Morris portrait" />
+          </div>
+        </div>
       </div>
-
-      <p id="count" class="mt-3 text-xs tracking-[0.22em] uppercase text-slate-400"></p>
     </section>
 
-    <!-- Cards -->
-    <section class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6" id="cards">
-
-      <!-- ISACA -->
-      <article class="card p-6" data-company="isaca" data-type="conference virtual partner">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold tracking-wide">ISACA · Global & Regional Conference Programs (2022)</h2>
-            <p class="text-sm text-slate-300 mt-1">Role: Senior Global Events Manager (end-to-end execution)</p>
-          </div>
-          <div class="flex flex-wrap justify-end gap-2">
-            <span class="tag">Conference</span>
-            <span class="tag">Virtual/Hybrid</span>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Representative events</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>North America Conference (New Orleans)</li>
-            <li>Oceania Conference (Virtual)</li>
-            <li>Europe Conference</li>
-            <li>Mumbai Conference</li>
-            <li>Tanzania Conference</li>
-            <li>GRC Conference</li>
-          </ul>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Ownership</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Owned planning, logistics, vendors, timelines, and run-of-show across in-person and virtual formats.</li>
-            <li>Partnered with Marketing, Membership, and regional leadership to align objectives, programming, and attendee experience.</li>
-            <li>Built post-event reporting cadence and KPI summaries to inform future planning and investment decisions.</li>
-          </ul>
-        </div>
-
-        <details class="mt-5">
-          <summary>Additional ISACA programs</summary>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Annual Conference · Picnic & Family Day</li>
-            <li>IT Audit Fundamentals</li>
-            <li>Emerging Technology</li>
-            <li>Call for Speakers: ISACA Virtual Conference</li>
-          </ul>
-        </details>
-      </article>
-
-      <!-- Rogers -->
-      <article class="card p-6" data-company="rogers" data-type="experiential field">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold tracking-wide">Rogers Enterprises · Retail & Experiential Event Programs</h2>
-            <p class="text-sm text-slate-300 mt-1">Role: Senior Retail & Experiential Events Manager</p>
-          </div>
-          <div class="flex flex-wrap justify-end gap-2">
-            <span class="tag">Experiential</span>
-            <span class="tag">On-site</span>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Representative events</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Bridal Showcase</li>
-            <li>Flash Bash</li>
-            <li>Store Openings & Restyle Events</li>
-          </ul>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Ownership</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Owned concept-to-execution: creative direction, vendors, timelines, and on-site delivery.</li>
-            <li>Partnered with merchandising and store leadership to align event experience with promotional and engagement goals.</li>
-            <li>Captured learnings to improve future activations (attendance drivers, offer resonance, channel lift).</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Cox / Manheim -->
-      <article class="card p-6" data-company="cox" data-type="tradeshow conference partner field">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold tracking-wide">Cox Automotive / Manheim · Industry, Partner & Field Programs</h2>
-            <p class="text-sm text-slate-300 mt-1">Role: Field Marketing & Events Manager</p>
-          </div>
-          <div class="flex flex-wrap justify-end gap-2">
-            <span class="tag">Tradeshow</span>
-            <span class="tag">Partner</span>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Representative events</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>ARC Conference</li>
-            <li>NIADA Convention & Expo</li>
-            <li>NADA Dealer Tradeshow Breakfast</li>
-            <li>National Auction Week</li>
-            <li>Women With Drive</li>
-            <li>Nextology Series</li>
-            <li>Industry Insights & Forecast</li>
-            <li>Interactive Dealer Summit</li>
-            <li>Manheim Community Support Events</li>
-            <li>Manheim Food Drive</li>
-          </ul>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Ownership</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Managed logistics, vendors, run-of-show, and stakeholder communications across multiple programs.</li>
-            <li>Partnered with Sales and leadership to align events with relationship goals and pipeline follow-up.</li>
-            <li>Supported post-event reporting, attendee lists, and next-step motions to improve outcomes over time.</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Crain -->
-      <article class="card p-6" data-company="crain" data-type="executive conference partner">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold tracking-wide">Crain Communications · Executive & Sponsor-Supported Events</h2>
-            <p class="text-sm text-slate-300 mt-1">Role: Senior Manager, Events & Experiential Marketing</p>
-          </div>
-          <div class="flex flex-wrap justify-end gap-2">
-            <span class="tag">Executive</span>
-            <span class="tag">Sponsor</span>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Representative events</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Middle Market Event</li>
-            <li>Crain’s Team Building</li>
-            <li>Economic Outlook</li>
-            <li>CFO Breakfast</li>
-            <li>Real Estate Event</li>
-            <li>Decisions Event</li>
-            <li>40 Under 40</li>
-            <li>CEO Breakfast</li>
-            <li>Best Places to Work</li>
-            <li>Hospital CEO Breakfast</li>
-          </ul>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Ownership</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Executed executive-facing programs balancing sponsor goals with brand and editorial standards.</li>
-            <li>Coordinated vendors, timelines, and stakeholder needs across internal and external teams.</li>
-            <li>Captured post-event insights to refine programming, attendance drivers, and partner experience.</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Zynga -->
-      <article class="card p-6" data-company="zynga" data-type="launch experiential partner">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold tracking-wide">Zynga · Customer Focus Groups & Game Launch Programs</h2>
-            <p class="text-sm text-slate-300 mt-1">Role: Player Engagement & Events Manager</p>
-          </div>
-          <div class="flex flex-wrap justify-end gap-2">
-            <span class="tag">Launch</span>
-            <span class="tag">Customer</span>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Program cadence</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>6 customer focus groups per year</li>
-            <li>6 game launch events per year</li>
-          </ul>
-        </div>
-
-        <div class="mt-5">
-          <p class="text-xs tracking-[0.3em] uppercase text-slate-400">Ownership</p>
-          <ul class="mt-3 space-y-2 text-sm text-slate-200 list-disc list-inside">
-            <li>Owned planning and delivery of recurring focus groups to inform product and engagement strategy.</li>
-            <li>Executed launch programs aligned to release milestones and lifecycle goals.</li>
-            <li>Partnered cross-functionally to translate event insights into improvements in engagement and adoption.</li>
-          </ul>
-        </div>
-      </article>
-
-    </section>
-
-    <footer class="pt-10 text-center text-[0.7rem] text-slate-500">
-      © 2026 Judith C. L. Morris · Events & Experiential Programs
+    <footer>
+      © 2026 Judith C. L. Morris · Chicago & Remote
     </footer>
   </main>
 
-  <script>
-    (function(){
-      const q = document.getElementById('q');
-      const company = document.getElementById('company');
-      const type = document.getElementById('type');
-      const reset = document.getElementById('reset');
-      const cards = Array.from(document.querySelectorAll('#cards article'));
-      const count = document.getElementById('count');
-
-      function matches(card){
-        const text = card.innerText.toLowerCase();
-        const qv = q.value.trim().toLowerCase();
-        const cv = company.value;
-        const tv = type.value;
-
-        const companyOk = (cv === 'all') || (card.dataset.company === cv);
-        const typeOk = (tv === 'all') || ((card.dataset.type || '').split(' ').includes(tv));
-        const qOk = (!qv) || text.includes(qv);
-
-        return companyOk && typeOk && qOk;
-      }
-
-      function render(){
-        let shown = 0;
-        cards.forEach(card=>{
-          const ok = matches(card);
-          card.style.display = ok ? '' : 'none';
-          if(ok) shown++;
-        });
-        count.textContent = shown + " program" + (shown === 1 ? "" : "s") + " shown";
-      }
-
-      [q, company, type].forEach(el => el.addEventListener('input', render));
-      reset.addEventListener('click', ()=>{
-        q.value = "";
-        company.value = "all";
-        type.value = "all";
-        render();
-      });
-
-      render();
-    })();
-  </script>
 </body>
 </html>
-"""
-path = "/mnt/data/events.html"
-with open(path, "w", encoding="utf-8") as f:
-    f.write(html)
-
-path
