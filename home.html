@@ -6,7 +6,7 @@
   <title>Judith C. L. Morris | CRM • Creative Direction</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -22,12 +22,10 @@
       min-height:100vh;
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
 
-      /* CHANGE #1 (ONLY): background pink + green */
+      /* BACKGROUND: pink + green ONLY */
       background:
-        radial-gradient(circle at 0% 0%, rgba(255, 70, 160, 0.55) 0, transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.55) 0, transparent 55%),
-        radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.45) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.40) 0, transparent 60%),
+        radial-gradient(circle at 0% 0%, #FF91A4 0%, transparent 55%),
+        radial-gradient(circle at 100% 100%, #8DB600 0%, transparent 55%),
         #000;
 
       color:#e5e7eb;
@@ -47,12 +45,21 @@
       flex-wrap:wrap;
     }
 
+    /* FONT FIX: Luxe Sans (no Cinzel) */
     .luxe{
-      font-family:"Cinzel Decorative",serif;
+      font-family:"Luxe Sans", Inter, sans-serif;
       font-size:2.4rem;
       letter-spacing:.18em;
       text-transform:uppercase;
-      background:linear-gradient(180deg,#fdf7e3 0%,#f4d88a 20%,#b7871f 45%,#f3e7b5 60%,#8b5c12 85%,#fdf7e3 100%);
+      background:linear-gradient(
+        180deg,
+        #fdf7e3 0%,
+        #f4d88a 20%,
+        #b7871f 45%,
+        #f3e7b5 60%,
+        #8b5c12 85%,
+        #fdf7e3 100%
+      );
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
@@ -123,19 +130,13 @@
     }
 
     @media (max-width:768px){
-      .hero{
-        padding-top:56px;
-      }
-      .luxe{
-        font-size:1.9rem;
-        letter-spacing:.12em;
-      }
-      .photo{
-        margin-top:1.5rem;
-      }
+      .hero{ padding-top:56px; }
+      .luxe{ font-size:1.9rem; letter-spacing:.12em; }
+      .photo{ margin-top:1.5rem; }
     }
   </style>
 </head>
+
 <body>
   <main class="container">
     <section class="hero">
@@ -144,17 +145,28 @@
         <p class="tagline">CRM • Creative Direction • Digital Strategy</p>
 
         <div class="cta-row">
-          <!-- Main CTA (goes to portfolio brands section) -->
           <a href="#enter" class="cta-btn">Enter Portfolio</a>
-
-          <!-- Gold case studies CTA -->
           <a href="case-studies.html" class="btn-case-gold">View Case Studies</a>
 
-          <!-- CHANGE #2 (ONLY): Events link added -->
+          <!-- ADDED BUTTON: Events (same style, no behavior change) -->
           <a href="events.html" class="cta-btn">View Events</a>
         </div>
       </div>
 
-      <!-- Replace this image URL with any working portrait you want -->
       <img
-        src="https://i.im
+        src="https://i.imgur.com/ZUsH68O.jpeg"
+        alt="Judith C. L. Morris"
+        class="photo"
+      />
+    </section>
+  </main>
+
+  <script>
+    // Keep original behavior EXACTLY as-is
+    document.querySelector(".cta-btn").addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "https://jclairemorris.github.io/JudithCLMorris/#brands";
+    });
+  </script>
+</body>
+</html>
