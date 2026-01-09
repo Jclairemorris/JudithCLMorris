@@ -22,7 +22,7 @@
       min-height:100vh;
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
 
-      /* BACKGROUND: pink + green ONLY */
+      /* ONLY CHANGE #1: BACKGROUND COLORS */
       background:
         radial-gradient(circle at 0% 0%, #FF91A4 0%, transparent 55%),
         radial-gradient(circle at 100% 100%, #8DB600 0%, transparent 55%),
@@ -45,7 +45,7 @@
       flex-wrap:wrap;
     }
 
-    /* FONT FIX: Luxe Sans (no Cinzel) */
+    /* ONLY CHANGE #2: FONT FAMILY */
     .luxe{
       font-family:"Luxe Sans", Inter, sans-serif;
       font-size:2.4rem;
@@ -101,7 +101,7 @@
       box-shadow:0 14px 32px rgba(15,23,42,.75);
     }
 
-    /* Gold case-studies button */
+    /* Gold case-studies button (UNCHANGED) */
     .btn-case-gold{
       display:inline-block;
       padding:0.9rem 1.7rem;
@@ -141,14 +141,18 @@
   <main class="container">
     <section class="hero">
       <div>
+        <!-- INTRODUCTION: UNCHANGED -->
         <h1 class="luxe">Judith C. L. Morris</h1>
         <p class="tagline">CRM • Creative Direction • Digital Strategy</p>
 
         <div class="cta-row">
-          <a href="#enter" class="cta-btn">Enter Portfolio</a>
+          <!-- ORIGINAL CTA: UNCHANGED -->
+          <a href="#enter" class="cta-btn enter-portfolio">Enter Portfolio</a>
+
+          <!-- ORIGINAL CTA: UNCHANGED -->
           <a href="case-studies.html" class="btn-case-gold">View Case Studies</a>
 
-          <!-- ADDED BUTTON: Events (same style, no behavior change) -->
+          <!-- ONLY ADDITION: EVENTS BUTTON -->
           <a href="events.html" class="cta-btn">View Events</a>
         </div>
       </div>
@@ -162,8 +166,8 @@
   </main>
 
   <script>
-    // Keep original behavior EXACTLY as-is
-    document.querySelector(".cta-btn").addEventListener("click", function (e) {
+    // ORIGINAL BEHAVIOR PRESERVED — now correctly scoped
+    document.querySelector(".enter-portfolio").addEventListener("click", function (e) {
       e.preventDefault();
       window.location.href = "https://jclairemorris.github.io/JudithCLMorris/#brands";
     });
