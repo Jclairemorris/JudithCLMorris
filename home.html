@@ -22,13 +22,13 @@
       min-height:100vh;
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
 
-      /* Background ONLY: pink + green */
+      /* CHANGE #1 (ONLY): background pink + green */
       background:
         radial-gradient(circle at 0% 0%, rgba(255, 70, 160, 0.55) 0, transparent 55%),
         radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.55) 0, transparent 55%),
         radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.45) 0, transparent 55%),
         radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.40) 0, transparent 60%),
-        #050316;
+        #000;
 
       color:#e5e7eb;
     }
@@ -136,7 +136,6 @@
     }
   </style>
 </head>
-
 <body>
   <main class="container">
     <section class="hero">
@@ -150,24 +149,12 @@
 
           <!-- Gold case studies CTA -->
           <a href="case-studies.html" class="btn-case-gold">View Case Studies</a>
+
+          <!-- CHANGE #2 (ONLY): Events link added -->
+          <a href="events.html" class="cta-btn">View Events</a>
         </div>
       </div>
 
       <!-- Replace this image URL with any working portrait you want -->
       <img
-        src="https://i.imgur.com/ZUsH68O.jpeg"
-        alt="Judith C. L. Morris"
-        class="photo"
-      />
-    </section>
-  </main>
-
-  <script>
-    // Keep the old behavior: when the dark CTA is clicked, jump to brands on the main portfolio page
-    document.querySelector(".cta-btn").addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = "https://jclairemorris.github.io/JudithCLMorris/#brands";
-    });
-  </script>
-</body>
-</html>
+        src="https://i.im
