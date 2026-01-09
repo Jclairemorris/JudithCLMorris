@@ -3,361 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Judith C. L. Morris | CRM • Creative • Full Stack Developer • Automations • Events</title>
+  <title>Judith C. L. Morris | CRM • Creative Direction</title>
 
-  <!-- Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --pink:#f6c1d1;
-      --pink-deep:#e78fb3;
-      --green:#2fbf9b;
-      --green-deep:#1e8f74;
-      --ink:#0b0f14;
-      --card:#0f172a;
-      --slate:#94a3b8;
-      --text:#e5e7eb;
+      --gold:#D4AF37;
+      --ink:#050320;
     }
 
     *{box-sizing:border-box;}
+
     html,body{
       margin:0;
       padding:0;
       min-height:100vh;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
-      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+
+      /* Background ONLY: pink + green */
       background:
-        radial-gradient(circle at 0% 0%, rgba(246,193,209,.40) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(47,191,155,.38) 0, transparent 60%),
-        radial-gradient(circle at 30% 80%, rgba(231,143,179,.18) 0, transparent 60%),
-        #0b0f14;
-      overflow-x:hidden;
-    }
+        radial-gradient(circle at 0% 0%, rgba(255, 70, 160, 0.55) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.55) 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(236, 72, 153, 0.45) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.40) 0, transparent 60%),
+        #050316;
 
-    /* ===== Intro overlay (pink/green) ===== */
-    .intro-overlay{
-      position:fixed;
-      inset:0;
-      z-index:40;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:
-        radial-gradient(circle at 22% 10%, rgba(246,193,209,.95) 0, rgba(246,193,209,.22) 30%, transparent 60%),
-        radial-gradient(circle at 80% 88%, rgba(47,191,155,.85) 0, rgba(47,191,155,.18) 34%, transparent 62%),
-        #0b0f14;
-      animation:introFade 2.9s ease-out forwards;
-    }
-
-    .intro-inner{
-      text-align:center;
-      padding:1.5rem 2.4rem;
-    }
-
-    .intro-mark{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:3.25rem;
-      height:3.25rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.25);
-      background: radial-gradient(circle at 20% 0%, #ffffff 0, var(--pink) 32%, var(--green) 100%);
-      box-shadow:0 0 26px rgba(246,193,209,.35), 0 18px 40px rgba(0,0,0,.7);
-      margin-bottom:1rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      font-weight:700;
-      font-size:.9rem;
-      color:#071018;
-    }
-
-    .intro-title{
-      font-size:1.45rem;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      margin-bottom:.45rem;
-      font-weight:700;
-      background: linear-gradient(135deg, #ffffff 0%, var(--pink) 35%, var(--green) 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 2px 12px rgba(0,0,0,.55);
-    }
-
-    .intro-sub{
-      font-size:.72rem;
-      text-transform:uppercase;
-      letter-spacing:.28em;
-      color:#cbd5e1;
-      margin-bottom:1.1rem;
-    }
-
-    .intro-tagline{
-      font-size:.86rem;
-      max-width:30rem;
-      margin:0 auto;
       color:#e5e7eb;
-      opacity:.92;
-      line-height:1.5;
-    }
-
-    @keyframes introFade{
-      0%{opacity:1; transform:scale(1);}
-      65%{opacity:1; transform:scale(1.02);}
-      100%{opacity:0; transform:scale(1.04); pointer-events:none;}
     }
 
     .container{
-      width:min(980px, 92vw);
+      width:min(960px,92vw);
       margin-inline:auto;
     }
 
-    /* ===== Hero card ===== */
-    .hero-wrap{
-      padding:72px 0 64px;
-    }
-
-    .hero-card{
-      border-radius:28px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(246,193,209,.18) 0, transparent 58%),
-        radial-gradient(circle at 100% 100%, rgba(47,191,155,.16) 0, transparent 58%),
-        rgba(15,23,42,.78);
-      border:1px solid rgba(203,213,225,.22);
-      box-shadow:0 26px 80px rgba(0,0,0,.82);
-      backdrop-filter: blur(22px);
-      padding:44px;
-      display:grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap:38px;
+    .hero{
+      padding:72px 0 72px;
+      display:flex;
       align-items:center;
+      justify-content:space-between;
+      gap:40px;
+      flex-wrap:wrap;
     }
 
-    @media (max-width: 820px){
-      .hero-card{
-        grid-template-columns:1fr;
-        padding:28px;
-      }
-      .hero-wrap{padding:56px 0 56px;}
-    }
-
-    .kicker{
-      font-size:.72rem;
-      letter-spacing:.34em;
+    .luxe{
+      font-family:"Cinzel Decorative",serif;
+      font-size:2.4rem;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color:#cbd5e1;
-    }
-
-    h1{
-      margin:.9rem 0 .7rem;
-      font-size:2.5rem;
-      line-height:1.15;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      background: linear-gradient(135deg, #ffffff 0%, var(--pink) 40%, var(--green) 100%);
+      background:linear-gradient(180deg,#fdf7e3 0%,#f4d88a 20%,#b7871f 45%,#f3e7b5 60%,#8b5c12 85%,#fdf7e3 100%);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:0 2px 12px rgba(0,0,0,.55);
+      text-shadow:0 1px 0 rgba(255,255,255,.22),0 6px 24px rgba(0,0,0,.55);
     }
 
     .tagline{
-      margin:0 0 1.2rem;
-      color:#e5e7eb;
-      font-size:1rem;
-      line-height:1.55;
-      max-width: 40rem;
-    }
-
-    .meta{
+      margin-top:1rem;
+      font-size:.98rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
       color:#cbd5e1;
-      font-size:.9rem;
-      line-height:1.7;
-      max-width: 40rem;
     }
 
     .cta-row{
-      margin-top:1.9rem;
+      margin-top:2rem;
       display:flex;
       flex-wrap:wrap;
-      gap:.85rem;
+      gap:0.75rem;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      padding:.9rem 1.55rem;
+    .cta-btn{
+      display:inline-block;
+      padding:0.9rem 1.7rem;
       border-radius:999px;
-      font-size:.78rem;
-      font-weight:700;
+      border:1px solid rgba(148,163,184,.8);
+      background:rgba(15,23,42,.85);
+      color:#e5e7eb;
+      font-size:.8rem;
+      font-weight:600;
       letter-spacing:.18em;
       text-transform:uppercase;
       text-decoration:none;
-      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease, border-color .16s ease;
-      white-space:nowrap;
+      transition:.25s;
     }
 
-    .btn-primary{
-      background: linear-gradient(135deg, var(--pink), var(--green));
-      color:#061018;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 14px 34px rgba(47,191,155,.22);
-    }
-    .btn-primary:hover{
-      transform: translateY(-1px);
-      box-shadow:0 20px 46px rgba(47,191,155,.34);
-      filter: brightness(1.03);
+    .cta-btn:hover{
+      background:#0b1120;
+      box-shadow:0 14px 32px rgba(15,23,42,.75);
     }
 
-    .btn-secondary{
-      background: rgba(2,6,23,.35);
-      border:1px solid rgba(203,213,225,.35);
-      color:#e5e7eb;
-    }
-    .btn-secondary:hover{
-      transform: translateY(-1px);
-      border-color: rgba(47,191,155,.75);
-      box-shadow:0 14px 34px rgba(0,0,0,.45);
-    }
-
-    /* Portrait card */
-    .portrait-wrap{
-      display:flex;
-      justify-content:center;
-    }
-
-    .portrait{
-      width:min(320px, 80vw);
-      border-radius:22px;
-      border:1px solid rgba(203,213,225,.25);
-      box-shadow:0 22px 70px rgba(0,0,0,.78);
-      overflow:hidden;
-      background: rgba(2,6,23,.35);
-    }
-
-    .portrait img{
-      width:100%;
-      height:auto;
-      display:block;
-      filter:saturate(1.05) contrast(1.03);
-    }
-
-    /* Top micro-nav */
-    .topbar{
-      padding:18px 0 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      font-size:.72rem;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:#cbd5e1;
-      opacity:.95;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.45rem .85rem;
+    /* Gold case-studies button */
+    .btn-case-gold{
+      display:inline-block;
+      padding:0.9rem 1.7rem;
       border-radius:999px;
-      border:1px solid rgba(203,213,225,.28);
-      background: rgba(2,6,23,.28);
-      color:#e5e7eb;
+      border:1px solid var(--gold);
+      background:linear-gradient(135deg,#fdf7e3,#e2c46d,#b7871f);
+      color:#050316;
+      font-size:.8rem;
+      font-weight:600;
+      letter-spacing:.18em;
+      text-transform:uppercase;
       text-decoration:none;
+      transition:.25s;
     }
 
-    .pill-dot{
-      width:.55rem;
-      height:.55rem;
-      border-radius:999px;
-      background: radial-gradient(circle at 20% 0%, var(--pink) 0, var(--green) 100%);
-      box-shadow:0 0 16px rgba(246,193,209,.35);
+    .btn-case-gold:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 32px rgba(212,175,55,.45);
     }
 
-    footer{
-      padding:28px 0 22px;
-      text-align:center;
-      font-size:.72rem;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color:#94a3b8;
+    .photo{
+      max-width:320px;
+      border-radius:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.7);
+      border:1px solid rgba(148,163,184,.4);
+    }
+
+    @media (max-width:768px){
+      .hero{
+        padding-top:56px;
+      }
+      .luxe{
+        font-size:1.9rem;
+        letter-spacing:.12em;
+      }
+      .photo{
+        margin-top:1.5rem;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Pink/Green intro overlay -->
-  <div class="intro-overlay" aria-hidden="true">
-    <div class="intro-inner">
-      <div class="intro-mark">JM</div>
-      <div class="intro-title">Judith C. L. Morris</div>
-      <div class="intro-sub">CRM · Creative · Events</div>
-      <p class="intro-tagline">
-        Strategy you can ship. Experiences people remember. Work that’s disciplined in the data.
-      </p>
-    </div>
-  </div>
-
   <main class="container">
-    <div class="topbar">
-      <div style="display:flex; align-items:center; gap:.55rem;">
-        <span class="pill-dot"></span>
-        <span>Chicago-based · Remote-first</span>
-      </div>
-      <a class="pill" href="mailto:jclairemorris@yahoo.com">
-        <span class="pill-dot"></span>
-        <span>Email</span>
-      </a>
-    </div>
+    <section class="hero">
+      <div>
+        <h1 class="luxe">Judith C. L. Morris</h1>
+        <p class="tagline">CRM • Creative Direction • Digital Strategy</p>
 
-    <section class="hero-wrap">
-      <div class="hero-card">
-        <div>
-          <div class="kicker">Product marketing · CRM · events & experiential</div>
-          <h1>Judith C. L. Morris</h1>
+        <div class="cta-row">
+          <!-- Main CTA (goes to portfolio brands section) -->
+          <a href="#enter" class="cta-btn">Enter Portfolio</a>
 
-          <p class="tagline">
-            Senior marketing leader blending CRM, creative direction, and event execution across retail, media, tech,
-            and regulated industries. I build programs that align stakeholders, move timelines, and produce measurable outcomes.
-          </p>
-
-          <p class="meta">
-            Inside you’ll find brand work, CRM journeys, case studies, and an events portfolio covering conferences,
-            tradeshows, partner programs, and launch experiences.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="brandsgallery.html">
-              Enter Portfolio <span aria-hidden="true">↗</span>
-            </a>
-            <a class="btn btn-secondary" href="events.html">
-              Events Page <span aria-hidden="true">↗</span>
-            </a>
-            <a class="btn btn-secondary" href="case-studies.html">
-              Case Studies <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="portrait-wrap">
-          <div class="portrait">
-            <img src="https://i.imgur.com/ZUsH68O.jpeg" alt="Judith C. L. Morris portrait" />
-          </div>
+          <!-- Gold case studies CTA -->
+          <a href="case-studies.html" class="btn-case-gold">View Case Studies</a>
         </div>
       </div>
+
+      <!-- Replace this image URL with any working portrait you want -->
+      <img
+        src="https://i.imgur.com/ZUsH68O.jpeg"
+        alt="Judith C. L. Morris"
+        class="photo"
+      />
     </section>
-
-    <footer>
-      © 2026 Judith C. L. Morris · Chicago & Remote
-    </footer>
   </main>
 
+  <script>
+    // Keep the old behavior: when the dark CTA is clicked, jump to brands on the main portfolio page
+    document.querySelector(".cta-btn").addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "https://jclairemorris.github.io/JudithCLMorris/#brands";
+    });
+  </script>
 </body>
 </html>
